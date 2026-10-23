@@ -9,6 +9,7 @@ import { useCart } from "@/components/cart/cart-provider";
 import { Sheet } from "@/components/ui/sheet";
 import { SearchDialog } from "./search-dialog";
 import { navLinks } from "./nav-links";
+import { BrandMark } from "./brand-mark";
 import { siteConfig } from "@/config/site";
 import { generalMessage, whatsappLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
@@ -56,33 +57,23 @@ export function SiteHeader() {
             <Menu className="size-[22px]" strokeWidth={1.5} />
           </button>
 
-          <Link href="/" className="relative flex h-11 items-center">
+          <Link href="/" className="relative flex h-11 items-center gap-3">
             <span className="sr-only">Divino Look, página inicial</span>
+            <BrandMark className="h-[30px] w-auto text-ink" />
             <AnimatePresence initial={false}>
               {pastHero ? (
                 <motion.span
                   key="wm"
-                  initial={reduce ? { opacity: 0 } : { opacity: 0, transform: "translateY(8px)" }}
-                  animate={{ opacity: 1, transform: "translateY(0px)" }}
-                  exit={{ opacity: 0, transform: reduce ? "none" : "translateY(-6px)" }}
+                  initial={reduce ? { opacity: 0 } : { opacity: 0, transform: "translateX(-6px)" }}
+                  animate={{ opacity: 1, transform: "translateX(0px)" }}
+                  exit={{ opacity: 0, transform: reduce ? "none" : "translateX(-6px)" }}
                   transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-                  className="font-display text-[1.625rem] leading-none tracking-[-0.02em] whitespace-nowrap"
+                  className="hidden font-display text-[1.625rem] leading-none tracking-[-0.02em] whitespace-nowrap xs:inline"
                   aria-hidden
                 >
                   Divino Look
                 </motion.span>
-              ) : (
-                <motion.span
-                  key="mono"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="font-display text-[1.625rem] leading-none tracking-[-0.04em]"
-                  aria-hidden
-                >
-                  LD
-                </motion.span>
-              )}
+              ) : null}
             </AnimatePresence>
           </Link>
 
