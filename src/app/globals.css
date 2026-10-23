@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+/* ───────────────────────── Divino Look — design tokens ─────────────────────────
+   Ground: off-white paper. Ink: soft black. Accent: the brand's own brown
+   (the colour of the LD monogram), used on the primary action and on the
+   footer field. Sand and champagne are fields, never lines. */
+:root {
+  --paper: #faf7f3;
+  --sand: #ece3d9;
+  --champagne: #d6bea5;
+  --brown: #805247;
+  --brown-deep: #6b4339;
+  --ink: #24201e;
+  --muted: #5f5650;
+  --on-brown: #faf7f3;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --gutter: clamp(16px, 2.2vw, 32px);
+  --header-h: 64px;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-sand: var(--sand);
+  --color-champagne: var(--champagne);
+  --color-brown: var(--brown);
+  --color-brown-deep: var(--brown-deep);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-on-brown: var(--on-brown);
+
+  --font-display: var(--font-bodoni), "Didot", "Bodoni 72", Georgia, serif;
+  --font-sans: var(--font-albert), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --breakpoint-xs: 26rem;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--brown);
+  color: var(--on-brown);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brown);
+  outline-offset: 3px;
+}
+.on-dark :focus-visible,
+.on-dark:focus-visible {
+  outline-color: var(--on-brown);
+}
+
+/* Display type — Bodoni Moda at optical size, tight tracking for big sizes */
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-kerning: normal;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.82;
+  white-space: nowrap;
+}
+
+/* Page frame */
+.frame {
+  padding-inline: var(--gutter);
+}
+
+/* Buttons: square, flat, one fill */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  padding: 0 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition:
+    transform 160ms var(--ease-out),
+    background-color 200ms ease,
+    color 200ms ease;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+.btn-primary {
+  background: var(--brown);
+  color: var(--on-brown);
+}
+.btn-dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn-light {
+  background: var(--paper);
+  color: var(--ink);
+}
+.btn-sand {
+  background: var(--sand);
+  color: var(--ink);
+}
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover {
+    background: var(--brown-deep);
+  }
+  .btn-dark:hover {
+    background: #3a3330;
+  }
+  .btn-light:hover,
+  .btn-sand:hover {
+    background: var(--champagne);
+  }
+}
+
+.press {
+  transition: transform 160ms var(--ease-out);
+}
+.press:active {
+  transform: scale(0.96);
+}
+
+/* Inline text link with a growing underline (static under reduced motion) */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 260ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
+}
+.link-underline:focus-visible::after,
+.link-underline[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* Product image second-photo swap on hover */
+.swap-img {
+  transition:
+    opacity 420ms var(--ease-out),
+    transform 900ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .group:hover .swap-img-base {
+    transform: scale(1.03);
+  }
+  .group:hover .swap-img-alt {
+    opacity: 1;
+  }
+}
+
+/* Hide scrollbars on horizontal chip rows while keeping them scrollable */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Range input reset (used inside price filter for keyboard support) */
+.sr-only-focusable:not(:focus):not(:focus-within) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
