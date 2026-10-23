@@ -49,7 +49,7 @@ export function Lookbook() {
           {prints.map((p, i) => (
             <motion.li
               key={p.href}
-              className={cn("relative w-[42vw] md:w-[22vw] md:max-w-[300px]", i === 2 && "hidden md:block")}
+              className={cn("relative w-[38vw] md:w-[22vw] md:max-w-[300px]", i === 2 && "hidden md:block")}
               style={{ zIndex: front === i ? 5 : 1 }}
               initial={reduce ? false : { opacity: 0, y: 48, rotate: 0 }}
               whileInView={{ opacity: 1, y: 0, rotate: front === i ? 0 : p.rotate }}
