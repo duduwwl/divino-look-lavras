@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { Catalog } from "@/components/products/catalog";
-import { TextEffect } from "@/components/motion-primitives/text-effect";
 
 export const metadata: Metadata = {
   title: "Nossa coleção",
@@ -30,14 +29,9 @@ export default function ProdutosPage() {
           </ol>
         </nav>
         <div className="mt-6 grid grid-cols-12 gap-x-6 gap-y-4">
-          <TextEffect
-            as="h1"
-            per="word"
-            preset="fade-in-blur"
-            className="col-span-12 font-display text-[16vw] leading-[0.86] tracking-[-0.045em] md:text-[11vw] lg:col-span-8 lg:text-[clamp(96px,9.4vw,150px)]"
-          >
+          <h1 className="col-span-12 font-display text-[16vw] leading-[0.86] tracking-[-0.045em] md:text-[11vw] lg:col-span-8 lg:text-[clamp(96px,9.4vw,150px)]">
             Nossa coleção
-          </TextEffect>
+          </h1>
           <p className="col-span-12 max-w-[46ch] self-end lg:col-span-4 lg:pb-3">
             Peças selecionadas para montar looks completos, do vestido de festa à legging do treino. Combine os filtros,
             compartilhe o link filtrado e finalize pelo WhatsApp.

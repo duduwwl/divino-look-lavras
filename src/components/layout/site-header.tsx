@@ -56,7 +56,8 @@ export function SiteHeader() {
             <Menu className="size-[22px]" strokeWidth={1.5} />
           </button>
 
-          <Link href="/" className="relative flex h-11 items-center" aria-label="Divino Look, página inicial">
+          <Link href="/" className="relative flex h-11 items-center">
+            <span className="sr-only">Divino Look, página inicial</span>
             <AnimatePresence initial={false}>
               {pastHero ? (
                 <motion.span
@@ -66,6 +67,7 @@ export function SiteHeader() {
                   exit={{ opacity: 0, transform: reduce ? "none" : "translateY(-6px)" }}
                   transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
                   className="font-display text-[1.625rem] leading-none tracking-[-0.02em] whitespace-nowrap"
+                  aria-hidden
                 >
                   Divino Look
                 </motion.span>
@@ -122,7 +124,7 @@ export function SiteHeader() {
               type="button"
               onClick={() => setCartOpen(true)}
               className="press relative inline-flex h-11 items-center gap-2 pr-1 pl-2 -mr-1"
-              aria-label={`Abrir sacola, ${count} ${count === 1 ? "item" : "itens"}`}
+              aria-label={`Sacola, ${count} ${count === 1 ? "item" : "itens"}`}
             >
               <ShoppingBag className="size-[20px]" strokeWidth={1.5} />
               <span className="hidden text-[1rem] md:inline">Sacola</span>

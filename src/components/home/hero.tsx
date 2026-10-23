@@ -27,7 +27,7 @@ export function Hero() {
 
   return (
     <section ref={ref} aria-labelledby="hero-title" className="relative flex min-h-[calc(100svh-var(--header-h))] flex-col">
-      <div className="relative h-[36svh] overflow-hidden bg-sand md:h-[44svh] lg:h-[47svh]">
+      <div className="relative h-[36svh] overflow-hidden bg-sand md:h-[42svh] lg:h-[43svh]">
         <motion.div style={{ y: photoY }} className="absolute inset-0 -top-[6%] h-[112%]">
           <picture>
             <source media="(min-width: 768px)" srcSet={desktop} />
@@ -77,8 +77,8 @@ export function Hero() {
         <motion.h1
           id="hero-title"
           style={{ scale: wordScale, transformOrigin: "50% 100%" }}
-          initial={reduce ? false : { opacity: 0, y: "14%" }}
-          animate={{ opacity: 1, y: "0%" }}
+          initial={reduce ? false : { y: "10%" }}
+          animate={{ y: "0%" }}
           transition={{ duration: 1.1, ease: [0.23, 1, 0.32, 1], delay: 0.1 }}
           className="wordmark mt-auto pt-5 pb-[0.06em] text-[32vw] md:text-[clamp(120px,18.7vw,380px)]"
         >

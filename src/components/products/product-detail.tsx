@@ -7,8 +7,7 @@ import type { Product, Size } from "@/types/product";
 import { useCart, MAX_QTY } from "@/components/cart/cart-provider";
 import PopStepper from "@/components/watermelon/pop-stepper";
 import { TransitionPanel } from "@/components/motion-primitives/transition-panel";
-import { categoryLabel } from "@/data/products";
-import { formatBRL, installments } from "@/lib/format";
+import { formatBRL } from "@/lib/format";
 import { productMessage, whatsappLink } from "@/lib/whatsapp";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -56,33 +55,9 @@ export function ProductDetail({ product }: { product: Product }) {
     window.setTimeout(() => setAdded(false), 1800);
   };
 
-  const discount = product.originalPrice ? Math.round((1 - product.price / product.originalPrice) * 100) : 0;
-
   return (
     <div className="flex flex-col">
-      <p className="text-[0.875rem] text-muted">
-        {categoryLabel[product.category]}
-        {product.isNew ? " · Novidade" : ""}
-      </p>
-      <h1 className="mt-2 font-display text-[2.6rem] leading-[1.02] tracking-[-0.025em] md:text-[2.6rem]">{product.name}</h1>
-
-      <div className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <p className="text-[1.625rem] font-semibold tabular-nums">{formatBRL(product.price)}</p>
-        {product.originalPrice ? (
-          <p className="text-muted tabular-nums">
-            <span className="sr-only">Preço anterior: </span>
-            <span className="line-through">{formatBRL(product.originalPrice)}</span> · −{discount}%
-          </p>
-        ) : null}
-      </div>
-      <p className="text-[1rem] text-muted tabular-nums">{installments(product.price)} sem juros (demonstrativo)</p>
-
-      <p className={cn("mt-4 inline-flex items-center gap-2 text-[1rem] font-semibold", product.inStock ? "text-[#3f6b3a]" : "text-[#8a2d22]")}>
-        <span className={cn("size-2 rounded-full", product.inStock ? "bg-[#3f6b3a]" : "bg-[#8a2d22]")} aria-hidden />
-        {product.inStock ? "Disponível" : "Esgotado no momento"}
-      </p>
-
-      <fieldset className="mt-7">
+      <fieldset>
         <legend className="flex w-full items-baseline justify-between text-[1rem] font-semibold">
           <span>
             Tamanho{size ? <span className="font-normal text-muted"> · {size}</span> : null}
@@ -205,7 +180,7 @@ export function ProductDetail({ product }: { product: Product }) {
       </p>
 
       <div className="mt-10">
-        <div role="tablist" aria-label="Informações do produto" className="flex gap-1.5">
+        <div role="tablist" aria-label="Informações do produto" className="flex flex-wrap gap-1.5">
           {tabs.map((t, i) => (
             <button
               key={t}
@@ -214,7 +189,7 @@ export function ProductDetail({ product }: { product: Product }) {
               aria-selected={tab === i}
               aria-controls={`painel-${i}`}
               onClick={() => setTab(i)}
-              className={cn("press min-h-11 px-4 text-[1rem]", tab === i ? "bg-ink text-paper" : "bg-sand hover:bg-champagne")}
+              className={cn("press min-h-11 px-3 text-[1rem] sm:px-4", tab === i ? "bg-ink text-paper" : "bg-sand hover:bg-champagne")}
             >
               {t}
             </button>

@@ -59,7 +59,7 @@ export function ProductCard({
   };
 
   return (
-    <article className={cn("group relative flex flex-col", className)}>
+    <article className={cn("group @container relative flex flex-col", className)}>
       <div className="relative aspect-[4/5] overflow-hidden bg-sand">
         <Link href={href} className="absolute inset-0 block" tabIndex={-1} aria-hidden>
           <Image
@@ -198,15 +198,19 @@ export function ProductCard({
         </p>
         <p className="text-[0.875rem] text-muted tabular-nums">{installments(product.price)}</p>
         <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.875rem] text-muted">
-          <span className="inline-flex items-center gap-1" aria-label={`Cores: ${product.colors.join(", ")}`}>
+          <span className="inline-flex items-center gap-1">
+            <span className="sr-only">Cores: {product.colors.join(", ")}.</span>
             {product.colors.map((c) => (
               <Swatch key={c} color={c} />
             ))}
           </span>
-          <span aria-label={`Tamanhos: ${product.sizes.join(", ")}`}>{product.sizes.join(" · ")}</span>
+          <span>
+            <span className="sr-only">Tamanhos: </span>
+            {product.sizes.join(" · ")}
+          </span>
         </div>
         <div className="mt-3 flex gap-2">
-          <Link href={href} className="btn btn-sand min-h-11 flex-1 px-2 text-[0.875rem] whitespace-nowrap">
+          <Link href={href} className="btn btn-sand min-h-11 min-w-0 flex-1 px-2 text-[0.875rem] whitespace-nowrap">
             Ver detalhes
           </Link>
           <button
@@ -215,11 +219,11 @@ export function ProductCard({
             disabled={!product.inStock}
             aria-expanded={picking}
             aria-controls={pickerId}
-            className="btn btn-dark min-h-11 px-3 text-[0.875rem]"
+            className="btn btn-dark min-h-11 w-11 shrink-0 px-0 text-[0.875rem] @[17rem]:w-auto @[17rem]:px-3"
             aria-label={product.inStock ? `Adicionar ${product.name} à sacola` : `${product.name} esgotado`}
           >
             <Plus className="size-4" aria-hidden />
-            <span className="hidden xs:inline">{product.inStock ? "Sacola" : "Esgotado"}</span>
+            <span className="hidden @[17rem]:inline">{product.inStock ? "Sacola" : "Esgotado"}</span>
           </button>
         </div>
       </div>

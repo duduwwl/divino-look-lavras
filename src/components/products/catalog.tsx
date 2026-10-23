@@ -90,8 +90,8 @@ export function Catalog() {
   return (
     <div className="frame">
       {/* Category row */}
-      <nav aria-label="Categorias" className="-mx-[var(--gutter)] overflow-x-auto px-[var(--gutter)] no-scrollbar">
-        <ul className="flex w-max gap-1.5 pb-1 lg:w-auto lg:flex-wrap">
+      <nav aria-label="Categorias">
+        <ul className="flex flex-wrap gap-1.5">
           {[{ slug: "todos" as const, label: "Todos" }, ...categories].map((c) => {
             const on = filters.category === c.slug;
             return (
@@ -100,7 +100,7 @@ export function Catalog() {
                   type="button"
                   aria-pressed={on}
                   onClick={() => commit({ ...filters, category: c.slug })}
-                  className={cn("press min-h-11 px-4 text-[1rem] whitespace-nowrap", on ? "bg-ink text-paper" : "bg-sand hover:bg-champagne")}
+                  className={cn("press min-h-11 px-3.5 text-[1rem] whitespace-nowrap sm:px-4", on ? "bg-ink text-paper" : "bg-sand hover:bg-champagne")}
                 >
                   {c.label}
                 </button>
@@ -142,13 +142,13 @@ export function Catalog() {
               setDraft(filters);
               setDrawer(true);
             }}
-            className="btn btn-dark min-h-12 flex-1 md:flex-none lg:hidden"
+            className="btn btn-dark min-h-12 flex-1 px-3 md:flex-none lg:hidden"
           >
             <SlidersHorizontal className="size-[18px]" strokeWidth={1.5} aria-hidden />
             Filtrar{activeCount ? ` (${activeCount})` : ""}
           </button>
-          <label className="flex h-12 flex-1 items-center gap-2 bg-sand pl-4 md:flex-none">
-            <span className="text-[0.875rem] whitespace-nowrap text-muted">Ordenar</span>
+          <label className="flex h-12 min-w-0 flex-1 items-center gap-2 bg-sand pl-3 sm:pl-4 md:flex-none">
+            <span className="sr-only text-[0.875rem] whitespace-nowrap text-muted sm:not-sr-only">Ordenar</span>
             <select
               value={filters.sort}
               onChange={(e) => commit({ ...filters, sort: e.target.value as SortKey })}
@@ -164,7 +164,7 @@ export function Catalog() {
         </div>
       </div>
 
-      <div className="mt-8 grid grid-cols-12 gap-x-8">
+      <div className="mt-8 grid grid-cols-12 lg:gap-x-8">
         {/* Desktop sidebar */}
         <aside aria-label="Filtros" className="hidden lg:col-span-3 lg:block">
           <div className="sticky top-[calc(var(--header-h)+24px)] max-h-[calc(100svh-var(--header-h)-48px)] overflow-y-auto pr-2 pb-6 no-scrollbar">
@@ -181,6 +181,7 @@ export function Catalog() {
         </aside>
 
         <div className="col-span-12 lg:col-span-9">
+          <h2 className="sr-only">Peças do catálogo</h2>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <p aria-live="polite" className="text-[1rem]">
               <strong className="font-semibold tabular-nums">{results.length}</strong>{" "}

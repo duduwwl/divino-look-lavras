@@ -11,7 +11,7 @@ const bodoni = Bodoni_Moda({
   subsets: ["latin"],
   variable: "--font-bodoni",
   display: "swap",
-  axes: ["opsz"],
+  weight: ["400", "500"],
 });
 
 const albert = Albert_Sans({

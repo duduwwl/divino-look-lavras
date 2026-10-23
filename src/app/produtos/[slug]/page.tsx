@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { products, getProduct, getRelated, categoryLabel } from "@/data/products";
 import { ProductGallery } from "@/components/products/product-gallery";
 import { ProductDetail } from "@/components/products/product-detail";
+import { ProductHeading } from "@/components/products/product-heading";
 import { ProductCard } from "@/components/products/product-card";
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
 import { siteConfig } from "@/config/site";
@@ -84,13 +85,16 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </ol>
       </nav>
 
-      <div className="frame mt-6 grid grid-cols-12 gap-x-8 gap-y-10 lg:mt-8">
-        <div className="col-span-12 lg:col-span-7">
+      <div className="frame mt-6 grid grid-cols-12 gap-y-8 lg:mt-8 lg:gap-x-8 lg:grid-rows-[auto_1fr] lg:gap-y-7">
+        <div className="col-span-12 lg:col-span-5 lg:col-start-8 lg:row-start-1">
+          <ProductHeading product={product} />
+        </div>
+        <div className="col-span-12 lg:col-span-7 lg:col-start-1 lg:row-span-2 lg:row-start-1">
           <div className="lg:sticky lg:top-[calc(var(--header-h)+16px)]">
             <ProductGallery key={product.id} images={product.images} name={product.name} />
           </div>
         </div>
-        <div className="col-span-12 lg:col-span-5">
+        <div className="col-span-12 lg:col-span-5 lg:col-start-8 lg:row-start-2">
           <ProductDetail key={product.id} product={product} />
         </div>
       </div>

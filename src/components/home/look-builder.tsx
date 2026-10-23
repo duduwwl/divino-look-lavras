@@ -174,7 +174,8 @@ export function LookBuilder() {
             levar para a sacola ou pedir direto pelo WhatsApp.
           </p>
           <div className="mt-8 bg-paper p-5">
-            <p className="font-display text-[2.6rem] leading-none tabular-nums" aria-label={`Total do look: ${formatBRL(total)}`}>
+            <p className="font-display text-[2.6rem] leading-none tabular-nums">
+              <span className="sr-only">Total do look: </span>
               R${" "}
               <AnimatedNumber
                 value={total}

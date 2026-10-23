@@ -29,9 +29,9 @@ export function Contact() {
           href={whatsappLink(generalMessage)}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`WhatsApp da loja: ${phone}`}
           className="block font-display text-[13.2vw] leading-[0.95] tracking-[-0.04em] whitespace-nowrap transition-colors duration-300 hover:text-champagne md:text-[11.4vw]"
         >
+          <span className="sr-only">WhatsApp da loja: </span>
           {phone}
         </a>
       </div>
