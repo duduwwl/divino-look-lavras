@@ -9,7 +9,7 @@ Site da **Divino Look**, boutique de moda feminina na Rua Santana, 208, Loja 1 �
 
 | Rota | Conteúdo |
 | --- | --- |
-| `/` | Home: hero com o nome como monumento, categorias, nova coleção, destaques, lookbook, **Monte seu look**, sobre a loja, atendimento, Instagram, newsletter (demonstrativa) e contato |
+| `/` | Landing page **sem produtos**: hero com o nome como monumento, categorias, nova coleção (temas que abrem o catálogo filtrado), lookbook, sobre a loja, atendimento, Instagram, newsletter (demonstrativa) e contato |
 | `/produtos` | Catálogo com busca, categorias, filtros combinados (preço, tamanho, cor, disponibilidade), ordenação, "Carregar mais" e filtros sincronizados na URL |
 | `/produtos/[slug]` | Página de produto: galeria com zoom e visualização em tela cheia, tamanho, cor, quantidade, sacola, compra pelo WhatsApp e produtos relacionados (33 páginas geradas) |
 | `/politicas` | Texto-base de políticas (demonstrativo, a ser aprovado pela loja) |
@@ -49,13 +49,13 @@ As fotos são do [Unsplash](https://unsplash.com/license), servidas pelo CDN do 
 
 | Biblioteca | Componente | Onde |
 | --- | --- | --- |
-| Motion Primitives (MIT) | `TextEffect` | Frase do hero, título "Nossa coleção" |
+| Motion Primitives (MIT) | `TextEffect` | Frase de abertura do hero |
 | | `InView` | Entradas de seções |
-| | `AnimatedGroup` | Stagger dos cards e da lista da nova coleção |
+| | `AnimatedGroup` | Stagger dos cards do catálogo e dos temas da nova coleção |
 | | `ScrollProgress` | Barra de progresso no topo da home |
 | | `TransitionPanel` | Abas Descrição / Tamanhos / Cuidados do produto |
 | | `InfiniteSlider` | Faixa do Instagram |
-| | `AnimatedNumber` | Subtotal da sacola e total do "Monte seu look" |
+| | `AnimatedNumber` | Subtotal da sacola |
 | Fancy Components (MIT) | Sticky Footer (block) | Rodapé que se revela sob a página |
 | | `VerticalCutReveal` | Frase do rodapé |
 | Watermelon UI | Range Selection Slider (`RangeSlider` + `RollingNumber`) | Filtro de faixa de preço |

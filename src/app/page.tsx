@@ -1,7 +1,6 @@
 import { Hero } from "@/components/home/hero";
 import { CategoriesBand } from "@/components/home/categories-band";
 import { NewCollection } from "@/components/home/new-collection";
-import { FeaturedProducts } from "@/components/home/featured-products";
 import { About } from "@/components/home/about";
 import { Experience } from "@/components/home/experience";
 import { Contact } from "@/components/home/contact";
@@ -10,7 +9,6 @@ import { ScrollProgress } from "@/components/motion-primitives/scroll-progress";
 
 // Below-the-fold interactive sections ship in their own chunks (still prerendered to HTML).
 const Lookbook = dynamic(() => import("@/components/home/lookbook").then((m) => m.Lookbook));
-const LookBuilder = dynamic(() => import("@/components/home/look-builder").then((m) => m.LookBuilder));
 const InstagramStrip = dynamic(() => import("@/components/home/instagram").then((m) => m.InstagramStrip));
 const Newsletter = dynamic(() => import("@/components/home/newsletter").then((m) => m.Newsletter));
 
@@ -21,9 +19,7 @@ export default function Home() {
       <Hero />
       <CategoriesBand />
       <NewCollection />
-      <FeaturedProducts />
       <Lookbook />
-      <LookBuilder />
       <About />
       <Experience />
       <InstagramStrip />
