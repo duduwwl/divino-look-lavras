@@ -56,7 +56,7 @@ export default function PoliticasPage() {
         <div className="col-span-12 flex flex-col gap-10 lg:col-span-7 lg:col-start-6">
           {sections.map((s) => (
             <section key={s.id} id={s.id} aria-labelledby={`${s.id}-t`}>
-              <h2 id={`${s.id}-t`} className="font-display text-[1.9rem] leading-tight">
+              <h2 id={`${s.id}-t`} className="font-display text-[1.625rem] leading-tight">
                 {s.title}
               </h2>
               <p className="mt-3 max-w-[64ch]">{s.body}</p>

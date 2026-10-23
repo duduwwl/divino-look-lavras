@@ -61,12 +61,12 @@ export function Newsletter() {
                 <p className="flex items-center gap-2 font-semibold">
                   <Check className="size-5 text-brown" aria-hidden /> Formulário validado
                 </p>
-                <p className="mt-2 text-[0.95rem]">
+                <p className="mt-2 text-[1rem]">
                   Esta é uma versão demonstrativa: o e-mail <strong>{email}</strong> não foi enviado nem salvo. O cadastro real será
                   ativado quando a loja conectar um serviço de e-mail. Enquanto isso, as novidades saem primeiro no grupo VIP do
                   WhatsApp e no Instagram.
                 </p>
-                <button type="button" className="mt-4 text-[0.95rem] underline underline-offset-4" onClick={() => { setState("idle"); setEmail(""); setConsent(false); }}>
+                <button type="button" className="mt-4 text-[1rem] underline underline-offset-4" onClick={() => { setState("idle"); setEmail(""); setConsent(false); }}>
                   Voltar ao formulário
                 </button>
               </motion.div>
@@ -80,7 +80,7 @@ export function Newsletter() {
                 exit={{ opacity: 0 }}
                 aria-describedby={`${id}-demo`}
               >
-                <label htmlFor={`${id}-email`} className="text-[0.95rem] font-semibold">
+                <label htmlFor={`${id}-email`} className="text-[1rem] font-semibold">
                   Seu e-mail
                 </label>
                 <div className="mt-2 flex flex-col gap-2 sm:flex-row">
@@ -103,7 +103,7 @@ export function Newsletter() {
                     {state === "sending" ? "Validando…" : "Quero receber"}
                   </button>
                 </div>
-                <label className="mt-3 flex cursor-pointer items-start gap-3 text-[0.95rem]">
+                <label className="mt-3 flex cursor-pointer items-start gap-3 text-[1rem]">
                   <input
                     type="checkbox"
                     checked={consent}
@@ -113,11 +113,11 @@ export function Newsletter() {
                   Aceito receber comunicações da Divino Look e sei que posso cancelar quando quiser.
                 </label>
                 {state === "error" ? (
-                  <p id={`${id}-err`} role="alert" className="mt-3 text-[0.95rem] font-semibold text-[#8a2d22]">
+                  <p id={`${id}-err`} role="alert" className="mt-3 text-[1rem] font-semibold text-[#8a2d22]">
                     {error}
                   </p>
                 ) : null}
-                <p id={`${id}-demo`} className="mt-3 text-[0.88rem] text-muted">
+                <p id={`${id}-demo`} className="mt-3 text-[0.875rem] text-muted">
                   Formulário demonstrativo: nenhum dado é enviado enquanto o serviço de e-mail não for configurado.
                 </p>
               </motion.form>

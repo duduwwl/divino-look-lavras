@@ -81,7 +81,7 @@ export function Sheet({
               >
                 <div className="flex items-center justify-between gap-4 px-5 pt-5 pb-3 sm:px-7">
                   <Dialog.Title
-                    className={cn("font-display text-[1.65rem] leading-tight", hideTitle && "sr-only")}
+                    className={cn("font-display text-[1.625rem] leading-tight", hideTitle && "sr-only")}
                   >
                     {title}
                   </Dialog.Title>
@@ -93,7 +93,7 @@ export function Sheet({
                   </Dialog.Close>
                 </div>
                 {description ? (
-                  <Dialog.Description className="px-5 pb-2 text-[0.95rem] opacity-80 sm:px-7">
+                  <Dialog.Description className="px-5 pb-2 text-[1rem] opacity-80 sm:px-7">
                     {description}
                   </Dialog.Description>
                 ) : (

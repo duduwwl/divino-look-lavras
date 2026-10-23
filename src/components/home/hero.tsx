@@ -27,7 +27,7 @@ export function Hero() {
 
   return (
     <section ref={ref} aria-labelledby="hero-title" className="relative flex min-h-[calc(100svh-var(--header-h))] flex-col">
-      <div className="relative h-[54svh] overflow-hidden bg-sand lg:h-[52svh]">
+      <div className="relative h-[36svh] overflow-hidden bg-sand md:h-[44svh] lg:h-[47svh]">
         <motion.div style={{ y: photoY }} className="absolute inset-0 -top-[6%] h-[112%]">
           <picture>
             <source media="(min-width: 768px)" srcSet={desktop} />
@@ -38,15 +38,15 @@ export function Hero() {
         </motion.div>
       </div>
 
-      <div className="frame flex flex-1 flex-col pt-5 lg:pt-6">
+      <div className="frame flex flex-1 flex-col pt-5">
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-[40ch]">
+          <div className="max-w-[46rem]">
             <TextEffect
               as="p"
               per="word"
               preset="fade-in-blur"
               speedReveal={1.1}
-              className="font-display text-[1.65rem] leading-[1.1] tracking-[-0.015em] md:text-[2.1rem]"
+              className="font-display text-[1.625rem] leading-[1.1] tracking-[-0.015em] md:text-[2.6rem]"
             >
               Seu estilo. Sua essência. Seu momento.
             </TextEffect>
@@ -54,7 +54,7 @@ export function Hero() {
               initial={reduce ? false : { opacity: 0, transform: "translateY(12px)" }}
               animate={{ opacity: 1, transform: "translateY(0px)" }}
               transition={{ delay: 0.55, duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-              className="mt-2 text-[1.02rem] text-muted"
+              className="mt-2 text-[1rem]"
             >
               Boutique de moda feminina no centro de Lavras–MG, com looks completos para se vestir bem.
             </motion.p>
@@ -74,18 +74,17 @@ export function Hero() {
           </motion.div>
         </div>
 
-        <h1 id="hero-title" className="mt-auto pt-6">
-          <motion.span
-            style={{ scale: wordScale, transformOrigin: "50% 100%" }}
-            initial={reduce ? false : { opacity: 0, y: "18%" }}
-            animate={{ opacity: 1, y: "0%" }}
-            transition={{ duration: 1.1, ease: [0.23, 1, 0.32, 1], delay: 0.1 }}
-            className="wordmark block pb-[0.05em] text-[clamp(64px,var(--wm-size),340px)] [--wm-size:21.5vw] md:[--wm-size:16.6vw]"
-          >
-            <span className="block md:inline">Divino</span> <span className="block md:inline">Look</span>
-          </motion.span>
-          <span className="sr-only"> — moda feminina em Lavras–MG</span>
-        </h1>
+        <motion.h1
+          id="hero-title"
+          style={{ scale: wordScale, transformOrigin: "50% 100%" }}
+          initial={reduce ? false : { opacity: 0, y: "14%" }}
+          animate={{ opacity: 1, y: "0%" }}
+          transition={{ duration: 1.1, ease: [0.23, 1, 0.32, 1], delay: 0.1 }}
+          className="wordmark mt-auto pt-5 pb-[0.06em] text-[32vw] md:text-[clamp(120px,18.7vw,380px)]"
+        >
+          <span className="block md:inline">Divino</span> <span className="block md:inline">Look</span>
+          <span className="sr-only">, moda feminina em Lavras–MG</span>
+        </motion.h1>
       </div>
     </section>
   );

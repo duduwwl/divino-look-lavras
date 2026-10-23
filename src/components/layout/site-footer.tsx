@@ -32,7 +32,7 @@ export function SiteFooter() {
       <h2 id="rodape-titulo" className="sr-only">
         Informações da Divino Look
       </h2>
-      <div className="frame grid grid-cols-2 gap-x-6 gap-y-10 pt-12 text-[0.95rem] md:grid-cols-4 lg:pt-16">
+      <div className="frame grid grid-cols-2 gap-x-6 gap-y-10 pt-12 text-[1rem] md:grid-cols-4 lg:pt-16">
         <div>
           <p className="font-semibold">Visite a loja</p>
           <address className="mt-3 not-italic opacity-85">
@@ -44,7 +44,7 @@ export function SiteFooter() {
             Ver no mapa
           </a>
         </div>
-        <nav aria-label="Rodapé — navegação">
+        <nav aria-label="Navegação do rodapé">
           <p className="font-semibold">Navegação</p>
           <ul className="mt-3 space-y-1.5 opacity-85">
             {navLinks.map((l) => (
@@ -56,7 +56,7 @@ export function SiteFooter() {
             ))}
           </ul>
         </nav>
-        <nav aria-label="Rodapé — categorias">
+        <nav aria-label="Categorias do rodapé">
           <p className="font-semibold">Categorias</p>
           <ul className="mt-3 space-y-1.5 opacity-85">
             {categories.map((c) => (
@@ -96,7 +96,7 @@ export function SiteFooter() {
       </div>
 
       <div className="frame mt-auto pt-16">
-        <div ref={taglineRef} className="max-w-[34ch] text-[1.15rem] leading-snug">
+        <div ref={taglineRef} className="max-w-[34ch] text-[1.125rem] leading-snug">
           <VerticalCutReveal
             splitBy="words"
             staggerDuration={0.04}
@@ -115,7 +115,7 @@ export function SiteFooter() {
           Divino Look
         </motion.p>
       </div>
-      <div className="frame flex flex-col gap-1 pt-4 pb-5 text-[0.85rem] opacity-80 sm:flex-row sm:justify-between">
+      <div className="frame flex flex-col gap-1 pt-4 pb-5 text-[0.875rem] opacity-80 sm:flex-row sm:justify-between">
         <p>© {new Date().getFullYear()} Divino Look · Lavras–MG. Todos os direitos reservados.</p>
         <p>Fotos ilustrativas (Unsplash) e preços demonstrativos.</p>
       </div>

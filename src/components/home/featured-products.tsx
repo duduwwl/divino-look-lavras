@@ -19,11 +19,11 @@ export function FeaturedProducts() {
           <h2 id="destaques-titulo" className="font-display text-[2rem] leading-tight tracking-[-0.015em] md:text-[2.6rem]">
             Peças em destaque
           </h2>
-          <p className="mt-2 max-w-[52ch] text-muted">
+          <p className="mt-2 max-w-[52ch]">
             As favoritas da arara, prontas para compor o seu look. Escolha tamanho e cor e leve para a sacola.
           </p>
         </div>
-        <Link href="/produtos?ordem=destaques" className="link-underline self-start text-[0.95rem] font-semibold sm:self-auto">
+        <Link href="/produtos?ordem=destaques" className="link-underline self-start text-[1rem] font-semibold sm:self-auto">
           Ver todos os produtos
         </Link>
       </InView>

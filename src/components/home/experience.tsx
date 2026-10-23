@@ -36,7 +36,7 @@ const rows: { title: string; body: React.ReactNode }[] = [
   },
   {
     title: "Moda feminina selecionada",
-    body: "Vestidos, conjuntos, blusas, calças, saias e moda fitness — peças que conversam entre si para facilitar o look completo.",
+    body: "Vestidos, conjuntos, blusas, calças, saias e moda fitness: peças que conversam entre si para facilitar o look completo.",
   },
   {
     title: "Grupo VIP no WhatsApp",
@@ -62,7 +62,7 @@ export function Experience() {
         >
           Atendimento
         </h2>
-        <p className="mt-4 max-w-[48ch]">Como é comprar na Divino Look — na loja, pelo site ou pelo WhatsApp.</p>
+        <p className="mt-4 max-w-[48ch]">Como é comprar na Divino Look: na loja, pelo site ou pelo WhatsApp.</p>
         <div className="mt-6 flex flex-col gap-1.5">
           {rows.map((r, i) => (
             <details key={r.title} className="group bg-sand open:bg-champagne/60" open={i === 0}>
@@ -74,7 +74,7 @@ export function Experience() {
                   aria-hidden
                 />
               </summary>
-              <div className="px-[18px] pb-5 text-[0.98rem]">{r.body}</div>
+              <div className="px-[18px] pb-5 text-[1rem]">{r.body}</div>
             </details>
           ))}
         </div>

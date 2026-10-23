@@ -84,7 +84,7 @@ export function ProductCard({
         {badge ? (
           <span
             className={cn(
-              "pointer-events-none absolute top-3 left-3 px-2.5 py-1 text-[0.8rem] font-semibold",
+              "pointer-events-none absolute top-3 left-3 px-2.5 py-1 text-[0.875rem] font-semibold",
               badge === "Esgotado" ? "bg-ink text-paper" : "bg-paper text-ink",
             )}
           >
@@ -124,7 +124,7 @@ export function ProductCard({
               onKeyDown={(e) => e.key === "Escape" && setPicking(false)}
             >
               <div className="flex items-center justify-between">
-                <p className="text-[0.9rem] font-semibold">Tamanho</p>
+                <p className="text-[0.875rem] font-semibold">Tamanho</p>
                 <button
                   type="button"
                   onClick={() => setPicking(false)}
@@ -142,7 +142,7 @@ export function ProductCard({
                     onClick={() => setSize(s)}
                     aria-pressed={size === s}
                     className={cn(
-                      "press min-h-9 min-w-9 px-2 text-[0.85rem]",
+                      "press min-h-9 min-w-9 px-2 text-[0.875rem]",
                       size === s ? "bg-ink text-paper" : "bg-sand hover:bg-champagne",
                     )}
                   >
@@ -150,7 +150,7 @@ export function ProductCard({
                   </button>
                 ))}
               </div>
-              <p className="mt-2.5 text-[0.9rem] font-semibold">Cor</p>
+              <p className="mt-2.5 text-[0.875rem] font-semibold">Cor</p>
               <div className="mt-1.5 flex flex-wrap gap-1.5">
                 {product.colors.map((c) => (
                   <button
@@ -159,7 +159,7 @@ export function ProductCard({
                     onClick={() => setColor(c)}
                     aria-pressed={color === c}
                     className={cn(
-                      "press inline-flex min-h-9 items-center gap-1.5 px-2 text-[0.85rem]",
+                      "press inline-flex min-h-9 items-center gap-1.5 px-2 text-[0.875rem]",
                       color === c ? "bg-ink text-paper" : "bg-sand hover:bg-champagne",
                     )}
                   >
@@ -171,7 +171,7 @@ export function ProductCard({
                 type="button"
                 onClick={confirm}
                 disabled={!size || !color}
-                className="btn btn-primary mt-3 min-h-11 w-full text-[0.9rem]"
+                className="btn btn-primary mt-3 min-h-11 w-full text-[0.875rem]"
               >
                 {!size ? "Escolha o tamanho" : !color ? "Escolha a cor" : "Adicionar à sacola"}
               </button>
@@ -181,7 +181,7 @@ export function ProductCard({
       </div>
 
       <div className="flex flex-1 flex-col pt-3">
-        <p className="text-[0.85rem] text-muted">{categoryLabel[product.category]}</p>
+        <p className="text-[0.875rem] text-muted">{categoryLabel[product.category]}</p>
         <h3 className="mt-0.5 text-[1rem] leading-snug font-medium">
           <Link href={href} className="hover:underline hover:underline-offset-4">
             {product.name}
@@ -190,14 +190,14 @@ export function ProductCard({
         <p className="mt-1 flex flex-wrap items-baseline gap-x-2">
           <span className="font-semibold tabular-nums">{formatBRL(product.price)}</span>
           {product.originalPrice ? (
-            <span className="text-[0.9rem] text-muted line-through tabular-nums">
+            <span className="text-[0.875rem] text-muted line-through tabular-nums">
               <span className="sr-only">Preço anterior: </span>
               {formatBRL(product.originalPrice)}
             </span>
           ) : null}
         </p>
-        <p className="text-[0.85rem] text-muted tabular-nums">{installments(product.price)}</p>
-        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.85rem] text-muted">
+        <p className="text-[0.875rem] text-muted tabular-nums">{installments(product.price)}</p>
+        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.875rem] text-muted">
           <span className="inline-flex items-center gap-1" aria-label={`Cores: ${product.colors.join(", ")}`}>
             {product.colors.map((c) => (
               <Swatch key={c} color={c} />
@@ -206,7 +206,7 @@ export function ProductCard({
           <span aria-label={`Tamanhos: ${product.sizes.join(", ")}`}>{product.sizes.join(" · ")}</span>
         </div>
         <div className="mt-3 flex gap-2">
-          <Link href={href} className="btn btn-sand min-h-11 flex-1 px-3 text-[0.88rem]">
+          <Link href={href} className="btn btn-sand min-h-11 flex-1 px-2 text-[0.875rem] whitespace-nowrap">
             Ver detalhes
           </Link>
           <button
@@ -215,7 +215,7 @@ export function ProductCard({
             disabled={!product.inStock}
             aria-expanded={picking}
             aria-controls={pickerId}
-            className="btn btn-dark min-h-11 px-3 text-[0.88rem]"
+            className="btn btn-dark min-h-11 px-3 text-[0.875rem]"
             aria-label={product.inStock ? `Adicionar ${product.name} à sacola` : `${product.name} esgotado`}
           >
             <Plus className="size-4" aria-hidden />

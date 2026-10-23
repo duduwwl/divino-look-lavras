@@ -51,10 +51,10 @@ export function SearchDialog({ open, onOpenChange }: { open: boolean; onOpenChan
 
         {!query.trim() ? (
           <div className="mt-5">
-            <p className="text-[0.95rem] text-muted">Sugestões</p>
+            <p className="text-[1rem] text-muted">Sugestões</p>
             <div className="mt-2 flex flex-wrap gap-2">
               {suggestions.map((s) => (
-                <button key={s} type="button" onClick={() => go(s)} className="press bg-sand px-4 py-2.5 text-[0.95rem] hover:bg-champagne">
+                <button key={s} type="button" onClick={() => go(s)} className="press bg-sand px-4 py-2.5 text-[1rem] hover:bg-champagne">
                   {s}
                 </button>
               ))}
@@ -79,7 +79,7 @@ export function SearchDialog({ open, onOpenChange }: { open: boolean; onOpenChan
                     </span>
                     <span className="min-w-0">
                       <span className="block truncate font-medium">{p.name}</span>
-                      <span className="block text-[0.9rem] text-muted">
+                      <span className="block text-[0.875rem] text-muted">
                         {categoryLabel[p.category]} · {formatBRL(p.price)}
                       </span>
                     </span>

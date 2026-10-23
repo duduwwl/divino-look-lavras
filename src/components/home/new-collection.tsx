@@ -30,7 +30,7 @@ export function NewCollection() {
             <h2 id="colecao-titulo" className="font-display text-[2rem] leading-tight tracking-[-0.015em] md:text-[2.6rem]">
               Nova coleção
             </h2>
-            <p className="mt-2 max-w-[54ch] text-muted">
+            <p className="mt-2 max-w-[54ch]">
               As peças que acabaram de chegar à arara: cores de estação, alfaiataria leve e vestidos para os dias longos.
             </p>
           </InView>
@@ -68,7 +68,7 @@ export function NewCollection() {
                   >
                     {p.name}
                   </span>
-                  <span className="text-[0.9rem] text-muted tabular-nums lg:whitespace-nowrap">
+                  <span className="text-[0.875rem] text-muted tabular-nums lg:whitespace-nowrap">
                     {categoryLabel[p.category]} · {formatBRL(p.price)}
                   </span>
                 </Link>

@@ -63,8 +63,8 @@ function Slot({
       </div>
 
       <div className="flex min-w-0 flex-col">
-        <p className="text-[0.9rem] text-muted">{label}</p>
-        <p className="mt-1 font-display text-[1.35rem] leading-tight sm:text-[1.6rem]" aria-live="polite">
+        <p className="text-[0.875rem] text-muted">{label}</p>
+        <p className="mt-1 font-display text-[1.125rem] leading-tight sm:text-[1.625rem]" aria-live="polite">
           <Link href={`/produtos/${product.slug}`} className="hover:underline hover:underline-offset-4">
             {product.name}
           </Link>
@@ -72,7 +72,7 @@ function Slot({
         <p className="mt-1 font-semibold tabular-nums">{formatBRL(product.price)}</p>
 
         <fieldset className="mt-3">
-          <legend className="text-[0.9rem] font-semibold">Tamanho</legend>
+          <legend className="text-[0.875rem] font-semibold">Tamanho</legend>
           <div className="mt-1.5 flex flex-wrap gap-1.5">
             {product.sizes.map((s) => (
               <button
@@ -80,7 +80,7 @@ function Slot({
                 type="button"
                 aria-pressed={pick.size === s}
                 onClick={() => onChange({ ...pick, size: s })}
-                className={cn("press min-h-10 min-w-10 px-2 text-[0.9rem]", pick.size === s ? "bg-ink text-paper" : "bg-paper hover:bg-champagne")}
+                className={cn("press min-h-10 min-w-10 px-2 text-[0.875rem]", pick.size === s ? "bg-ink text-paper" : "bg-paper hover:bg-champagne")}
               >
                 {s}
               </button>
@@ -89,7 +89,7 @@ function Slot({
         </fieldset>
         {product.colors.length > 1 ? (
           <fieldset className="mt-3">
-            <legend className="text-[0.9rem] font-semibold">Cor</legend>
+            <legend className="text-[0.875rem] font-semibold">Cor</legend>
             <div className="mt-1.5 flex flex-wrap gap-1.5">
               {product.colors.map((c) => (
                 <button
@@ -98,7 +98,7 @@ function Slot({
                   aria-pressed={pick.color === c}
                   onClick={() => onChange({ ...pick, color: c })}
                   className={cn(
-                    "press inline-flex min-h-10 items-center gap-1.5 px-2.5 text-[0.9rem]",
+                    "press inline-flex min-h-10 items-center gap-1.5 px-2.5 text-[0.875rem]",
                     pick.color === c ? "bg-ink text-paper" : "bg-paper hover:bg-champagne",
                   )}
                 >
@@ -109,7 +109,7 @@ function Slot({
             </div>
           </fieldset>
         ) : (
-          <p className="mt-3 inline-flex items-center gap-2 text-[0.9rem]">
+          <p className="mt-3 inline-flex items-center gap-2 text-[0.875rem]">
             <Swatch color={product.colors[0]} /> {product.colors[0]}
           </p>
         )}
@@ -121,7 +121,7 @@ function Slot({
           <button type="button" onClick={() => move(1)} className="press inline-flex size-11 items-center justify-center bg-paper hover:bg-champagne" aria-label={`${label}: próxima peça`}>
             <ArrowRight className="size-[18px]" strokeWidth={1.5} />
           </button>
-          <span className="self-center pl-1 text-[0.85rem] text-muted tabular-nums">
+          <span className="self-center pl-1 text-[0.875rem] text-muted tabular-nums">
             {pick.index + 1} de {list.length}
           </span>
         </div>
@@ -174,8 +174,7 @@ export function LookBuilder() {
             levar para a sacola ou pedir direto pelo WhatsApp.
           </p>
           <div className="mt-8 bg-paper p-5">
-            <p className="text-[0.95rem] text-muted">Total do look</p>
-            <p className="mt-1 font-display text-[2.6rem] leading-none tabular-nums">
+            <p className="font-display text-[2.6rem] leading-none tabular-nums" aria-label={`Total do look: ${formatBRL(total)}`}>
               R${" "}
               <AnimatedNumber
                 value={total}
@@ -183,7 +182,7 @@ export function LookBuilder() {
                 format={(v: number) => v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               />
             </p>
-            <p className="mt-1 text-[0.9rem] text-muted tabular-nums">ou 3x de {formatBRL(total / 3)} · valores demonstrativos</p>
+            <p className="mt-2 text-[0.875rem] text-muted tabular-nums">Total do look, ou 3x de {formatBRL(total / 3)}. Valores demonstrativos.</p>
             <button type="button" onClick={addLook} disabled={!ready} className="btn btn-primary mt-5 w-full">
               {ready ? "Levar o look para a sacola" : "Escolha os dois tamanhos"}
             </button>

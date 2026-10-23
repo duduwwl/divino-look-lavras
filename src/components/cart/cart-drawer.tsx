@@ -18,7 +18,7 @@ export function CartDrawer() {
     items.length > 0 ? (
       <div>
         <div className="flex items-baseline justify-between bg-sand px-4 py-4">
-          <span className="text-[0.95rem]">Subtotal · {count} {count === 1 ? "peça" : "peças"}</span>
+          <span className="text-[1rem]">Subtotal · {count} {count === 1 ? "peça" : "peças"}</span>
           <span className="text-xl font-semibold tabular-nums">
             R${" "}
             <AnimatedNumber
@@ -28,7 +28,7 @@ export function CartDrawer() {
             />
           </span>
         </div>
-        <p className="mt-3 text-[0.9rem] text-muted">
+        <p className="mt-3 text-[0.875rem] text-muted">
           O pedido é finalizado pelo WhatsApp: a equipe confirma disponibilidade, pagamento e entrega com você.
           Nenhum pagamento é feito neste site.
         </p>
@@ -40,7 +40,7 @@ export function CartDrawer() {
         >
           Finalizar pedido pelo WhatsApp
         </a>
-        <button type="button" onClick={clear} className="mt-2 w-full py-3 text-[0.9rem] text-muted underline-offset-4 hover:underline">
+        <button type="button" onClick={clear} className="mt-2 w-full py-3 text-[0.875rem] text-muted underline-offset-4 hover:underline">
           Esvaziar sacola
         </button>
       </div>
@@ -95,7 +95,7 @@ export function CartDrawer() {
                       <Trash2 className="size-[18px]" strokeWidth={1.5} />
                     </button>
                   </div>
-                  <p className="text-[0.9rem] text-muted">
+                  <p className="text-[0.875rem] text-muted">
                     Tam. {item.size} · {item.color}
                   </p>
                   <div className="mt-auto flex items-center justify-between gap-3 pt-2">

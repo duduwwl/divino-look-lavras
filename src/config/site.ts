@@ -17,7 +17,7 @@ export const siteConfig = {
   instagramHandle: "@divinolook_lavras",
   linktree: "https://linktr.ee/lillywhatsapp",
   address: {
-    street: "Rua Santana, 208 — Loja 1",
+    street: "Rua Santana, 208, Loja 1",
     district: "Centro",
     city: "Lavras",
     state: "MG",

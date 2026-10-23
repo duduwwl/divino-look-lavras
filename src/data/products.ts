@@ -50,7 +50,7 @@ export const colorSwatches: Record<string, string> = {
   Amarelo: "#dcb24c",
   Lilás: "#b9a6cc",
   Cinza: "#9a9591",
-  Estampado: "conic-gradient(#9e2f2b 0 25%, #dcb24c 0 50%, #56704f 0 75%, #f1eadf 0)",
+  Estampado: "pattern",
 };
 
 type Seed = Omit<Product, "id" | "slug" | "images"> & { images: [string, ...string[]] };

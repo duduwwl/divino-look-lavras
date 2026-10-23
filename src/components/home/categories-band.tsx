@@ -24,7 +24,7 @@ export function CategoriesBand() {
         <h2 id="categorias-titulo" className="font-display text-[2rem] leading-tight tracking-[-0.015em] md:text-[2.6rem]">
           Compre por categoria
         </h2>
-        <p className="mt-2 max-w-[52ch] text-muted">
+        <p className="mt-2 max-w-[52ch]">
           Do vestido para a ocasião especial à legging do treino: escolha por onde começar o seu look.
         </p>
       </InView>
@@ -50,29 +50,19 @@ export function CategoriesBand() {
                 sizes="(min-width: 768px) 30vw, 50vw"
                 className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.04] motion-reduce:transition-none"
               />
-              <span
-                className={cn(
-                  "absolute bottom-0 left-0 max-w-full bg-ink/55 px-4 py-3 text-paper",
-                  i === 0 && "px-6 py-5",
-                )}
-              >
-                <span
-                  className={cn(
-                    "block font-display leading-[1.05] whitespace-nowrap",
-                    i === 0 ? "text-[1.75rem]" : "text-[1.25rem]",
-                  )}
-                >
-                  {c.label}
+              {i === 0 ? (
+                <span className="absolute bottom-0 left-0 max-w-full bg-ink/55 px-6 py-5 text-paper">
+                  <span className="block font-display text-[2.6rem] leading-[1.05] whitespace-nowrap">{c.label}</span>
+                  <span className="block text-[1rem] whitespace-nowrap">{c.blurb}</span>
                 </span>
-                <span
-                  className={cn(
-                    "block overflow-hidden text-[0.9rem] whitespace-nowrap opacity-90 transition-opacity duration-300",
-                    i === 0 || active === i ? "opacity-90" : "opacity-0",
-                  )}
-                >
-                  {c.blurb}
+              ) : (
+                <span className="absolute bottom-0 left-0 bg-ink/55 px-3 py-4 text-paper">
+                  {/* narrow slices carry their name vertically, like a tag on a hanger */}
+                  <span className="block rotate-180 font-display text-[1.625rem] leading-none whitespace-nowrap [writing-mode:vertical-rl]">
+                    {c.label}
+                  </span>
                 </span>
-              </span>
+              )}
             </Link>
           </li>
         ))}
@@ -86,15 +76,15 @@ export function CategoriesBand() {
             <li key={c.slug} className={cn("relative overflow-hidden", span)}>
               <Link href={`/produtos?categoria=${c.slug}`} className="absolute inset-0 block">
                 <Image src={c.image} alt="" fill sizes="(max-width: 767px) 70vw, 30vw" className="object-cover" />
-                <span className="absolute bottom-0 left-0 bg-ink/55 px-3 py-2 text-paper">
-                  <span className="block font-display text-[1.2rem] leading-tight">{c.label}</span>
+                <span className="absolute bottom-0 left-0 bg-ink/55 px-4 py-2.5 text-paper">
+                  <span className="block font-display text-[1.125rem] leading-tight sm:text-[1.625rem]">{c.label}</span>
                 </span>
               </Link>
             </li>
           );
         })}
       </ul>
-      <p className="frame mt-4 text-[0.95rem] text-muted">Toque em uma categoria para ver as peças com o filtro já aplicado.</p>
+      <p className="frame mt-4 text-[0.875rem] text-muted">Toque em uma categoria para ver as peças com o filtro já aplicado.</p>
     </section>
   );
 }

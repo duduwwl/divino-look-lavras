@@ -14,15 +14,13 @@ const prints = [
     alt: "Look de alfaiataria em tons neutros",
     caption: "Alfaiataria do dia",
     rotate: -8,
-    className: "left-[14%] top-[16%] w-[52vw] md:left-[27%] md:top-[12%] md:w-[24vw]",
   },
   {
     href: "/produtos?categoria=vestidos",
     img: photo("1752074211535-b1741213b0cb", "3:4"),
-    alt: "Look de vestido leve perto de uma janela",
-    caption: "Vestido para o fim de tarde",
+    alt: "Look claro e leve perto de uma janela",
+    caption: "Leveza para o fim de tarde",
     rotate: 6,
-    className: "right-[8%] top-[30%] w-[50vw] md:right-[25%] md:top-[18%] md:w-[24vw]",
   },
   {
     href: "/produtos?categoria=fitness",
@@ -30,7 +28,6 @@ const prints = [
     alt: "Conjuntos fitness combinando",
     caption: "Treino com estilo",
     rotate: -3,
-    className: "hidden md:block right-[5%] -bottom-[10%] w-[15vw]",
   },
 ];
 
@@ -40,50 +37,52 @@ export function Lookbook() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="lookbook" aria-labelledby="lookbook-titulo" className="mt-[clamp(96px,12vw,200px)]">
-      <div className="relative h-[86svh] min-h-[560px] overflow-hidden bg-sand md:h-[100svh] md:min-h-[680px]">
-        <h2 id="lookbook-titulo" className="sr-only">
-          Lookbook — looks completos
+    <section id="lookbook" aria-labelledby="lookbook-titulo" className="mt-[clamp(96px,12vw,200px)] bg-sand">
+      <div className="frame flex min-h-[86svh] flex-col justify-between gap-6 py-10 md:min-h-[100svh] md:py-12">
+        <h2 id="lookbook-titulo" className="font-display font-medium text-brown">
+          <span className="block text-[21vw] leading-[0.85] tracking-[-0.05em] md:text-[15vw]">Looks</span>
+          <span className="sr-only"> completos</span>
         </h2>
-        <p
-          aria-hidden
-          className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center font-display text-[25vw] leading-[0.85] font-medium tracking-[-0.05em] text-brown select-none md:text-[14vw]"
-        >
-          Looks
-          <br />
-          completos
-        </p>
 
-        {prints.map((p, i) => (
-          <motion.div
-            key={p.href}
-            className={cn("absolute", p.className)}
-            style={{ zIndex: front === i ? 5 : 2 + i }}
-            initial={reduce ? false : { opacity: 0, y: 60, rotate: 0 }}
-            whileInView={{ opacity: 1, y: 0, rotate: front === i ? 0 : p.rotate }}
-            animate={front === i ? { rotate: 0 } : undefined}
-            viewport={{ once: true, margin: "0px 0px -20% 0px" }}
-            transition={{ duration: 0.8, delay: 0.1 + i * 0.12, ease: [0.23, 1, 0.32, 1] }}
-            onMouseEnter={() => setFront(i)}
-            onMouseLeave={() => setFront(null)}
-          >
-            <Link
-              href={p.href}
-              onFocus={() => setFront(i)}
-              onBlur={() => setFront(null)}
-              className="block bg-paper p-2 transition-transform duration-200"
+        {/* the prints are tucked between the two words */}
+        <ul className="relative mx-auto flex w-full max-w-[1100px] items-center justify-center gap-[3vw] py-2">
+          {prints.map((p, i) => (
+            <motion.li
+              key={p.href}
+              className={cn("relative w-[42vw] md:w-[22vw] md:max-w-[300px]", i === 2 && "hidden md:block")}
+              style={{ zIndex: front === i ? 5 : 1 }}
+              initial={reduce ? false : { opacity: 0, y: 48, rotate: 0 }}
+              whileInView={{ opacity: 1, y: 0, rotate: front === i ? 0 : p.rotate }}
+              viewport={{ once: true, margin: "0px 0px -15% 0px" }}
+              transition={{ duration: 0.8, delay: 0.1 + i * 0.12, ease: [0.23, 1, 0.32, 1] }}
+              onMouseEnter={() => setFront(i)}
+              onMouseLeave={() => setFront(null)}
             >
-              <span className="relative block aspect-[3/4] w-full overflow-hidden">
-                <Image src={p.img} alt={p.alt} fill sizes="(min-width: 768px) 24vw, 52vw" className="object-cover" />
-              </span>
-              <span className="block px-1 pt-2 pb-1 text-[0.9rem]">{p.caption}</span>
-            </Link>
-          </motion.div>
-        ))}
+              <motion.div animate={{ rotate: front === i ? 0 : p.rotate }} transition={{ duration: 0.2 }}>
+                <Link
+                  href={p.href}
+                  onFocus={() => setFront(i)}
+                  onBlur={() => setFront(null)}
+                  className="block bg-paper p-2"
+                >
+                  <span className="relative block aspect-[3/4] w-full overflow-hidden">
+                    <Image src={p.img} alt={p.alt} fill sizes="(min-width: 768px) 22vw, 42vw" className="object-cover" />
+                  </span>
+                  <span className="block px-1 pt-2 pb-1 text-[0.875rem]">{p.caption}</span>
+                </Link>
+              </motion.div>
+            </motion.li>
+          ))}
+        </ul>
 
-        <p className="absolute bottom-5 left-[var(--gutter)] z-10 max-w-[30ch] bg-sand pr-3 text-[0.95rem] md:bottom-6">
-          Na Divino Look a ideia é sair com a produção inteira resolvida. Toque em um look para ver as peças.
-        </p>
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <p className="max-w-[32ch] text-[1rem] md:order-1 md:pb-[2vw]">
+            Na Divino Look a ideia é sair com a produção inteira resolvida. Toque em um look para ver as peças.
+          </p>
+          <p aria-hidden className="font-display text-[21vw] leading-[0.85] font-medium tracking-[-0.05em] text-brown md:order-2 md:text-right md:text-[15vw]">
+            completos
+          </p>
+        </div>
       </div>
     </section>
   );

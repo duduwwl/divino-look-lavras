@@ -17,7 +17,7 @@ const availabilityOptions: { value: Availability; label: string }[] = [
 function Group({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <fieldset className="pb-7">
-      <legend className="mb-3 text-[0.95rem] font-semibold">{title}</legend>
+      <legend className="mb-3 text-[1rem] font-semibold">{title}</legend>
       {children}
     </fieldset>
   );
@@ -57,7 +57,7 @@ export function FilterPanel({
 
   const numberInput = (which: 0 | 1) => (
     <label className="flex flex-1 flex-col gap-1 bg-sand px-3 py-2">
-      <span className="text-[0.85rem] text-muted">{which === 0 ? "Mínimo" : "Máximo"}</span>
+      <span className="text-[0.875rem] text-muted">{which === 0 ? "Mínimo" : "Máximo"}</span>
       <span className="flex items-baseline gap-1">
         <span className="font-semibold">R$</span>
         <input
@@ -89,7 +89,7 @@ export function FilterPanel({
   return (
     <div>
       <Group title="Faixa de preço">
-        <div className="flex items-center justify-between text-[1.05rem]" aria-hidden>
+        <div className="flex items-center justify-between text-[1.125rem]" aria-hidden>
           <RollingNumber value={range[0]} prefix="R$ " />
           <span className="text-muted">até</span>
           <RollingNumber value={range[1]} prefix="R$ " />
@@ -118,7 +118,7 @@ export function FilterPanel({
                 type="button"
                 aria-pressed={on}
                 onClick={() => onChange({ ...filters, sizes: toggle(filters.sizes, s) })}
-                className={cn("press min-h-11 min-w-11 px-3 text-[0.92rem]", on ? "bg-ink text-paper" : "bg-sand hover:bg-champagne")}
+                className={cn("press min-h-11 min-w-11 px-3 text-[0.875rem]", on ? "bg-ink text-paper" : "bg-sand hover:bg-champagne")}
               >
                 {s === "Único" ? "Tamanho único" : s}
               </button>
@@ -138,7 +138,7 @@ export function FilterPanel({
                 aria-pressed={on}
                 onClick={() => onChange({ ...filters, colors: toggle(filters.colors, c) })}
                 className={cn(
-                  "press inline-flex min-h-11 items-center gap-2 px-3 text-[0.92rem]",
+                  "press inline-flex min-h-11 items-center gap-2 px-3 text-[0.875rem]",
                   on ? "bg-ink text-paper" : "bg-sand hover:bg-champagne",
                 )}
               >
@@ -160,7 +160,7 @@ export function FilterPanel({
                 role="radio"
                 aria-checked={on}
                 onClick={() => onChange({ ...filters, availability: o.value })}
-                className={cn("press min-h-11 px-4 text-[0.92rem]", on ? "bg-ink text-paper" : "bg-sand hover:bg-champagne")}
+                className={cn("press min-h-11 px-4 text-[0.875rem]", on ? "bg-ink text-paper" : "bg-sand hover:bg-champagne")}
               >
                 {o.label}
               </button>

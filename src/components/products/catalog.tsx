@@ -100,7 +100,7 @@ export function Catalog() {
                   type="button"
                   aria-pressed={on}
                   onClick={() => commit({ ...filters, category: c.slug })}
-                  className={cn("press min-h-11 px-4 text-[0.95rem] whitespace-nowrap", on ? "bg-ink text-paper" : "bg-sand hover:bg-champagne")}
+                  className={cn("press min-h-11 px-4 text-[1rem] whitespace-nowrap", on ? "bg-ink text-paper" : "bg-sand hover:bg-champagne")}
                 >
                   {c.label}
                 </button>
@@ -148,7 +148,7 @@ export function Catalog() {
             Filtrar{activeCount ? ` (${activeCount})` : ""}
           </button>
           <label className="flex h-12 flex-1 items-center gap-2 bg-sand pl-4 md:flex-none">
-            <span className="text-[0.92rem] whitespace-nowrap text-muted">Ordenar</span>
+            <span className="text-[0.875rem] whitespace-nowrap text-muted">Ordenar</span>
             <select
               value={filters.sort}
               onChange={(e) => commit({ ...filters, sort: e.target.value as SortKey })}
@@ -169,9 +169,9 @@ export function Catalog() {
         <aside aria-label="Filtros" className="hidden lg:col-span-3 lg:block">
           <div className="sticky top-[calc(var(--header-h)+24px)] max-h-[calc(100svh-var(--header-h)-48px)] overflow-y-auto pr-2 pb-6 no-scrollbar">
             <div className="mb-5 flex items-baseline justify-between">
-              <h2 className="font-display text-[1.6rem] leading-none">Filtros</h2>
+              <h2 className="font-display text-[1.625rem] leading-none">Filtros</h2>
               {activeCount || filters.q ? (
-                <button type="button" onClick={clearAll} className="text-[0.92rem] underline underline-offset-4">
+                <button type="button" onClick={clearAll} className="text-[0.875rem] underline underline-offset-4">
                   Limpar filtros
                 </button>
               ) : null}
@@ -182,7 +182,7 @@ export function Catalog() {
 
         <div className="col-span-12 lg:col-span-9">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <p aria-live="polite" className="text-[0.95rem]">
+            <p aria-live="polite" className="text-[1rem]">
               <strong className="font-semibold tabular-nums">{results.length}</strong>{" "}
               {results.length === 1 ? "peça encontrada" : "peças encontradas"}
               {catLabel ? ` em ${catLabel}` : ""}
@@ -197,7 +197,7 @@ export function Catalog() {
                         if (c.key === "q") setQuery("");
                         commit(c.remove);
                       }}
-                      className="press inline-flex min-h-9 items-center gap-1.5 bg-champagne/60 px-3 text-[0.88rem] hover:bg-champagne"
+                      className="press inline-flex min-h-9 items-center gap-1.5 bg-champagne/60 px-3 text-[0.875rem] hover:bg-champagne"
                       aria-label={`Remover filtro ${c.label}`}
                     >
                       {c.label} <X className="size-3.5" aria-hidden />
@@ -205,7 +205,7 @@ export function Catalog() {
                   </li>
                 ))}
                 <li>
-                  <button type="button" onClick={clearAll} className="min-h-9 px-2 text-[0.88rem] underline underline-offset-4">
+                  <button type="button" onClick={clearAll} className="min-h-9 px-2 text-[0.875rem] underline underline-offset-4">
                     Limpar filtros
                   </button>
                 </li>
@@ -250,7 +250,7 @@ export function Catalog() {
 
           {results.length > shown.length ? (
             <div className="mt-12 flex flex-col items-center gap-3">
-              <p className="text-[0.95rem] text-muted tabular-nums">
+              <p className="text-[1rem] text-muted tabular-nums">
                 Mostrando {shown.length} de {results.length}
               </p>
               <button type="button" onClick={() => setVisible((v) => v + PAGE)} className="btn btn-dark">
@@ -258,7 +258,7 @@ export function Catalog() {
               </button>
             </div>
           ) : results.length > PAGE ? (
-            <p className="mt-12 text-center text-[0.95rem] text-muted">Você viu todas as {results.length} peças.</p>
+            <p className="mt-12 text-center text-[1rem] text-muted">Você viu todas as {results.length} peças.</p>
           ) : null}
         </div>
       </div>

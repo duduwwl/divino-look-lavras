@@ -22,9 +22,9 @@ export function InstagramStrip() {
           <h2 id="instagram-titulo" className="font-display text-[2rem] leading-tight tracking-[-0.015em] md:text-[2.6rem]">
             Acompanhe a Divino Look no Instagram
           </h2>
-          <p className="mt-2 max-w-[56ch] text-muted">
+          <p className="mt-2 max-w-[56ch]">
             Lançamentos, provas de look e bastidores da loja aparecem primeiro em {siteConfig.instagramHandle}. As imagens abaixo
-            são ilustrativas — os posts reais estão no perfil.
+            são ilustrativas; os posts reais estão no perfil.
           </p>
         </div>
         <a href={siteConfig.instagram} target="_blank" rel="noopener noreferrer" className="btn btn-dark self-start md:self-auto">

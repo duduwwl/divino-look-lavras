@@ -56,7 +56,7 @@ export function SiteHeader() {
             <Menu className="size-[22px]" strokeWidth={1.5} />
           </button>
 
-          <Link href="/" className="relative flex h-11 items-center" aria-label="Divino Look — início">
+          <Link href="/" className="relative flex h-11 items-center" aria-label="Divino Look, página inicial">
             <AnimatePresence initial={false}>
               {pastHero ? (
                 <motion.span
@@ -65,7 +65,7 @@ export function SiteHeader() {
                   animate={{ opacity: 1, transform: "translateY(0px)" }}
                   exit={{ opacity: 0, transform: reduce ? "none" : "translateY(-6px)" }}
                   transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-                  className="font-display text-[1.45rem] leading-none tracking-[-0.02em] whitespace-nowrap"
+                  className="font-display text-[1.625rem] leading-none tracking-[-0.02em] whitespace-nowrap"
                 >
                   Divino Look
                 </motion.span>
@@ -75,7 +75,7 @@ export function SiteHeader() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="font-display text-[1.45rem] leading-none tracking-[-0.04em]"
+                  className="font-display text-[1.625rem] leading-none tracking-[-0.04em]"
                   aria-hidden
                 >
                   LD
@@ -85,7 +85,7 @@ export function SiteHeader() {
           </Link>
 
           <nav aria-label="Principal" className="mx-auto hidden lg:block">
-            <ul className="flex items-center gap-8 text-[0.95rem]">
+            <ul className="flex items-center gap-8 text-[1rem]">
               {navLinks.map((l) => (
                 <li key={l.href}>
                   <Link
@@ -113,7 +113,7 @@ export function SiteHeader() {
               href={whatsappLink(generalMessage)}
               target="_blank"
               rel="noopener noreferrer"
-              className="press hidden h-11 items-center gap-2 px-3 text-[0.95rem] sm:inline-flex"
+              className="press hidden h-11 items-center gap-2 px-3 text-[1rem] sm:inline-flex"
             >
               <MessageCircle className="size-[19px]" strokeWidth={1.5} aria-hidden />
               WhatsApp
@@ -125,7 +125,7 @@ export function SiteHeader() {
               aria-label={`Abrir sacola, ${count} ${count === 1 ? "item" : "itens"}`}
             >
               <ShoppingBag className="size-[20px]" strokeWidth={1.5} />
-              <span className="hidden text-[0.95rem] md:inline">Sacola</span>
+              <span className="hidden text-[1rem] md:inline">Sacola</span>
               <AnimatePresence mode="popLayout" initial={false}>
                 <motion.span
                   key={count}
@@ -134,7 +134,7 @@ export function SiteHeader() {
                   exit={{ opacity: 0, transform: reduce ? "none" : "translateY(8px) scale(0.9)" }}
                   transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
                   className={cn(
-                    "inline-flex h-6 min-w-6 items-center justify-center px-1.5 text-[0.8rem] font-semibold tabular-nums",
+                    "inline-flex h-6 min-w-6 items-center justify-center px-1.5 text-[0.875rem] font-semibold tabular-nums",
                     count > 0 ? "bg-brown text-on-brown" : "bg-sand text-ink",
                   )}
                   aria-hidden
@@ -160,7 +160,7 @@ export function SiteHeader() {
                 <Link
                   href={l.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block py-2.5 font-display text-[2.4rem] leading-[1.05] tracking-[-0.02em]"
+                  className="block py-2.5 font-display text-[2.6rem] leading-[1.05] tracking-[-0.02em]"
                 >
                   {l.label}
                 </Link>
@@ -181,7 +181,7 @@ export function SiteHeader() {
             <a href={whatsappLink(generalMessage)} target="_blank" rel="noopener noreferrer" className="btn btn-light justify-start">
               <MessageCircle className="size-5" strokeWidth={1.5} aria-hidden /> Falar no WhatsApp
             </a>
-            <p className="mt-4 text-[0.95rem] opacity-85">
+            <p className="mt-4 text-[1rem] opacity-85">
               {siteConfig.address.street}
               <br />
               {siteConfig.address.district} · {siteConfig.address.city}–{siteConfig.address.state}

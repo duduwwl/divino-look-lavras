@@ -59,7 +59,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
             >
               <Image
                 src={images[index]}
-                alt={`${name} — foto ${index + 1}`}
+                alt={`${name}, foto ${index + 1}`}
                 fill
                 priority={index === 0}
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -76,7 +76,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="press absolute right-3 bottom-3 inline-flex min-h-11 items-center gap-2 bg-paper px-3 text-[0.9rem]"
+          className="press absolute right-3 bottom-3 inline-flex min-h-11 items-center gap-2 bg-paper px-3 text-[0.875rem]"
         >
           <ZoomIn className="size-4" strokeWidth={1.5} aria-hidden /> Ampliar
         </button>
@@ -103,7 +103,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
             }}
           >
             <div className="flex items-center justify-between px-4 py-3">
-              <Dialog.Title className="text-[0.95rem]">
+              <Dialog.Title className="text-[1rem]">
                 {name} · foto {index + 1} de {images.length}
               </Dialog.Title>
               <Dialog.Description className="sr-only">Use as setas para trocar de foto.</Dialog.Description>
@@ -112,7 +112,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
               </Dialog.Close>
             </div>
             <div className="relative min-h-0 flex-1">
-              <Image src={images[index]} alt={`${name} — foto ${index + 1} ampliada`} fill sizes="100vw" quality={85} className="object-contain" />
+              <Image src={images[index]} alt={`${name}, foto ${index + 1} ampliada`} fill sizes="100vw" quality={85} className="object-contain" />
             </div>
             <div className="flex justify-center gap-2 py-4">
               <button type="button" onClick={() => go(-1)} className="press inline-flex size-12 items-center justify-center bg-paper/10" aria-label="Foto anterior">

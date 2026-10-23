@@ -60,7 +60,7 @@ export default function PopStepper({
       <div
         className={cn(
           "inline-flex items-center justify-center overflow-hidden tabular-nums",
-          size === "sm" ? "min-w-8 text-[0.95rem]" : "min-w-10 text-lg",
+          size === "sm" ? "min-w-8 text-[1rem]" : "min-w-10 text-lg",
         )}
       >
         <motion.span

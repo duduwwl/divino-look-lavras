@@ -60,14 +60,14 @@ export function ProductDetail({ product }: { product: Product }) {
 
   return (
     <div className="flex flex-col">
-      <p className="text-[0.92rem] text-muted">
+      <p className="text-[0.875rem] text-muted">
         {categoryLabel[product.category]}
         {product.isNew ? " · Novidade" : ""}
       </p>
-      <h1 className="mt-2 font-display text-[2.4rem] leading-[1.02] tracking-[-0.025em] md:text-[3.2rem]">{product.name}</h1>
+      <h1 className="mt-2 font-display text-[2.6rem] leading-[1.02] tracking-[-0.025em] md:text-[2.6rem]">{product.name}</h1>
 
       <div className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <p className="text-[1.6rem] font-semibold tabular-nums">{formatBRL(product.price)}</p>
+        <p className="text-[1.625rem] font-semibold tabular-nums">{formatBRL(product.price)}</p>
         {product.originalPrice ? (
           <p className="text-muted tabular-nums">
             <span className="sr-only">Preço anterior: </span>
@@ -75,19 +75,19 @@ export function ProductDetail({ product }: { product: Product }) {
           </p>
         ) : null}
       </div>
-      <p className="text-[0.95rem] text-muted tabular-nums">{installments(product.price)} sem juros (demonstrativo)</p>
+      <p className="text-[1rem] text-muted tabular-nums">{installments(product.price)} sem juros (demonstrativo)</p>
 
-      <p className={cn("mt-4 inline-flex items-center gap-2 text-[0.95rem] font-semibold", product.inStock ? "text-[#3f6b3a]" : "text-[#8a2d22]")}>
+      <p className={cn("mt-4 inline-flex items-center gap-2 text-[1rem] font-semibold", product.inStock ? "text-[#3f6b3a]" : "text-[#8a2d22]")}>
         <span className={cn("size-2 rounded-full", product.inStock ? "bg-[#3f6b3a]" : "bg-[#8a2d22]")} aria-hidden />
         {product.inStock ? "Disponível" : "Esgotado no momento"}
       </p>
 
       <fieldset className="mt-7">
-        <legend className="flex w-full items-baseline justify-between text-[0.95rem] font-semibold">
+        <legend className="flex w-full items-baseline justify-between text-[1rem] font-semibold">
           <span>
             Tamanho{size ? <span className="font-normal text-muted"> · {size}</span> : null}
           </span>
-          <button type="button" onClick={() => setTab(1)} className="text-[0.9rem] font-normal underline underline-offset-4">
+          <button type="button" onClick={() => setTab(1)} className="text-[0.875rem] font-normal underline underline-offset-4">
             Guia de medidas
           </button>
         </legend>
@@ -107,7 +107,7 @@ export function ProductDetail({ product }: { product: Product }) {
       </fieldset>
 
       <fieldset className="mt-6">
-        <legend className="text-[0.95rem] font-semibold">
+        <legend className="text-[1rem] font-semibold">
           Cor{color ? <span className="font-normal text-muted"> · {color}</span> : null}
         </legend>
         <div className="mt-2.5 flex flex-wrap gap-1.5">
@@ -129,7 +129,7 @@ export function ProductDetail({ product }: { product: Product }) {
       </fieldset>
 
       <div className="mt-6">
-        <p className="text-[0.95rem] font-semibold" id="qtd-label">
+        <p className="text-[1rem] font-semibold" id="qtd-label">
           Quantidade
         </p>
         <PopStepper value={qty} onChange={setQty} max={MAX_QTY} className="mt-2.5" label="Quantidade" />
@@ -142,7 +142,7 @@ export function ProductDetail({ product }: { product: Product }) {
             initial={{ opacity: 0, y: -4 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="mt-5 text-[0.95rem] font-semibold text-[#8a2d22]"
+            className="mt-5 text-[1rem] font-semibold text-[#8a2d22]"
           >
             {missing} para adicionar à sacola.
           </motion.p>
@@ -200,7 +200,7 @@ export function ProductDetail({ product }: { product: Product }) {
         <MessageCircle className="size-5" strokeWidth={1.5} aria-hidden />
         {product.inStock ? "Comprar pelo WhatsApp" : "Avise-me pelo WhatsApp"}
       </a>
-      <p className="mt-3 text-[0.88rem] text-muted">
+      <p className="mt-3 text-[0.875rem] text-muted">
         A mensagem já vai com nome, tamanho, cor, quantidade e preço. Pagamento e entrega são combinados com a loja.
       </p>
 
@@ -214,7 +214,7 @@ export function ProductDetail({ product }: { product: Product }) {
               aria-selected={tab === i}
               aria-controls={`painel-${i}`}
               onClick={() => setTab(i)}
-              className={cn("press min-h-11 px-4 text-[0.95rem]", tab === i ? "bg-ink text-paper" : "bg-sand hover:bg-champagne")}
+              className={cn("press min-h-11 px-4 text-[1rem]", tab === i ? "bg-ink text-paper" : "bg-sand hover:bg-champagne")}
             >
               {t}
             </button>
@@ -235,11 +235,11 @@ export function ProductDetail({ product }: { product: Product }) {
               <p className="max-w-[60ch]">{product.description}</p>
             </div>,
             <div key="t" role="tabpanel" id="painel-1" aria-labelledby="tab-1">
-              <table className="w-full max-w-[560px] text-left text-[0.95rem]">
-                <caption className="pb-2 text-left text-[0.88rem] text-muted">Medidas de referência em centímetros (tabela demonstrativa)</caption>
+              <table className="w-full max-w-[560px] text-left text-[1rem]">
+                <caption className="pb-2 text-left text-[0.875rem] text-muted">Medidas de referência em centímetros (tabela demonstrativa)</caption>
                 <tbody>
                   {product.sizes.map((s) => (
-                    <tr key={s} className="border-b border-ink/10">
+                    <tr key={s} className="border-b border-ink/10" /* taste-skill-ignore: real table */>
                       <th scope="row" className="w-16 py-2 font-semibold">
                         {s}
                       </th>

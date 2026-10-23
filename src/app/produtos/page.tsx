@@ -5,7 +5,7 @@ import { Catalog } from "@/components/products/catalog";
 import { TextEffect } from "@/components/motion-primitives/text-effect";
 
 export const metadata: Metadata = {
-  title: "Produtos — Nossa coleção",
+  title: "Nossa coleção",
   description:
     "Catálogo da Divino Look: vestidos, conjuntos, blusas, calças, saias e moda fitness. Filtre por tamanho, cor, preço e disponibilidade.",
   alternates: { canonical: "produtos/" },
@@ -16,7 +16,7 @@ export default function ProdutosPage() {
   return (
     <div className="pb-[clamp(96px,12vw,180px)]">
       <header className="frame pt-6 pb-8 lg:pt-10 lg:pb-12">
-        <nav aria-label="Trilha de navegação" className="text-[0.92rem] text-muted">
+        <nav aria-label="Trilha de navegação" className="text-[0.875rem] text-muted">
           <ol className="flex flex-wrap items-center gap-2">
             <li>
               <Link href="/" className="link-underline">
@@ -39,16 +39,16 @@ export default function ProdutosPage() {
             Nossa coleção
           </TextEffect>
           <p className="col-span-12 max-w-[46ch] self-end lg:col-span-4 lg:pb-3">
-            Peças selecionadas para montar looks completos — do vestido de festa à legging do treino. Combine os filtros,
+            Peças selecionadas para montar looks completos, do vestido de festa à legging do treino. Combine os filtros,
             compartilhe o link filtrado e finalize pelo WhatsApp.
           </p>
         </div>
-        <p className="mt-6 text-[0.88rem] text-muted">
+        <p className="mt-6 text-[0.875rem] text-muted">
           Catálogo demonstrativo: preços, tamanhos, cores e estoque são ilustrativos e serão substituídos pelos dados da loja.
         </p>
       </header>
 
-      <Suspense fallback={<div className="frame min-h-[60svh] animate-pulse bg-sand/50" aria-busy="true" />}>
+      <Suspense fallback={<div className="frame min-h-[60svh] bg-sand/50" aria-busy="true" />}>
         <Catalog />
       </Suspense>
     </div>
