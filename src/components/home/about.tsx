@@ -34,7 +34,7 @@ export function About() {
     <section id="sobre" aria-labelledby="sobre-titulo" className="frame pt-[clamp(96px,12vw,200px)]">
       <div className="grid grid-cols-12 gap-x-6 gap-y-12">
         <div className="col-span-12 lg:col-span-5">
-          <div className="lg:sticky lg:top-[calc(var(--header-h)+8vh)]">
+          <div>
             <h2 id="sobre-titulo" className="font-display text-[15vw] leading-[0.86] tracking-[-0.04em] sm:text-[4.6rem] lg:text-[clamp(64px,5.8vw,104px)]">
               Rua Santana, 208
             </h2>

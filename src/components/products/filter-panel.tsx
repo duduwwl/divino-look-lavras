@@ -79,7 +79,7 @@ export function FilterPanel({
             setRange([lo, hi]);
             commitRange([lo, hi]);
           }}
-          className="w-full min-w-0 bg-transparent font-semibold tabular-nums outline-none"
+          className="w-full min-w-0 bg-transparent font-semibold tabular-nums outline-none focus-visible:outline-2 focus-visible:outline-brown"
           aria-label={which === 0 ? "Preço mínimo em reais" : "Preço máximo em reais"}
         />
       </span>

@@ -44,7 +44,7 @@ export function SearchDialog({ open, onOpenChange }: { open: boolean; onOpenChan
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Vestido, conjunto, cor…"
-            className="h-14 w-full bg-transparent text-lg outline-none placeholder:text-muted"
+            className="h-14 w-full bg-transparent text-lg outline-none placeholder:text-muted focus-visible:outline-2 focus-visible:outline-brown"
             autoComplete="off"
           />
         </div>

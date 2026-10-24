@@ -26,7 +26,7 @@ export function Hero() {
   } = getImageProps({ ...common, src: photo(HERO_ID, "4:5"), width: 1080, height: 1350 });
 
   return (
-    <section ref={ref} aria-labelledby="hero-title" className="relative flex min-h-[calc(100svh-var(--header-h))] flex-col">
+    <section ref={ref} aria-label="Divino Look" className="relative flex min-h-[calc(100svh-var(--header-h))] flex-col">
       <div className="relative h-[36svh] overflow-hidden bg-sand md:h-[42svh] lg:h-[43svh]">
         <motion.div style={{ y: photoY }} className="absolute inset-0 -top-[6%] h-[112%]">
           <picture>
@@ -42,7 +42,7 @@ export function Hero() {
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div className="max-w-[46rem]">
             <TextEffect
-              as="p"
+              as="h1"
               per="word"
               preset="fade-in-blur"
               speedReveal={1.1}
@@ -51,7 +51,7 @@ export function Hero() {
               Seu estilo. Sua essência. Seu momento.
             </TextEffect>
             <motion.p
-              initial={reduce ? false : { opacity: 0, transform: "translateY(12px)" }}
+              initial={false}
               animate={{ opacity: 1, transform: "translateY(0px)" }}
               transition={{ delay: 0.55, duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
               className="mt-2 text-[1rem]"
@@ -59,8 +59,9 @@ export function Hero() {
               Boutique de moda feminina no centro de Lavras–MG, com looks completos para se vestir bem.
             </motion.p>
           </div>
-          <motion.div
-            initial={reduce ? false : { opacity: 0, transform: "translateY(12px)" }}
+          <motion.nav
+            aria-label="Atalhos da coleção"
+            initial={false}
             animate={{ opacity: 1, transform: "translateY(0px)" }}
             transition={{ delay: 0.7, duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
             className="flex flex-wrap gap-2"
@@ -71,20 +72,19 @@ export function Hero() {
             <Link href="/produtos" className="btn btn-sand">
               Ver produtos
             </Link>
-          </motion.div>
+          </motion.nav>
         </div>
 
-        <motion.h1
-          id="hero-title"
+        <motion.p
+          aria-hidden="true"
           style={{ scale: wordScale, transformOrigin: "50% 100%" }}
-          initial={reduce ? false : { y: "10%" }}
+          initial={false}
           animate={{ y: "0%" }}
           transition={{ duration: 1.1, ease: [0.23, 1, 0.32, 1], delay: 0.1 }}
-          className="wordmark mt-auto pt-5 pb-[0.06em] text-[32vw] md:text-[clamp(120px,18.7vw,380px)]"
+          className="wordmark mt-auto max-w-full pt-5 pb-[0.06em] text-[31vw] md:text-[clamp(116px,17.8vw,360px)]"
         >
           <span className="block md:inline">Divino</span> <span className="block md:inline">Look</span>
-          <span className="sr-only">, moda feminina em Lavras–MG</span>
-        </motion.h1>
+        </motion.p>
       </div>
     </section>
   );

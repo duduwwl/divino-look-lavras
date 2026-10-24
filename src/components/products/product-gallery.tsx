@@ -37,8 +37,10 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
       </ul>
 
       <div className="relative flex-1">
-        <div
-          className="relative aspect-[4/5] cursor-zoom-in overflow-hidden bg-sand"
+        <button
+          type="button"
+          aria-label={`Ampliar ${name}, foto ${index + 1}`}
+          className="relative block aspect-[4/5] w-full cursor-zoom-in overflow-hidden bg-sand text-left"
           onMouseMove={(e) => {
             if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
               const r = e.currentTarget.getBoundingClientRect();
@@ -72,7 +74,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
               />
             </motion.div>
           </AnimatePresence>
-        </div>
+        </button>
         <button
           type="button"
           onClick={() => setOpen(true)}
@@ -96,7 +98,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 z-[70] bg-ink" />
           <Dialog.Content
-            className="fixed inset-0 z-[71] flex flex-col text-paper outline-none"
+            className="fixed inset-0 z-[71] flex flex-col text-paper focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-paper"
             onKeyDown={(e) => {
               if (e.key === "ArrowRight") go(1);
               if (e.key === "ArrowLeft") go(-1);

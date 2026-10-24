@@ -69,7 +69,7 @@ export function Sheet({
             <Dialog.Content asChild forceMount aria-describedby={description ? undefined : undefined}>
               <motion.div
                 className={cn(
-                  "fixed z-[61] flex flex-col outline-none",
+                  "fixed z-[61] flex flex-col focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-current",
                   placement[side],
                   tone === "brown" ? "on-dark bg-brown text-on-brown" : "bg-paper text-ink",
                   className,

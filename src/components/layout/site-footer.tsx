@@ -10,10 +10,8 @@ import { generalMessage, whatsappLink } from "@/lib/whatsapp";
 import VerticalCutReveal from "@/components/fancy/vertical-cut-reveal";
 
 /**
- * Sticky footer — Fancy Components "Sticky Footer" block pattern:
- * the page content sits above (relative, z-10, opaque background) and this
- * footer is `sticky bottom-0` underneath, so the last section lifts off it.
- * The brand name returns at full width in the colours of the LD monogram.
+ * Full-page footer: the brand name returns at full width in the colours of
+ * the LD monogram, in normal document flow on every viewport.
  */
 export function SiteFooter() {
   const ref = useRef<HTMLElement>(null);
@@ -26,7 +24,7 @@ export function SiteFooter() {
   return (
     <footer
       ref={ref}
-      className="on-dark sticky bottom-0 z-0 flex min-h-[100svh] flex-col bg-brown text-on-brown lg:min-h-[92svh]"
+      className="on-dark relative z-10 flex min-h-0 flex-col bg-brown text-on-brown lg:min-h-[92svh]"
       aria-labelledby="rodape-titulo"
     >
       <h2 id="rodape-titulo" className="sr-only">

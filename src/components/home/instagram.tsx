@@ -16,7 +16,7 @@ const tiles = [
 
 export function InstagramStrip() {
   return (
-    <section aria-labelledby="instagram-titulo" className="pt-[clamp(96px,12vw,200px)]">
+    <section aria-labelledby="instagram-titulo" className="pt-[clamp(160px,14vw,220px)]">
       <div className="frame flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <h2 id="instagram-titulo" className="font-display text-[2rem] leading-tight tracking-[-0.015em] md:text-[2.6rem]">

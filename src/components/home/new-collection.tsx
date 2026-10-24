@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
  * (/produtos) with the matching filter. The frame shows the theme in focus.
  */
 const themes = [
-  { title: "Alfaiataria leve", note: "Blazers e calças para o dia todo", href: "/produtos?categoria=conjuntos", img: photo("1613915617430-8ab0fd7c6baf", "4:5") },
+  { title: "Alfaiataria leve", note: "Blazers e calças para o dia todo", href: "/produtos?categoria=conjuntos", img: photo("1617647858823-2424b6dc472f", "4:5") },
   { title: "Vestidos fluidos", note: "Midi, longos e chemises", href: "/produtos?categoria=vestidos", img: photo("1747396206869-75ea57b325ce", "4:5") },
   { title: "Cores de estação", note: "Vermelho, verde e rosé", href: "/produtos?cores=Vermelho,Verde,Rosa", img: photo("1662532577856-e8ee8b138a8b", "4:5") },
   { title: "Saias com movimento", note: "Evasê, midi e estampas", href: "/produtos?categoria=saias", img: photo("1590852669429-d1cd8775ea59", "4:5") },
@@ -64,9 +64,10 @@ export function NewCollection() {
                 </Link>
                 <Link
                   href={t.href}
+                  aria-label={`${t.title}: ${t.note}`}
                   onMouseEnter={() => setActive(i)}
                   onFocus={() => setActive(i)}
-                  className="group flex flex-col gap-1 py-[6px] lg:flex-row lg:items-baseline lg:gap-5"
+                  className="group block py-[6px]"
                 >
                   <span
                     className={cn(
@@ -76,7 +77,6 @@ export function NewCollection() {
                   >
                     {t.title}
                   </span>
-                  <span className="text-[0.875rem] text-muted lg:whitespace-nowrap">{t.note}</span>
                 </Link>
               </div>
             ))}
@@ -89,16 +89,18 @@ export function NewCollection() {
 
         <div className="hidden lg:col-span-4 lg:block">
           <div className="sticky top-[15vh] aspect-[4/5] w-full overflow-hidden bg-sand">
-            {themes.map((t, i) => (
-              <Image
-                key={t.title}
-                src={t.img}
-                alt={i === active ? t.title : ""}
-                fill
-                sizes="30vw"
-                className={cn("object-cover transition-opacity duration-200", i === active ? "opacity-100" : "opacity-0")}
-              />
-            ))}
+            <div className="relative h-full w-full">
+              {themes.map((t, i) => (
+                <Image
+                  key={t.title}
+                  src={t.img}
+                  alt={i === active ? t.title : ""}
+                  fill
+                  sizes="30vw"
+                  className={cn("object-cover transition-opacity duration-200", i === active ? "opacity-100" : "opacity-0")}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

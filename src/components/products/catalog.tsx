@@ -123,13 +123,13 @@ export function Catalog() {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar por nome, cor ou categoria"
-              className="h-full w-full min-w-0 bg-transparent outline-none placeholder:text-muted"
+              placeholder="Buscar por nome, cor ou categoria…"
+              className="h-full w-full min-w-0 bg-transparent outline-none placeholder:text-muted focus-visible:outline-2 focus-visible:outline-brown"
               autoComplete="off"
             />
             {query ? (
               <button type="button" onClick={() => setQuery("")} className="press -mr-2 inline-flex size-10 items-center justify-center" aria-label="Limpar busca">
-                <X className="size-4" />
+                <X className="size-4" aria-hidden />
               </button>
             ) : null}
           </div>
@@ -152,7 +152,7 @@ export function Catalog() {
             <select
               value={filters.sort}
               onChange={(e) => commit({ ...filters, sort: e.target.value as SortKey })}
-              className="h-full min-w-0 flex-1 cursor-pointer bg-transparent pr-3 font-semibold outline-none"
+              className="h-full min-w-0 flex-1 cursor-pointer bg-transparent pr-3 font-semibold outline-none focus-visible:outline-2 focus-visible:outline-brown"
             >
               {sortOptions.map((o) => (
                 <option key={o.value} value={o.value}>
