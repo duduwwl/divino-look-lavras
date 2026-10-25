@@ -4,28 +4,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { photo } from "@/lib/photos";
 import { cn } from "@/lib/utils";
 
 const prints = [
   {
     href: "/produtos?categoria=conjuntos",
-    img: photo("1613915617430-8ab0fd7c6baf", "3:4"),
-    alt: "Look de alfaiataria em tons neutros",
+    img: "/products/conjunto-verde-de-alfaiataria/01.jpg",
+    alt: "Conjunto verde de alfaiataria da Divino Look",
     caption: "Alfaiataria do dia",
     rotate: -8,
   },
   {
     href: "/produtos?categoria=vestidos",
-    img: photo("1752074211535-b1741213b0cb", "3:4"),
-    alt: "Look claro e leve perto de uma janela",
+    img: "/products/vestido-longo-coral/01.jpg",
+    alt: "Vestido longo coral da Divino Look",
     caption: "Leveza para o fim de tarde",
     rotate: 6,
   },
   {
     href: "/produtos?categoria=fitness",
-    img: photo("1788463127375-423984537d89", "3:4"),
-    alt: "Conjuntos fitness combinando",
+    img: "/products/conjunto-fitness-verde-menta/03.jpg",
+    alt: "Conjunto fitness verde menta da Divino Look",
     caption: "Treino com estilo",
     rotate: -3,
   },

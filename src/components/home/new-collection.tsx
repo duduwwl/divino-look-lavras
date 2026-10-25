@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { photo } from "@/lib/photos";
 import { InView } from "@/components/motion-primitives/in-view";
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
 import { cn } from "@/lib/utils";
@@ -14,12 +13,12 @@ import { cn } from "@/lib/utils";
  * (/produtos) with the matching filter. The frame shows the theme in focus.
  */
 const themes = [
-  { title: "Alfaiataria leve", note: "Blazers e calças para o dia todo", href: "/produtos?categoria=conjuntos", img: photo("1617647858823-2424b6dc472f", "4:5") },
-  { title: "Vestidos fluidos", note: "Midi, longos e chemises", href: "/produtos?categoria=vestidos", img: photo("1747396206869-75ea57b325ce", "4:5") },
-  { title: "Cores de estação", note: "Vermelho, verde e rosé", href: "/produtos?cores=Vermelho,Verde,Rosa", img: photo("1662532577856-e8ee8b138a8b", "4:5") },
-  { title: "Saias com movimento", note: "Evasê, midi e estampas", href: "/produtos?categoria=saias", img: photo("1590852669429-d1cd8775ea59", "4:5") },
-  { title: "Treino com estilo", note: "Conjuntos e leggings", href: "/produtos?categoria=fitness", img: photo("1606902965551-dce093cda6e7", "4:5") },
-  { title: "Recém-chegados", note: "Tudo o que acabou de chegar", href: "/produtos?categoria=lancamentos", img: photo("1750064773510-bbbf549db4d2", "4:5") },
+  { title: "Alfaiataria leve", note: "Blazers e calças para o dia todo", href: "/produtos?categoria=conjuntos", img: "/products/conjunto-rosa-pink-de-alfaiataria/01.jpg" },
+  { title: "Vestidos fluidos", note: "Midi, longos e chemises", href: "/produtos?categoria=vestidos", img: "/products/vestido-longo-listrado-coral/01.jpg" },
+  { title: "Cores de estação", note: "Vermelho, verde e rosé", href: "/produtos?cores=Vermelho,Verde,Rosa", img: "/products/conjunto-vermelho/01.jpg" },
+  { title: "Saias com movimento", note: "Evasê, midi e estampas", href: "/produtos?categoria=saias", img: "/products/saia-longa-de-renda-branca/01.jpg" },
+  { title: "Treino com estilo", note: "Conjuntos e leggings", href: "/produtos?categoria=fitness", img: "/products/conjunto-fitness-verde-menta/03.jpg" },
+  { title: "Recém-chegados", note: "Tudo o que acabou de chegar", href: "/produtos?categoria=lancamentos", img: "/products/macaquinho-jeans-utilitario/02.jpg" },
 ];
 
 export function NewCollection() {

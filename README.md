@@ -39,11 +39,11 @@ Requer Node 22+.
 Para trocar o WhatsApp sem mexer no código: **Settings → Secrets and variables → Actions → Variables → `WHATSAPP_NUMBER`**.
 Endereço, Instagram e grupo VIP ficam em `src/config/site.ts`.
 
-## Dados demonstrativos
+## Catálogo
 
-`src/data/products.ts` tem 33 produtos **fictícios** (nomes, preços, tamanhos, cores e estoque ilustrativos).
-As fotos são do [Unsplash](https://unsplash.com/license), servidas pelo CDN do Unsplash com recorte e largura por tela
-(`src/lib/image-loader.ts`). Substitua pelas fotos e dados reais da loja antes do lançamento.
+`src/data/products.ts` reúne 154 produtos organizados a partir das 423 fotografias fornecidas pela Divino Look.
+As fotos ficam em `public/products`, separadas em uma pasta por produto. Preços, tamanhos, cores e estoque continuam demonstrativos
+até a loja fornecer a planilha oficial.
 
 ## Bibliotecas de componentes usadas
 

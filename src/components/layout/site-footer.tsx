@@ -115,7 +115,7 @@ export function SiteFooter() {
       </div>
       <div className="frame flex flex-col gap-1 pt-4 pb-5 text-[0.875rem] opacity-80 sm:flex-row sm:justify-between">
         <p>© {new Date().getFullYear()} Divino Look · Lavras–MG. Todos os direitos reservados.</p>
-        <p>Fotos ilustrativas (Unsplash) e preços demonstrativos.</p>
+        <p>Fotos reais da coleção Divino Look; preços demonstrativos.</p>
       </div>
     </footer>
   );

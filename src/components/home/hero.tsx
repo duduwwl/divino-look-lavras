@@ -5,9 +5,8 @@ import { getImageProps } from "next/image";
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { TextEffect } from "@/components/motion-primitives/text-effect";
-import { photo } from "@/lib/photos";
 
-const HERO_ID = "1618244965061-1d27b208d6e8";
+const HERO_IMAGE = "/products/macaquinho-jeans-utilitario/02.jpg";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -17,13 +16,18 @@ export function Hero() {
   const wordScale = useTransform(scrollYProgress, [0, 1], reduce ? [1, 1] : [1, 0.93]);
   const photoY = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["0%", "12%"]);
 
-  const common = { alt: "Mulher de casaco marrom diante de uma porta escura, em clima de campanha de moda", sizes: "100vw", priority: true };
+  const common = {
+    alt: "Modelo usando macaquinho jeans da coleção Divino Look",
+    sizes: "100vw",
+    priority: true,
+    loading: "eager" as const,
+  };
   const {
     props: { srcSet: desktop },
-  } = getImageProps({ ...common, src: photo(HERO_ID, "16:9"), width: 1920, height: 1080 });
+  } = getImageProps({ ...common, src: HERO_IMAGE, width: 1920, height: 1080 });
   const {
     props: { srcSet: mobile, ...rest },
-  } = getImageProps({ ...common, src: photo(HERO_ID, "4:5"), width: 1080, height: 1350 });
+  } = getImageProps({ ...common, src: HERO_IMAGE, width: 1080, height: 1350 });
 
   return (
     <section ref={ref} aria-label="Divino Look" className="relative flex min-h-[calc(100svh-var(--header-h))] flex-col">
@@ -33,7 +37,7 @@ export function Hero() {
             <source media="(min-width: 768px)" srcSet={desktop} />
             <source media="(max-width: 767px)" srcSet={mobile} />
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
-            <img {...rest} className="h-full w-full object-cover object-[50%_30%]" fetchPriority="high" />
+            <img {...rest} className="h-full w-full object-cover object-top" fetchPriority="high" />
           </picture>
         </motion.div>
       </div>

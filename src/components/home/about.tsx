@@ -1,27 +1,26 @@
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
-import { photo } from "@/lib/photos";
 import { InView } from "@/components/motion-primitives/in-view";
 import { whatsappLink } from "@/lib/whatsapp";
 
 const passes = [
   {
-    img: photo("1769107805412-90d9191d53e9", "4:5"),
-    alt: "Interior de boutique com araras de roupas e acessórios",
+    img: "/products/conjunto-rosa-pink-de-alfaiataria/01.jpg",
+    alt: "Conjunto rosa pink de alfaiataria da Divino Look",
     title: "Curadoria",
     text: "Peças escolhidas uma a uma para combinar entre si. Assim fica fácil montar a produção inteira.",
     align: "md:ml-[8%]",
   },
   {
-    img: photo("1769107805465-bfd41863f1a0", "4:5"),
-    alt: "Arara com vestidos em tons neutros",
+    img: "/products/vestido-jeans-longo-com-botoes/02.jpg",
+    alt: "Vestido jeans longo com botões da Divino Look",
     title: "Atendimento próximo",
     text: "Ajuda com tamanho, caimento e combinações, na loja ou pelo WhatsApp, no seu tempo.",
     align: "md:ml-auto md:mr-[4%]",
   },
   {
-    img: photo("1726128449240-6569b63355d2", "4:5"),
-    alt: "Loja de roupas com espelho e araras",
+    img: "/products/vestido-longo-patchwork/05.jpg",
+    alt: "Vestido longo patchwork da Divino Look",
     title: "Novo endereço",
     text: "Agora na Rua Santana, 208, Loja 1, no centro de Lavras. Passe para provar com calma.",
     align: "md:ml-[16%]",

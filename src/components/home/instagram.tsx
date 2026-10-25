@@ -1,17 +1,16 @@
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
-import { photo } from "@/lib/photos";
 import { InfiniteSlider } from "@/components/motion-primitives/infinite-slider";
 
 const tiles = [
-  ["1700150624576-c6c0641e54fe", "Retrato de moda em estúdio"],
-  ["1606903037631-f09fd0bd74b4", "Treino com conjunto fitness"],
-  ["1789110854083-e4752bded644", "Calça de alfaiataria listrada"],
-  ["1761121317492-57feee4fc674", "Blusa vermelha vista de costas"],
-  ["1730278392820-bf01de720248", "Vestido branco na rua"],
-  ["1621261027519-a71ac66d5a68", "Arara com roupas"],
-  ["1571513800374-df1bbe650e56", "Retrato com flor seca"],
-  ["1712759519800-121e6ded66ee", "Alfaiataria azul na cidade"],
+  ["/products/conjunto-floral-rosa/01.jpg", "Conjunto floral rosa"],
+  ["/products/vestido-longo-coral/01.jpg", "Vestido longo coral"],
+  ["/products/macaquinho-jeans-utilitario/02.jpg", "Macaquinho jeans utilitário"],
+  ["/products/conjunto-verde-bordado/01.jpg", "Conjunto verde bordado"],
+  ["/products/vestido-jeans-floral/03.jpg", "Vestido jeans floral"],
+  ["/products/conjunto-vermelho/01.jpg", "Conjunto vermelho"],
+  ["/products/vestido-longo-listrado-coral/02.jpg", "Vestido longo listrado coral"],
+  ["/products/conjunto-rose-de-alfaiataria/01.jpg", "Conjunto rosé de alfaiataria"],
 ] as const;
 
 export function InstagramStrip() {
@@ -23,8 +22,8 @@ export function InstagramStrip() {
             Acompanhe a Divino Look no Instagram
           </h2>
           <p className="mt-2 max-w-[56ch]">
-            Lançamentos, provas de look e bastidores da loja aparecem primeiro em {siteConfig.instagramHandle}. As imagens abaixo
-            são ilustrativas; os posts reais estão no perfil.
+            Lançamentos, provas de look e bastidores da loja aparecem primeiro em {siteConfig.instagramHandle}. Veja algumas peças
+            reais da coleção atual.
           </p>
         </div>
         <a href={siteConfig.instagram} target="_blank" rel="noopener noreferrer" className="btn btn-dark self-start md:self-auto">
@@ -40,9 +39,9 @@ export function InstagramStrip() {
         aria-label={`Abrir o perfil ${siteConfig.instagramHandle} no Instagram`}
       >
         <InfiniteSlider gap={6} speed={28} speedOnHover={8}>
-          {tiles.map(([id, alt]) => (
-            <span key={id} className="relative block aspect-square w-[44vw] overflow-hidden bg-sand sm:w-[28vw] lg:w-[19vw]">
-              <Image src={photo(id, "1:1")} alt={alt} fill sizes="(min-width: 1024px) 19vw, 44vw" className="object-cover" />
+          {tiles.map(([src, alt]) => (
+            <span key={src} className="relative block aspect-square w-[44vw] overflow-hidden bg-sand sm:w-[28vw] lg:w-[19vw]">
+              <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 19vw, 44vw" className="object-cover" />
             </span>
           ))}
         </InfiniteSlider>
