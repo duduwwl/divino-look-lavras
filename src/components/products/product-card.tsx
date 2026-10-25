@@ -31,6 +31,7 @@ export function ProductCard({
   const fav = favorites.includes(product.id);
   const pickerId = useId();
   const href = `/produtos/${product.slug}`;
+  const cropEmbeddedBorder = product.slug === "blusa-pessego" ? "scale-[1.02]" : "";
   const discount = product.originalPrice ? Math.round((1 - product.price / product.originalPrice) * 100) : 0;
 
   const badge = !product.inStock
@@ -68,7 +69,7 @@ export function ProductCard({
             fill
             sizes={sizes}
             priority={priority}
-            className={cn("swap-img swap-img-base object-cover", !product.inStock && "grayscale-[35%]")}
+            className={cn("swap-img swap-img-base object-cover", cropEmbeddedBorder, !product.inStock && "grayscale-[35%]")}
           />
           {product.images[1] ? (
             <Image
@@ -76,7 +77,7 @@ export function ProductCard({
               alt=""
               fill
               sizes={sizes}
-              className="swap-img swap-img-alt object-cover opacity-0"
+              className={cn("swap-img swap-img-alt object-cover opacity-0", cropEmbeddedBorder)}
             />
           ) : null}
         </Link>
