@@ -10,8 +10,8 @@ import { generalMessage, whatsappLink } from "@/lib/whatsapp";
 import VerticalCutReveal from "@/components/fancy/vertical-cut-reveal";
 
 /**
- * Full-page footer: the brand name returns at full width in the colours of
- * the LD monogram, in normal document flow on every viewport.
+ * Sticky reveal footer: the page surface scrolls above this layer and reveals
+ * the footer at the end, while the brand name settles into place.
  */
 export function SiteFooter() {
   const ref = useRef<HTMLElement>(null);
@@ -24,13 +24,13 @@ export function SiteFooter() {
   return (
     <footer
       ref={ref}
-      className="on-dark relative z-10 flex min-h-0 flex-col bg-brown text-on-brown lg:min-h-[92svh]"
+      className="site-footer-reveal on-dark sticky bottom-0 left-0 z-0 flex min-h-[min(42rem,100svh)] w-full flex-col overflow-hidden bg-brown text-on-brown md:min-h-[80svh] lg:min-h-[92svh]"
       aria-labelledby="rodape-titulo"
     >
       <h2 id="rodape-titulo" className="sr-only">
         Informações da Divino Look
       </h2>
-      <div className="frame grid grid-cols-2 gap-x-6 gap-y-10 pt-12 text-[1rem] md:grid-cols-4 lg:pt-16">
+      <div className="frame grid grid-cols-2 gap-x-6 gap-y-8 pt-8 text-[1rem] md:grid-cols-4 md:gap-y-10 md:pt-12 lg:pt-16">
         <div>
           <p className="font-semibold">Visite a loja</p>
           <address className="mt-3 not-italic opacity-85">
@@ -93,7 +93,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="frame mt-auto pt-16">
+      <div className="frame mt-auto pt-8 md:pt-16">
         <div ref={taglineRef} className="max-w-[34ch] text-[1.125rem] leading-snug">
           <VerticalCutReveal
             splitBy="words"
@@ -113,7 +113,7 @@ export function SiteFooter() {
           Divino Look
         </motion.p>
       </div>
-      <div className="frame flex flex-col gap-1 pt-4 pb-5 text-[0.875rem] opacity-80 sm:flex-row sm:justify-between">
+      <div className="site-footer-meta frame flex flex-col gap-1 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] text-[0.875rem] opacity-80 sm:flex-row sm:justify-between sm:pt-4 sm:pb-5">
         <p>© {new Date().getFullYear()} Divino Look · Lavras–MG. Todos os direitos reservados.</p>
         <p>Fotos reais da coleção Divino Look; preços demonstrativos.</p>
       </div>

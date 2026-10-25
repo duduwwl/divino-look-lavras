@@ -210,6 +210,22 @@ textarea {
   display: none;
 }
 
+/* The page surface reveals the footer beneath it. On very short viewports the
+   footer returns to document flow so every link remains reachable. */
+.site-footer-reveal {
+  position: sticky;
+}
+
+@media (max-height: 700px) {
+  .site-footer-reveal {
+    position: relative;
+  }
+
+  .site-footer-meta {
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  }
+}
+
 /* Range input reset (used inside price filter for keyboard support) */
 .sr-only-focusable:not(:focus):not(:focus-within) {
   position: absolute;
@@ -221,6 +237,10 @@ textarea {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .site-footer-reveal {
+    position: relative;
+  }
+
   *,
   *::before,
   *::after {
