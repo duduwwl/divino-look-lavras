@@ -41,7 +41,7 @@ Endereço, Instagram e grupo VIP ficam em `src/config/site.ts`.
 
 ## Catálogo
 
-`src/data/products.ts` reúne 154 produtos organizados a partir das 423 fotografias fornecidas pela Divino Look.
+`src/data/products.ts` reúne 146 produtos revisados a partir das fotografias fornecidas pela Divino Look.
 As fotos ficam em `public/products`, separadas em uma pasta por produto. Preços, tamanhos, cores e estoque continuam demonstrativos
 até a loja fornecer a planilha oficial.
 

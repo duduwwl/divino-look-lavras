@@ -31,7 +31,19 @@ export function ProductCard({
   const fav = favorites.includes(product.id);
   const pickerId = useId();
   const href = `/produtos/${product.slug}`;
-  const cropEmbeddedBorder = product.slug === "blusa-pessego" ? "scale-[1.02]" : "";
+  const cropEmbeddedBorder = [
+    "blusa-pessego",
+    "calca-jeans-pantalona-clara",
+    "conjunto-areia",
+    "macaquinho-azul",
+    "vestido-jeans-midi",
+    "vestido-jeans-longo-com-botoes",
+    "blusa-patchwork",
+    "conjunto-preto-essencial",
+  ].includes(product.slug)
+    ? "scale-[1.02]"
+    : "";
+  const productImageFit = product.slug === "conjunto-verde-musgo" ? "object-contain" : "object-cover";
   const discount = product.originalPrice ? Math.round((1 - product.price / product.originalPrice) * 100) : 0;
 
   const badge = !product.inStock
@@ -69,7 +81,7 @@ export function ProductCard({
             fill
             sizes={sizes}
             priority={priority}
-            className={cn("swap-img swap-img-base object-cover", cropEmbeddedBorder, !product.inStock && "grayscale-[35%]")}
+            className={cn("swap-img swap-img-base", productImageFit, cropEmbeddedBorder, !product.inStock && "grayscale-[35%]")}
           />
           {product.images[1] ? (
             <Image
@@ -77,7 +89,7 @@ export function ProductCard({
               alt=""
               fill
               sizes={sizes}
-              className={cn("swap-img swap-img-alt object-cover opacity-0", cropEmbeddedBorder)}
+              className={cn("swap-img swap-img-alt opacity-0", productImageFit, cropEmbeddedBorder)}
             />
           ) : null}
         </Link>

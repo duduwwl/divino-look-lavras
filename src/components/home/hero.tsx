@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { TextEffect } from "@/components/motion-primitives/text-effect";
 
-const HERO_IMAGE = "/products/macaquinho-jeans-utilitario/02.jpg";
+const HERO_IMAGE = "/hero-divino-look-hq.png";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -17,7 +17,7 @@ export function Hero() {
   const photoY = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["0%", "12%"]);
 
   const common = {
-    alt: "Modelo usando macaquinho jeans da coleção Divino Look",
+    alt: "Modelo usando conjunto jeans da coleção Divino Look",
     sizes: "100vw",
     priority: true,
     loading: "eager" as const,

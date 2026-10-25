@@ -12,7 +12,7 @@ const passes = [
     align: "md:ml-[8%]",
   },
   {
-    img: "/products/vestido-jeans-longo-com-botoes/02.jpg",
+    img: "/products/vestido-jeans-longo-com-botoes/06.jpg",
     alt: "Vestido jeans longo com botões da Divino Look",
     title: "Atendimento próximo",
     text: "Ajuda com tamanho, caimento e combinações, na loja ou pelo WhatsApp, no seu tempo.",

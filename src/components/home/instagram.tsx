@@ -8,7 +8,7 @@ const tiles = [
   ["/products/macaquinho-jeans-utilitario/02.jpg", "Macaquinho jeans utilitário"],
   ["/products/conjunto-verde-bordado/01.jpg", "Conjunto verde bordado"],
   ["/products/vestido-jeans-floral/03.jpg", "Vestido jeans floral"],
-  ["/products/conjunto-vermelho/01.jpg", "Conjunto vermelho"],
+  ["/products/conjunto-vermelho/clean.png", "Conjunto vermelho"],
   ["/products/vestido-longo-listrado-coral/02.jpg", "Vestido longo listrado coral"],
   ["/products/conjunto-rose-de-alfaiataria/01.jpg", "Conjunto rosé de alfaiataria"],
 ] as const;

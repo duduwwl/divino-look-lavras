@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 const themes = [
   { title: "Alfaiataria leve", note: "Blazers e calças para o dia todo", href: "/produtos?categoria=conjuntos", img: "/products/conjunto-rosa-pink-de-alfaiataria/01.jpg" },
   { title: "Vestidos fluidos", note: "Midi, longos e chemises", href: "/produtos?categoria=vestidos", img: "/products/vestido-longo-listrado-coral/01.jpg" },
-  { title: "Cores de estação", note: "Vermelho, verde e rosé", href: "/produtos?cores=Vermelho,Verde,Rosa", img: "/products/conjunto-vermelho/01.jpg" },
+  { title: "Cores de estação", note: "Vermelho, verde e rosé", href: "/produtos?cores=Vermelho,Verde,Rosa", img: "/products/conjunto-vermelho/clean.png" },
   { title: "Saias com movimento", note: "Evasê, midi e estampas", href: "/produtos?categoria=saias", img: "/products/saia-longa-de-renda-branca/01.jpg" },
   { title: "Treino com estilo", note: "Conjuntos e leggings", href: "/produtos?categoria=fitness", img: "/products/conjunto-fitness-verde-menta/03.jpg" },
   { title: "Recém-chegados", note: "Tudo o que acabou de chegar", href: "/produtos?categoria=lancamentos", img: "/products/macaquinho-jeans-utilitario/02.jpg" },

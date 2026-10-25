@@ -42,7 +42,7 @@ export const categories: { slug: CategoryFilter; label: string; blurb: string; i
     "slug": "lancamentos",
     "label": "Lançamentos",
     "blurb": "O que acabou de chegar",
-    "image": "/products/macaquinho-jeans-utilitario/01.jpg"
+    "image": "/products/macaquinho-jeans-utilitario/02.jpg"
   }
 ];
 
@@ -295,8 +295,7 @@ export const products: Product[] = [
     "price": 209.9,
     "images": [
       "/products/conjunto-areia/01.jpg",
-      "/products/conjunto-areia/02.jpg",
-      "/products/conjunto-areia/03.jpg"
+      "/products/conjunto-areia/02.jpg"
     ],
     "sizes": [
       "P",
@@ -554,7 +553,6 @@ export const products: Product[] = [
     "description": "Blusa Azul com Laço da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 119.9,
     "images": [
-      "/products/blusa-azul-com-laco/01.jpg",
       "/products/blusa-azul-com-laco/02.jpg",
       "/products/blusa-azul-com-laco/03.jpg",
       "/products/blusa-azul-com-laco/04.jpg",
@@ -581,7 +579,6 @@ export const products: Product[] = [
     "description": "Blusa Branca Fluida da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 89.9,
     "images": [
-      "/products/blusa-branca-fluida/01.jpg",
       "/products/blusa-branca-fluida/02.jpg"
     ],
     "sizes": [
@@ -639,30 +636,6 @@ export const products: Product[] = [
     ],
     "colors": [
       "Verde"
-    ],
-    "inStock": true,
-    "featured": false,
-    "isNew": true,
-    "createdAt": "2026-10-25"
-  },
-  {
-    "id": "real-024",
-    "slug": "conjunto-cru",
-    "name": "Conjunto Cru",
-    "category": "conjuntos",
-    "description": "Conjunto Cru da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
-    "price": 229.9,
-    "images": [
-      "/products/conjunto-cru/01.jpg",
-      "/products/conjunto-cru/02.jpg"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G"
-    ],
-    "colors": [
-      "Branco"
     ],
     "inStock": true,
     "featured": false,
@@ -827,11 +800,9 @@ export const products: Product[] = [
     "description": "Calça Branca Reta da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 169.9,
     "images": [
-      "/products/calca-branca-reta/01.jpg",
       "/products/calca-branca-reta/02.jpg",
       "/products/calca-branca-reta/03.jpg",
-      "/products/calca-branca-reta/04.jpg",
-      "/products/calca-branca-reta/05.jpg"
+      "/products/calca-branca-reta/04.jpg"
     ],
     "sizes": [
       "P",
@@ -905,9 +876,6 @@ export const products: Product[] = [
     "description": "Chemise Longa Bege da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 199.9,
     "images": [
-      "/products/chemise-longa-bege/01.jpg",
-      "/products/chemise-longa-bege/02.jpg",
-      "/products/chemise-longa-bege/03.jpg",
       "/products/chemise-longa-bege/04.jpg",
       "/products/chemise-longa-bege/05.jpg"
     ],
@@ -981,7 +949,6 @@ export const products: Product[] = [
     "price": 89.9,
     "images": [
       "/products/blusa-preta-com-amarracao/01.jpg",
-      "/products/blusa-preta-com-amarracao/02.jpg",
       "/products/blusa-preta-com-amarracao/03.jpg"
     ],
     "sizes": [
@@ -1005,7 +972,6 @@ export const products: Product[] = [
     "description": "Vestido Midi Marrom Estampado da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 199.9,
     "images": [
-      "/products/vestido-midi-marrom-estampado/01.jpg",
       "/products/vestido-midi-marrom-estampado/02.jpg",
       "/products/vestido-midi-marrom-estampado/03.jpg",
       "/products/vestido-midi-marrom-estampado/04.jpg",
@@ -1013,7 +979,8 @@ export const products: Product[] = [
       "/products/vestido-midi-marrom-estampado/06.jpg",
       "/products/vestido-midi-marrom-estampado/07.jpg",
       "/products/vestido-midi-marrom-estampado/08.jpg",
-      "/products/vestido-midi-marrom-estampado/09.jpg"
+      "/products/vestido-midi-marrom-estampado/09.jpg",
+      "/products/vestido-midi-marrom-estampado/01.jpg"
     ],
     "sizes": [
       "P",
@@ -1084,7 +1051,6 @@ export const products: Product[] = [
     "description": "Macacão Verde Longo da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 199.9,
     "images": [
-      "/products/macacao-verde-longo/01.jpg",
       "/products/macacao-verde-longo/02.jpg",
       "/products/macacao-verde-longo/03.jpg",
       "/products/macacao-verde-longo/04.jpg"
@@ -1111,9 +1077,8 @@ export const products: Product[] = [
     "price": 199.9,
     "images": [
       "/products/vestido-utilitario-marrom/01.jpg",
-      "/products/vestido-utilitario-marrom/02.jpg",
-      "/products/vestido-utilitario-marrom/03.jpg",
-      "/products/vestido-utilitario-marrom/04.jpg"
+      "/products/vestido-utilitario-marrom/04.jpg",
+      "/products/vestido-utilitario-marrom/03.jpg"
     ],
     "sizes": [
       "P",
@@ -1559,7 +1524,7 @@ export const products: Product[] = [
     "description": "Calça Pantalona Azul da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 179.9,
     "images": [
-      "/products/calca-pantalona-azul/01.jpg"
+      "/products/calca-pantalona-azul/clean.png"
     ],
     "sizes": [
       "P",
@@ -1714,7 +1679,6 @@ export const products: Product[] = [
     "description": "Vestido Jeans Longo da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 199.9,
     "images": [
-      "/products/vestido-jeans-longo/01.jpg",
       "/products/vestido-jeans-longo/02.jpg",
       "/products/vestido-jeans-longo/03.jpg",
       "/products/vestido-jeans-longo/04.jpg"
@@ -1750,29 +1714,6 @@ export const products: Product[] = [
     "colors": [
       "Branco",
       "Azul"
-    ],
-    "inStock": true,
-    "featured": false,
-    "isNew": false,
-    "createdAt": "2026-10-25"
-  },
-  {
-    "id": "real-068",
-    "slug": "vestido-estampado-cinturado",
-    "name": "Vestido Estampado Cinturado",
-    "category": "vestidos",
-    "description": "Vestido Estampado Cinturado da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
-    "price": 219.9,
-    "images": [
-      "/products/vestido-estampado-cinturado/01.jpg"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G"
-    ],
-    "colors": [
-      "Estampado"
     ],
     "inStock": true,
     "featured": false,
@@ -1837,8 +1778,7 @@ export const products: Product[] = [
     "price": 209.9,
     "images": [
       "/products/vestido-midi-branco/01.jpg",
-      "/products/vestido-midi-branco/02.jpg",
-      "/products/vestido-midi-branco/03.jpg"
+      "/products/vestido-midi-branco/02.jpg"
     ],
     "sizes": [
       "P",
@@ -1865,9 +1805,7 @@ export const products: Product[] = [
       "/products/vestido-jeans-longo-com-botoes/02.jpg",
       "/products/vestido-jeans-longo-com-botoes/03.jpg",
       "/products/vestido-jeans-longo-com-botoes/04.jpg",
-      "/products/vestido-jeans-longo-com-botoes/05.jpg",
       "/products/vestido-jeans-longo-com-botoes/06.jpg",
-      "/products/vestido-jeans-longo-com-botoes/07.jpg",
       "/products/vestido-jeans-longo-com-botoes/08.jpg"
     ],
     "sizes": [
@@ -1892,14 +1830,10 @@ export const products: Product[] = [
     "price": 189.9,
     "images": [
       "/products/vestido-tubinho-marinho/01.jpg",
-      "/products/vestido-tubinho-marinho/02.jpg",
-      "/products/vestido-tubinho-marinho/03.jpg",
       "/products/vestido-tubinho-marinho/04.jpg",
       "/products/vestido-tubinho-marinho/05.jpg",
       "/products/vestido-tubinho-marinho/06.jpg",
-      "/products/vestido-tubinho-marinho/07.jpg",
-      "/products/vestido-tubinho-marinho/08.jpg",
-      "/products/vestido-tubinho-marinho/09.jpg"
+      "/products/vestido-tubinho-marinho/07.jpg"
     ],
     "sizes": [
       "P",
@@ -2049,30 +1983,6 @@ export const products: Product[] = [
     "createdAt": "2026-10-25"
   },
   {
-    "id": "real-079",
-    "slug": "macacao-pantalona-colorido",
-    "name": "Macacão Pantalona Colorido",
-    "category": "conjuntos",
-    "description": "Macacão Pantalona Colorido da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
-    "price": 219.9,
-    "images": [
-      "/products/macacao-pantalona-colorido/01.jpg",
-      "/products/macacao-pantalona-colorido/02.jpg"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G"
-    ],
-    "colors": [
-      "Estampado"
-    ],
-    "inStock": true,
-    "featured": false,
-    "isNew": false,
-    "createdAt": "2026-10-25"
-  },
-  {
     "id": "real-080",
     "slug": "conjunto-preto-essencial",
     "name": "Conjunto Preto Essencial",
@@ -2083,7 +1993,6 @@ export const products: Product[] = [
       "/products/conjunto-preto-essencial/01.jpg",
       "/products/conjunto-preto-essencial/02.jpg",
       "/products/conjunto-preto-essencial/03.jpg",
-      "/products/conjunto-preto-essencial/04.jpg",
       "/products/conjunto-preto-essencial/05.jpg"
     ],
     "sizes": [
@@ -2107,7 +2016,7 @@ export const products: Product[] = [
     "description": "Conjunto Bege com Blazer Cropped da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 199.9,
     "images": [
-      "/products/conjunto-bege-com-blazer-cropped/01.jpg"
+      "/products/conjunto-bege-com-blazer-cropped/clean.png"
     ],
     "sizes": [
       "P",
@@ -2131,10 +2040,6 @@ export const products: Product[] = [
     "price": 199.9,
     "images": [
       "/products/vestido-branco-e-preto-de-renda/01.jpg",
-      "/products/vestido-branco-e-preto-de-renda/02.jpg",
-      "/products/vestido-branco-e-preto-de-renda/03.jpg",
-      "/products/vestido-branco-e-preto-de-renda/04.jpg",
-      "/products/vestido-branco-e-preto-de-renda/05.jpg",
       "/products/vestido-branco-e-preto-de-renda/06.jpg",
       "/products/vestido-branco-e-preto-de-renda/07.jpg",
       "/products/vestido-branco-e-preto-de-renda/08.jpg"
@@ -2386,7 +2291,6 @@ export const products: Product[] = [
     "price": 229.9,
     "images": [
       "/products/conjunto-colete-bege/01.jpg",
-      "/products/conjunto-colete-bege/02.jpg",
       "/products/conjunto-colete-bege/03.jpg"
     ],
     "sizes": [
@@ -2433,7 +2337,6 @@ export const products: Product[] = [
     "description": "Conjunto Colete e Bermuda Cru da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 209.9,
     "images": [
-      "/products/conjunto-colete-e-bermuda-cru/01.jpg",
       "/products/conjunto-colete-e-bermuda-cru/02.jpg",
       "/products/conjunto-colete-e-bermuda-cru/03.jpg"
     ],
@@ -2482,10 +2385,8 @@ export const products: Product[] = [
     "price": 229.9,
     "images": [
       "/products/conjunto-rose-de-alfaiataria/01.jpg",
-      "/products/conjunto-rose-de-alfaiataria/02.jpg",
       "/products/conjunto-rose-de-alfaiataria/03.jpg",
       "/products/conjunto-rose-de-alfaiataria/04.jpg",
-      "/products/conjunto-rose-de-alfaiataria/05.jpg",
       "/products/conjunto-rose-de-alfaiataria/06.jpg"
     ],
     "sizes": [
@@ -2502,29 +2403,6 @@ export const products: Product[] = [
     "createdAt": "2026-10-25"
   },
   {
-    "id": "real-097",
-    "slug": "blusa-marrom-com-transparencia",
-    "name": "Blusa Marrom com Transparência",
-    "category": "blusas",
-    "description": "Blusa Marrom com Transparência da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
-    "price": 89.9,
-    "images": [
-      "/products/blusa-marrom-com-transparencia/01.jpg"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G"
-    ],
-    "colors": [
-      "Marrom"
-    ],
-    "inStock": true,
-    "featured": false,
-    "isNew": false,
-    "createdAt": "2026-10-25"
-  },
-  {
     "id": "real-098",
     "slug": "vestido-curto-marinho",
     "name": "Vestido Curto Marinho",
@@ -2532,7 +2410,7 @@ export const products: Product[] = [
     "description": "Vestido Curto Marinho da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 199.9,
     "images": [
-      "/products/vestido-curto-marinho/01.jpg"
+      "/products/vestido-curto-marinho/clean.png"
     ],
     "sizes": [
       "P",
@@ -2550,12 +2428,12 @@ export const products: Product[] = [
   {
     "id": "real-099",
     "slug": "vestido-preto-estampado",
-    "name": "Vestido Preto Estampado",
-    "category": "vestidos",
-    "description": "Vestido Preto Estampado da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
+    "name": "Conjunto Caramelo com Bermuda",
+    "category": "conjuntos",
+    "description": "Conjunto Caramelo com Bermuda da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 209.9,
     "images": [
-      "/products/vestido-preto-estampado/01.jpg"
+      "/products/vestido-preto-estampado/clean.png"
     ],
     "sizes": [
       "P",
@@ -2563,8 +2441,7 @@ export const products: Product[] = [
       "G"
     ],
     "colors": [
-      "Preto",
-      "Estampado"
+      "Caramelo"
     ],
     "inStock": true,
     "featured": false,
@@ -2579,7 +2456,6 @@ export const products: Product[] = [
     "description": "Conjunto Bege com Calça da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 229.9,
     "images": [
-      "/products/conjunto-bege-com-calca/01.jpg",
       "/products/conjunto-bege-com-calca/02.jpg"
     ],
     "sizes": [
@@ -2681,9 +2557,9 @@ export const products: Product[] = [
     "description": "Cropped Poá Marinho da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 119.9,
     "images": [
-      "/products/cropped-poa-marinho/01.jpg",
+      "/products/cropped-poa-marinho/03.jpg",
       "/products/cropped-poa-marinho/02.jpg",
-      "/products/cropped-poa-marinho/03.jpg"
+      "/products/cropped-poa-marinho/01.jpg"
     ],
     "sizes": [
       "P",
@@ -2707,11 +2583,9 @@ export const products: Product[] = [
     "description": "Saia Longa de Renda Branca da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 129.9,
     "images": [
+      "/products/saia-longa-de-renda-branca/03.jpg",
       "/products/saia-longa-de-renda-branca/01.jpg",
       "/products/saia-longa-de-renda-branca/02.jpg",
-      "/products/saia-longa-de-renda-branca/03.jpg",
-      "/products/saia-longa-de-renda-branca/04.jpg",
-      "/products/saia-longa-de-renda-branca/05.jpg",
       "/products/saia-longa-de-renda-branca/06.jpg"
     ],
     "sizes": [
@@ -2735,7 +2609,7 @@ export const products: Product[] = [
     "description": "Saia Midi Preta da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 139.9,
     "images": [
-      "/products/saia-midi-preta/01.jpg"
+      "/products/saia-midi-preta/clean.png"
     ],
     "sizes": [
       "P",
@@ -2758,7 +2632,6 @@ export const products: Product[] = [
     "description": "Vestido Longo Preto Amplo da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 209.9,
     "images": [
-      "/products/vestido-longo-preto-amplo/01.jpg",
       "/products/vestido-longo-preto-amplo/02.jpg"
     ],
     "sizes": [
@@ -2768,29 +2641,6 @@ export const products: Product[] = [
     ],
     "colors": [
       "Preto"
-    ],
-    "inStock": true,
-    "featured": false,
-    "isNew": false,
-    "createdAt": "2026-10-25"
-  },
-  {
-    "id": "real-108",
-    "slug": "conjunto-branco-manga-bufante",
-    "name": "Conjunto Branco Manga Bufante",
-    "category": "conjuntos",
-    "description": "Conjunto Branco Manga Bufante da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
-    "price": 229.9,
-    "images": [
-      "/products/conjunto-branco-manga-bufante/01.jpg"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G"
-    ],
-    "colors": [
-      "Branco"
     ],
     "inStock": true,
     "featured": false,
@@ -2828,7 +2678,6 @@ export const products: Product[] = [
     "description": "Conjunto Branco de Alfaiataria da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 209.9,
     "images": [
-      "/products/conjunto-branco-de-alfaiataria/01.jpg",
       "/products/conjunto-branco-de-alfaiataria/02.jpg"
     ],
     "sizes": [
@@ -2941,14 +2790,12 @@ export const products: Product[] = [
   {
     "id": "real-115",
     "slug": "camiseta-branca-e-jeans",
-    "name": "Camiseta Branca e Jeans",
+    "name": "Blusa Branca com Jeans",
     "category": "blusas",
-    "description": "Camiseta Branca e Jeans da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
+    "description": "Blusa Branca com Jeans da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 109.9,
     "images": [
-      "/products/camiseta-branca-e-jeans/01.jpg",
-      "/products/camiseta-branca-e-jeans/02.jpg",
-      "/products/camiseta-branca-e-jeans/03.jpg"
+      "/products/camiseta-branca-e-jeans/clean.png"
     ],
     "sizes": [
       "P",
@@ -2972,7 +2819,7 @@ export const products: Product[] = [
     "description": "Conjunto Verde Lima da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 229.9,
     "images": [
-      "/products/conjunto-verde-lima/01.jpg"
+      "/products/conjunto-verde-lima/clean.png"
     ],
     "sizes": [
       "P",
@@ -3053,30 +2900,6 @@ export const products: Product[] = [
     ],
     "inStock": true,
     "featured": true,
-    "isNew": false,
-    "createdAt": "2026-10-25"
-  },
-  {
-    "id": "real-120",
-    "slug": "macacao-jeans-de-alcas",
-    "name": "Macacão Jeans de Alças",
-    "category": "conjuntos",
-    "description": "Macacão Jeans de Alças da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
-    "price": 229.9,
-    "images": [
-      "/products/macacao-jeans-de-alcas/01.jpg",
-      "/products/macacao-jeans-de-alcas/02.jpg"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G"
-    ],
-    "colors": [
-      "Azul"
-    ],
-    "inStock": true,
-    "featured": false,
     "isNew": false,
     "createdAt": "2026-10-25"
   },
@@ -3206,12 +3029,11 @@ export const products: Product[] = [
   {
     "id": "real-126",
     "slug": "macaquinho-jeans-utilitario",
-    "name": "Macaquinho Jeans Utilitário",
+    "name": "Conjunto Jeans Utilitário",
     "category": "conjuntos",
-    "description": "Macaquinho Jeans Utilitário da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
+    "description": "Conjunto Jeans Utilitário da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 209.9,
     "images": [
-      "/products/macaquinho-jeans-utilitario/01.jpg",
       "/products/macaquinho-jeans-utilitario/02.jpg",
       "/products/macaquinho-jeans-utilitario/03.jpg",
       "/products/macaquinho-jeans-utilitario/04.jpg"
@@ -3373,29 +3195,6 @@ export const products: Product[] = [
     "createdAt": "2026-10-25"
   },
   {
-    "id": "real-133",
-    "slug": "conjunto-de-blusas-e-shorts",
-    "name": "Conjunto de Blusas e Shorts",
-    "category": "conjuntos",
-    "description": "Conjunto de Blusas e Shorts da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
-    "price": 199.9,
-    "images": [
-      "/products/conjunto-de-blusas-e-shorts/01.jpg"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G"
-    ],
-    "colors": [
-      "Estampado"
-    ],
-    "inStock": true,
-    "featured": false,
-    "isNew": false,
-    "createdAt": "2026-10-25"
-  },
-  {
     "id": "real-134",
     "slug": "blusa-branca-decote-v",
     "name": "Blusa Branca Decote V",
@@ -3435,29 +3234,6 @@ export const products: Product[] = [
     ],
     "colors": [
       "Branco"
-    ],
-    "inStock": true,
-    "featured": false,
-    "isNew": false,
-    "createdAt": "2026-10-25"
-  },
-  {
-    "id": "real-136",
-    "slug": "conjunto-bege-cropped",
-    "name": "Conjunto Bege Cropped",
-    "category": "conjuntos",
-    "description": "Conjunto Bege Cropped da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
-    "price": 229.9,
-    "images": [
-      "/products/conjunto-bege-cropped/01.jpg"
-    ],
-    "sizes": [
-      "P",
-      "M",
-      "G"
-    ],
-    "colors": [
-      "Bege"
     ],
     "inStock": true,
     "featured": false,
@@ -3712,8 +3488,7 @@ export const products: Product[] = [
     "description": "Conjunto Vermelho da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 219.9,
     "images": [
-      "/products/conjunto-vermelho/01.jpg",
-      "/products/conjunto-vermelho/02.jpg"
+      "/products/conjunto-vermelho/clean.png"
     ],
     "sizes": [
       "P",
@@ -3736,10 +3511,7 @@ export const products: Product[] = [
     "description": "Camisa Branca Longa da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 119.9,
     "images": [
-      "/products/camisa-branca-longa/01.jpg",
-      "/products/camisa-branca-longa/02.jpg",
-      "/products/camisa-branca-longa/03.jpg",
-      "/products/camisa-branca-longa/04.jpg"
+      "/products/camisa-branca-longa/clean.png"
     ],
     "sizes": [
       "P",
@@ -3785,15 +3557,9 @@ export const products: Product[] = [
     "description": "Conjunto Branco Tomara que Caia da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 209.9,
     "images": [
-      "/products/conjunto-branco-tomara-que-caia/01.jpg",
       "/products/conjunto-branco-tomara-que-caia/02.jpg",
       "/products/conjunto-branco-tomara-que-caia/03.jpg",
-      "/products/conjunto-branco-tomara-que-caia/04.jpg",
-      "/products/conjunto-branco-tomara-que-caia/05.jpg",
-      "/products/conjunto-branco-tomara-que-caia/06.jpg",
-      "/products/conjunto-branco-tomara-que-caia/07.jpg",
-      "/products/conjunto-branco-tomara-que-caia/08.jpg",
-      "/products/conjunto-branco-tomara-que-caia/09.jpg"
+      "/products/conjunto-branco-tomara-que-caia/06.jpg"
     ],
     "sizes": [
       "P",
@@ -3839,7 +3605,7 @@ export const products: Product[] = [
     "description": "Conjunto Verde de Alfaiataria com Calça da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 229.9,
     "images": [
-      "/products/conjunto-verde-de-alfaiataria-com-calca/01.jpg"
+      "/products/conjunto-verde-de-alfaiataria-com-calca/clean.png"
     ],
     "sizes": [
       "P",
@@ -3862,9 +3628,7 @@ export const products: Product[] = [
     "description": "Macacão Azul Marinho com Alças da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 199.9,
     "images": [
-      "/products/macacao-azul-marinho-com-alcas/01.jpg",
-      "/products/macacao-azul-marinho-com-alcas/02.jpg",
-      "/products/macacao-azul-marinho-com-alcas/03.jpg"
+      "/products/macacao-azul-marinho-com-alcas/clean.png"
     ],
     "sizes": [
       "P",
@@ -3882,12 +3646,12 @@ export const products: Product[] = [
   {
     "id": "real-154",
     "slug": "conjunto-branco-com-saia-midi",
-    "name": "Conjunto Branco com Saia Midi",
-    "category": "conjuntos",
-    "description": "Conjunto Branco com Saia Midi da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
+    "name": "Vestido Midi Branco Texturizado",
+    "category": "vestidos",
+    "description": "Vestido Midi Branco Texturizado da seleção atual da Divino Look. Veja todas as fotos para conferir modelagem, caimento e detalhes da peça.",
     "price": 209.9,
     "images": [
-      "/products/conjunto-branco-com-saia-midi/01.jpg"
+      "/products/conjunto-branco-com-saia-midi/clean.png"
     ],
     "sizes": [
       "P",
