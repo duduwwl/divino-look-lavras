@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { Catalog } from "@/components/products/catalog";
+import { getCatalogData } from "@/db/catalog";
 
 export const metadata: Metadata = {
   title: "Nossa coleção",
@@ -11,7 +12,10 @@ export const metadata: Metadata = {
   openGraph: { title: "Nossa coleção · Divino Look", url: "produtos/" },
 };
 
-export default function ProdutosPage() {
+export const revalidate = 300;
+
+export default async function ProdutosPage() {
+  const catalog = await getCatalogData();
   return (
     <div className="pb-[clamp(96px,12vw,180px)]">
       <header className="frame pt-6 pb-8 lg:pt-10 lg:pb-12">
@@ -43,7 +47,7 @@ export default function ProdutosPage() {
       </header>
 
       <Suspense fallback={<div className="frame min-h-[60svh] bg-sand/50" aria-busy="true" />}>
-        <Catalog />
+        <Catalog {...catalog} />
       </Suspense>
     </div>
   );

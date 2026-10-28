@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { products, getProduct, getRelated, categoryLabel } from "@/data/products";
+import { products, categoryLabel } from "@/data/products";
+import { getProductBySlug, getRelatedProducts } from "@/db/catalog";
 import { ProductGallery } from "@/components/products/product-gallery";
 import { ProductDetail } from "@/components/products/product-detail";
 import { ProductHeading } from "@/components/products/product-heading";
@@ -9,7 +10,8 @@ import { ProductCard } from "@/components/products/product-card";
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
 import { siteConfig } from "@/config/site";
 
-export const dynamicParams = false;
+export const dynamicParams = true;
+export const revalidate = 300;
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -17,9 +19,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const p = getProduct(slug);
+  const p = await getProductBySlug(slug);
   if (!p) return {};
-  const img = `${p.images[0].replace(/ar=[^&]+/, "ar=1200%3A630")}&w=1200&q=75&auto=format`;
+  const img = `${siteConfig.url}${p.images[0]}`;
   return {
     title: p.name,
     description: p.description,
@@ -35,16 +37,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const product = getProduct(slug);
+  const product = await getProductBySlug(slug);
   if (!product) notFound();
-  const related = getRelated(product, 4);
+  const related = await getRelatedProducts(product, 4);
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
     description: product.description,
-    image: product.images.map((i) => `${i}&w=1200&auto=format`),
+    image: product.images.map((image) => `${siteConfig.url}${image}`),
     category: categoryLabel[product.category],
     brand: { "@type": "Brand", name: "Divino Look" },
     offers: {

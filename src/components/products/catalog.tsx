@@ -5,7 +5,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Search, SlidersHorizontal, X } from "lucide-react";
-import { categories, products, priceBounds } from "@/data/products";
+import type { CatalogCategory } from "@/db/catalog";
+import type { Product } from "@/types/product";
 import {
   activeFilterCount,
   applyFilters,
@@ -24,7 +25,12 @@ import { cn } from "@/lib/utils";
 
 const PAGE = 12;
 
-export function Catalog() {
+export function Catalog({ products, categories, priceBounds, allColors }: {
+  products: Product[];
+  categories: CatalogCategory[];
+  priceBounds: { min: number; max: number };
+  allColors: string[];
+}) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -59,7 +65,7 @@ export function Catalog() {
     return () => window.clearTimeout(t);
   }, [query, filters, commit]);
 
-  const results = useMemo(() => applyFilters(products, filters), [filters]);
+  const results = useMemo(() => applyFilters(products, filters), [products, filters]);
   const shown = results.slice(0, visible);
   const activeCount = activeFilterCount(filters);
   const catLabel = categories.find((c) => c.slug === filters.category)?.label;
@@ -176,7 +182,7 @@ export function Catalog() {
                 </button>
               ) : null}
             </div>
-            <FilterPanel filters={filters} onChange={commit} idPrefix="lateral" />
+            <FilterPanel filters={filters} onChange={commit} idPrefix="lateral" allColors={allColors} priceBounds={priceBounds} />
           </div>
         </aside>
 
@@ -292,7 +298,7 @@ export function Catalog() {
           </div>
         }
       >
-        <FilterPanel filters={draft} onChange={setDraft} idPrefix="gaveta" />
+        <FilterPanel filters={draft} onChange={setDraft} idPrefix="gaveta" allColors={allColors} priceBounds={priceBounds} />
       </Sheet>
     </div>
   );

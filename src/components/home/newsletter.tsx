@@ -7,11 +7,6 @@ import { Check } from "lucide-react";
 type State = "idle" | "error" | "sending" | "done";
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-/**
- * Newsletter — DEMONSTRATION ONLY. No backend is connected: the address is
- * validated in the browser and is not sent or stored anywhere. Connect a
- * provider (Mailchimp, Brevo, RD Station…) in `onSubmit` to make it real.
- */
 export function Newsletter() {
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
@@ -19,7 +14,9 @@ export function Newsletter() {
   const [error, setError] = useState("");
   const id = useId();
 
-  const onSubmit = (e: React.FormEvent) => {
+  const [company, setCompany] = useState("");
+
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!EMAIL.test(email.trim())) {
       setState("error");
@@ -32,7 +29,20 @@ export function Newsletter() {
       return;
     }
     setState("sending");
-    window.setTimeout(() => setState("done"), 700);
+    setError("");
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), consent, company }),
+      });
+      const result = (await response.json()) as { ok?: boolean; message?: string };
+      if (!response.ok || !result.ok) throw new Error(result.message || "Não foi possível concluir o cadastro.");
+      setState("done");
+    } catch (submissionError) {
+      setState("error");
+      setError(submissionError instanceof Error ? submissionError.message : "Não foi possível concluir o cadastro.");
+    }
   };
 
   return (
@@ -59,12 +69,10 @@ export function Newsletter() {
                 className="bg-paper p-6"
               >
                 <p className="flex items-center gap-2 font-semibold">
-                  <Check className="size-5 text-brown" aria-hidden /> Formulário validado
+                  <Check className="size-5 text-brown" aria-hidden /> Cadastro realizado
                 </p>
                 <p className="mt-2 text-[1rem]">
-                  Esta é uma versão demonstrativa: o e-mail <strong>{email}</strong> não foi enviado nem salvo. O cadastro real será
-                  ativado quando a loja conectar um serviço de e-mail. Enquanto isso, as novidades saem primeiro no grupo VIP do
-                  WhatsApp e no Instagram.
+                  Pronto! O e-mail <strong>{email}</strong> foi cadastrado para receber as novidades da Divino Look.
                 </p>
                 <button type="button" className="mt-4 text-[1rem] underline underline-offset-4" onClick={() => { setState("idle"); setEmail(""); setConsent(false); }}>
                   Voltar ao formulário
@@ -78,8 +86,12 @@ export function Newsletter() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                aria-describedby={`${id}-demo`}
+                aria-describedby={`${id}-privacy`}
               >
+                <div className="absolute -left-[10000px] top-auto size-px overflow-hidden" aria-hidden="true">
+                  <label htmlFor={`${id}-company`}>Empresa</label>
+                  <input id={`${id}-company`} name="company" tabIndex={-1} autoComplete="off" value={company} onChange={(e) => setCompany(e.target.value)} />
+                </div>
                 <label htmlFor={`${id}-email`} className="text-[1rem] font-semibold">
                   Seu e-mail
                 </label>
@@ -100,7 +112,7 @@ export function Newsletter() {
                     className="h-12 min-w-0 flex-1 bg-paper px-4 text-[1rem] outline-none placeholder:text-muted focus-visible:outline-2 focus-visible:outline-brown"
                   />
                   <button type="submit" className="btn btn-primary" disabled={state === "sending"}>
-                    {state === "sending" ? "Validando…" : "Quero receber"}
+                    {state === "sending" ? "Cadastrando…" : "Quero receber"}
                   </button>
                 </div>
                 <label className="mt-3 flex cursor-pointer items-start gap-3 text-[1rem]">
@@ -117,8 +129,8 @@ export function Newsletter() {
                     {error}
                   </p>
                 ) : null}
-                <p id={`${id}-demo`} className="mt-3 text-[0.875rem] text-muted">
-                  Formulário demonstrativo: nenhum dado é enviado enquanto o serviço de e-mail não for configurado.
+                <p id={`${id}-privacy`} className="mt-3 text-[0.875rem] text-muted">
+                  Usamos seu e-mail somente para comunicações da loja. Você pode solicitar o cancelamento a qualquer momento.
                 </p>
               </motion.form>
             )}

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { Filters, Availability } from "@/lib/catalog";
 import type { Size } from "@/types/product";
-import { ALL_SIZES, allColors, priceBounds } from "@/data/products";
+import { ALL_SIZES } from "@/data/products";
 import { RangeSlider, RollingNumber } from "@/components/watermelon/range-selection-slider";
 import { Swatch } from "./swatch";
 import { cn } from "@/lib/utils";
@@ -28,10 +28,14 @@ export function FilterPanel({
   filters,
   onChange,
   idPrefix,
+  allColors,
+  priceBounds,
 }: {
   filters: Filters;
   onChange: (next: Filters) => void;
   idPrefix: string;
+  allColors: string[];
+  priceBounds: { min: number; max: number };
 }) {
   const [range, setRange] = useState<[number, number]>([
     filters.min ?? priceBounds.min,

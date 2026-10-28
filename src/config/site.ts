@@ -10,7 +10,7 @@ export const siteConfig = {
   name: "Divino Look",
   description:
     "Boutique de moda feminina no centro de Lavras–MG. Looks completos para se vestir bem, com atendimento pelo WhatsApp e envio para todo o Brasil.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://duduwwl.github.io/divino-look-lavras",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://divino-look-lavras.vercel.app",
   whatsappNumber: (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5535988281548").replace(/\D/g, ""),
   whatsappGroup: "https://chat.whatsapp.com/GTR11gQXxAzHqwfnvXnl5e",
   instagram: "https://www.instagram.com/divinolook_lavras/",
