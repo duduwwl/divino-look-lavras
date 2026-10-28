@@ -50,6 +50,7 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, message: "Cadastro temporariamente indisponível." }, { status: 503 });
   }
 
+  try {
   if (ipHash) {
     const now = new Date();
     const [current] = await db.select().from(rateLimits).where(and(eq(rateLimits.keyHash, ipHash), gt(rateLimits.expiresAt, now))).limit(1);
@@ -79,4 +80,8 @@ export async function POST(request: Request) {
 
   await db.insert(auditLogs).values({ actor: "public-newsletter", action: "subscribe", entityType: "newsletter_subscriber", entityId: subscriber.id });
   return Response.json({ ok: true, message: "Cadastro realizado com sucesso." }, { status: 201, headers: { "Cache-Control": "no-store" } });
+  } catch (error) {
+    console.error("Falha no cadastro da newsletter.", error instanceof Error ? error.message : "Erro desconhecido");
+    return Response.json({ ok: false, message: "Cadastro temporariamente indisponível." }, { status: 503, headers: { "Cache-Control": "no-store" } });
+  }
 }

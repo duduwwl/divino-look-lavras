@@ -90,7 +90,14 @@ const getCachedDatabaseCatalog = unstable_cache(queryDatabaseCatalog, ["catalog-
 });
 
 export async function getCatalogData() {
-  const databaseCatalog = getDb() ? await getCachedDatabaseCatalog() : null;
+  let databaseCatalog = null;
+  if (getDb()) {
+    try {
+      databaseCatalog = await getCachedDatabaseCatalog();
+    } catch (error) {
+      console.error("Falha ao consultar o catálogo no banco; usando fallback local.", error instanceof Error ? error.message : "Erro desconhecido");
+    }
+  }
   const catalogProducts = databaseCatalog?.products.length ? databaseCatalog.products : fallbackProducts;
   const catalogCategories = databaseCatalog?.categories.length ? databaseCatalog.categories : fallbackCategories;
   return {
