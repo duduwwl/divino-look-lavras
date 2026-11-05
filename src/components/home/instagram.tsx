@@ -3,24 +3,15 @@ import { siteConfig } from "@/config/site";
 import { InfiniteSlider } from "@/components/motion-primitives/infinite-slider";
 
 const tiles = [
-  ["/products/conjunto-floral-rosa/01.jpg", "Conjunto floral rosa"],
-  ["/products/vestido-longo-coral/01.jpg", "Vestido longo coral"],
-  ["/products/macaquinho-jeans-utilitario/02.jpg", "Macaquinho jeans utilitário"],
-  ["/products/conjunto-verde-bordado/01.jpg", "Conjunto verde bordado"],
-  ["/products/vestido-jeans-floral/03.jpg", "Vestido jeans floral"],
-  ["/products/conjunto-vermelho/clean.png", "Conjunto vermelho"],
-  ["/products/vestido-longo-listrado-coral/02.jpg", "Vestido longo listrado coral"],
-  ["/products/conjunto-rose-de-alfaiataria/01.jpg", "Conjunto rosé de alfaiataria"],
+  ["/products/conjunto-rosa-pink-de-alfaiataria/cutout.png", "Conjunto rosa pink de alfaiataria", true],
+  ["/products/vestido-longo-coral/01.jpg", "Vestido longo coral", false],
+  ["/products/macaquinho-jeans-utilitario/02.jpg", "Macaquinho jeans utilitário", false],
+  ["/products/conjunto-verde-musgo/01.jpg", "Conjunto verde musgo", false],
+  ["/products/vestido-longo-patchwork/05.jpg", "Vestido longo patchwork", false],
+  ["/products/conjunto-vermelho/cutout.png", "Conjunto vermelho", true],
+  ["/products/cropped-poa-marinho/03.jpg", "Cropped poá marinho", false],
+  ["/products/vestido-longo-listrado-coral/cutout-01.png", "Vestido longo listrado coral", true],
 ] as const;
-
-const whiteBackgrounds = new Set([
-  "/products/conjunto-floral-rosa/01.jpg",
-  "/products/conjunto-verde-bordado/01.jpg",
-  "/products/vestido-jeans-floral/03.jpg",
-  "/products/conjunto-vermelho/clean.png",
-  "/products/vestido-longo-listrado-coral/02.jpg",
-  "/products/conjunto-rose-de-alfaiataria/01.jpg",
-]);
 
 export function InstagramStrip() {
   return (
@@ -48,14 +39,14 @@ export function InstagramStrip() {
         aria-label={`Abrir o perfil ${siteConfig.instagramHandle} no Instagram`}
       >
         <InfiniteSlider gap={6} speed={28} speedOnHover={8}>
-          {tiles.map(([src, alt]) => (
+          {tiles.map(([src, alt, cutout]) => (
             <span key={src} className="relative block aspect-square w-[44vw] overflow-hidden sm:w-[28vw] lg:w-[19vw]">
               <Image
                 src={src}
                 alt={alt}
                 fill
                 sizes="(min-width: 1024px) 19vw, 44vw"
-                className={`object-cover ${whiteBackgrounds.has(src) ? "mix-blend-multiply" : ""}`}
+                className={cutout ? "object-contain" : "object-cover"}
               />
             </span>
           ))}
