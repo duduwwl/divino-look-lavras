@@ -61,15 +61,21 @@ export function About() {
         </div>
 
         <ul className="col-span-12 flex flex-col gap-16 lg:col-span-7 lg:gap-[10vh] lg:pt-[6vh]">
-          {passes.map((p) => (
+          {passes.map((p, i) => (
             <li key={p.title} className={`w-full md:w-[62%] ${p.align}`}>
               <InView
                 variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
                 viewOptions={{ once: true, margin: "0px 0px -15% 0px" }}
               >
-                <div className="relative aspect-[4/5] overflow-hidden bg-sand">
-                  <Image src={p.img} alt={p.alt} fill sizes="(min-width: 1024px) 30vw, (min-width: 768px) 60vw, 100vw" className="object-cover" />
+                <div className="relative aspect-[4/5] overflow-hidden">
+                  <Image
+                    src={p.img}
+                    alt={p.alt}
+                    fill
+                    sizes="(min-width: 1024px) 30vw, (min-width: 768px) 60vw, 100vw"
+                    className={`object-cover ${i === 0 ? "mix-blend-multiply" : ""}`}
+                  />
                 </div>
                 <h3 className="mt-4 text-[1.125rem] font-semibold">{p.title}</h3>
                 <p className="mt-1 max-w-[34ch]">{p.text}</p>

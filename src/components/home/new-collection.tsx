@@ -13,9 +13,9 @@ import { cn } from "@/lib/utils";
  * (/produtos) with the matching filter. The frame shows the theme in focus.
  */
 const themes = [
-  { title: "Alfaiataria leve", note: "Blazers e calças para o dia todo", href: "/produtos?categoria=conjuntos", img: "/products/conjunto-rosa-pink-de-alfaiataria/01.jpg" },
-  { title: "Vestidos fluidos", note: "Midi, longos e chemises", href: "/produtos?categoria=vestidos", img: "/products/vestido-longo-listrado-coral/01.jpg" },
-  { title: "Cores de estação", note: "Vermelho, verde e rosé", href: "/produtos?cores=Vermelho,Verde,Rosa", img: "/products/conjunto-vermelho/clean.png" },
+  { title: "Alfaiataria leve", note: "Blazers e calças para o dia todo", href: "/produtos?categoria=conjuntos", img: "/products/conjunto-rosa-pink-de-alfaiataria/01.jpg", blend: true },
+  { title: "Vestidos fluidos", note: "Midi, longos e chemises", href: "/produtos?categoria=vestidos", img: "/products/vestido-longo-listrado-coral/01.jpg", blend: true },
+  { title: "Cores de estação", note: "Vermelho, verde e rosé", href: "/produtos?cores=Vermelho,Verde,Rosa", img: "/products/conjunto-vermelho/clean.png", blend: true },
   { title: "Saias com movimento", note: "Evasê, midi e estampas", href: "/produtos?categoria=saias", img: "/products/saia-longa-de-renda-branca/01.jpg" },
   { title: "Treino com estilo", note: "Conjuntos e leggings", href: "/produtos?categoria=fitness", img: "/products/conjunto-fitness-verde-menta/03.jpg" },
   { title: "Recém-chegados", note: "Tudo o que acabou de chegar", href: "/produtos?categoria=lancamentos", img: "/products/macaquinho-jeans-utilitario/02.jpg" },
@@ -58,8 +58,8 @@ export function NewCollection() {
             {themes.map((t, i) => (
               <div key={t.title}>
                 {/* phone: picture before each theme */}
-                <Link href={t.href} className="relative mb-3 block aspect-[16/10] overflow-hidden bg-sand lg:hidden" tabIndex={-1} aria-hidden>
-                  <Image src={t.img} alt="" fill sizes="100vw" className="object-cover object-[50%_25%]" />
+                <Link href={t.href} className="relative mb-3 block aspect-[16/10] overflow-hidden lg:hidden" tabIndex={-1} aria-hidden>
+                  <Image src={t.img} alt="" fill sizes="100vw" className={cn("object-cover object-[50%_25%]", t.blend && "mix-blend-multiply")} />
                 </Link>
                 <Link
                   href={t.href}
@@ -87,7 +87,7 @@ export function NewCollection() {
         </div>
 
         <div className="hidden lg:col-span-4 lg:block">
-          <div className="sticky top-[15vh] aspect-[4/5] w-full overflow-hidden bg-sand">
+          <div className="sticky top-[15vh] aspect-[4/5] w-full overflow-hidden">
             <div className="relative h-full w-full">
               {themes.map((t, i) => (
                 <Image
@@ -96,7 +96,7 @@ export function NewCollection() {
                   alt={i === active ? t.title : ""}
                   fill
                   sizes="30vw"
-                  className={cn("object-cover transition-opacity duration-200", i === active ? "opacity-100" : "opacity-0")}
+                  className={cn("object-cover transition-opacity duration-200", t.blend && "mix-blend-multiply", i === active ? "opacity-100" : "opacity-0")}
                 />
               ))}
             </div>

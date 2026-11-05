@@ -13,6 +13,15 @@ const tiles = [
   ["/products/conjunto-rose-de-alfaiataria/01.jpg", "Conjunto rosé de alfaiataria"],
 ] as const;
 
+const whiteBackgrounds = new Set([
+  "/products/conjunto-floral-rosa/01.jpg",
+  "/products/conjunto-verde-bordado/01.jpg",
+  "/products/vestido-jeans-floral/03.jpg",
+  "/products/conjunto-vermelho/clean.png",
+  "/products/vestido-longo-listrado-coral/02.jpg",
+  "/products/conjunto-rose-de-alfaiataria/01.jpg",
+]);
+
 export function InstagramStrip() {
   return (
     <section aria-labelledby="instagram-titulo" className="pt-[clamp(160px,14vw,220px)]">
@@ -40,8 +49,14 @@ export function InstagramStrip() {
       >
         <InfiniteSlider gap={6} speed={28} speedOnHover={8}>
           {tiles.map(([src, alt]) => (
-            <span key={src} className="relative block aspect-square w-[44vw] overflow-hidden bg-sand sm:w-[28vw] lg:w-[19vw]">
-              <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 19vw, 44vw" className="object-cover" />
+            <span key={src} className="relative block aspect-square w-[44vw] overflow-hidden sm:w-[28vw] lg:w-[19vw]">
+              <Image
+                src={src}
+                alt={alt}
+                fill
+                sizes="(min-width: 1024px) 19vw, 44vw"
+                className={`object-cover ${whiteBackgrounds.has(src) ? "mix-blend-multiply" : ""}`}
+              />
             </span>
           ))}
         </InfiniteSlider>

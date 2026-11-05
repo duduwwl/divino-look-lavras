@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useId, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { Heart, Plus, X } from "lucide-react";
+import { Heart, ShoppingBag, X } from "lucide-react";
 import type { Product, Size } from "@/types/product";
 import { useCart } from "@/components/cart/cart-provider";
 import { categoryLabel } from "@/data/products";
@@ -43,7 +43,11 @@ export function ProductCard({
   ].includes(product.slug)
     ? "scale-[1.02]"
     : "";
-  const productImageFit = product.slug === "conjunto-verde-musgo" ? "object-contain" : "object-cover";
+  const productImageFit = ["conjunto-verde-musgo", "regata-canelada-azul", "top-fitness-marrom-e-creme", "legging-fitness-marrom"].includes(
+    product.slug,
+  )
+    ? "object-contain"
+    : "object-cover";
   const discount = product.originalPrice ? Math.round((1 - product.price / product.originalPrice) * 100) : 0;
 
   const badge = !product.inStock
@@ -235,7 +239,7 @@ export function ProductCard({
             className="btn btn-dark min-h-11 w-11 shrink-0 px-0 text-[0.875rem] @[17rem]:w-auto @[17rem]:px-3"
             aria-label={product.inStock ? `Adicionar ${product.name} à sacola` : `${product.name} esgotado`}
           >
-            <Plus className="size-4" aria-hidden />
+            <ShoppingBag className="size-4 text-white" aria-hidden />
             <span className="hidden @[17rem]:inline">{product.inStock ? "Sacola" : "Esgotado"}</span>
           </button>
         </div>
