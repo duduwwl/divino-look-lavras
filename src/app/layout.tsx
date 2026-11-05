@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#805247",
+  themeColor: "#955347",
   width: "device-width",
   initialScale: 1,
 };
@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" className={`${bodoni.variable} ${albert.variable}`}>
       <body>
         <CartProvider>
-          <div className="relative z-10 bg-paper">
+          <div className="brand-surface relative z-10 bg-brand-rose">
             <SiteHeader />
             <main id="conteudo" className="min-h-[60svh]">
               {children}

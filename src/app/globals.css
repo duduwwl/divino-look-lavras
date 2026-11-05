@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 /* ───────────────────────── Divino Look — design tokens ─────────────────────────
-   Ground: off-white paper. Ink: soft black. Accent: the brand's own brown
-   (the colour of the LD monogram), used on the primary action and on the
-   footer field. Sand and champagne are fields, never lines. */
+   Ground: the rose from the store's Instagram logo. Ink: soft black. Accent:
+   the brand's own brown, used on the primary action and on the footer field.
+   Sand and champagne are fields, never lines. */
 :root {
+  --brand-rose: #955347;
   --paper: #faf7f3;
   --sand: #ece3d9;
   --champagne: #d6bea5;
@@ -12,6 +13,7 @@
   --brown-deep: #6b4339;
   --ink: #24201e;
   --muted: #5f5650;
+  --muted-on-brand: #efe4e0;
   --on-brown: #faf7f3;
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
@@ -23,6 +25,7 @@
 }
 
 @theme inline {
+  --color-brand-rose: var(--brand-rose);
   --color-paper: var(--paper);
   --color-sand: var(--sand);
   --color-champagne: var(--champagne);
@@ -47,7 +50,7 @@ html {
 }
 
 body {
-  background: var(--paper);
+  background: var(--brand-rose);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 1rem;
@@ -55,6 +58,27 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
+}
+
+/* Transparent page sections sit on the brand rose. Light fields keep dark ink. */
+.brand-surface {
+  color: var(--on-brown);
+}
+.brand-surface .text-muted {
+  color: var(--muted-on-brand);
+}
+.brand-surface :where(.bg-paper, .bg-sand, .bg-champagne) {
+  color: var(--ink);
+}
+.brand-surface :where(.bg-paper, .bg-sand, .bg-champagne) .text-muted,
+.brand-surface :where(.bg-paper, .bg-sand, .bg-champagne).text-muted {
+  color: var(--muted);
+}
+.brand-surface :focus-visible {
+  outline-color: var(--on-brown);
+}
+.brand-surface :where(.bg-paper, .bg-sand, .bg-champagne) :focus-visible {
+  outline-color: var(--brown);
 }
 
 a,

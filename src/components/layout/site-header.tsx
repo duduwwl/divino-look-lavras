@@ -46,7 +46,7 @@ export function SiteHeader() {
       >
         Pular para o conteúdo
       </a>
-      <header className="sticky top-0 z-50 bg-paper/100">
+      <header className="sticky top-0 z-50 bg-brand-rose">
         <div className="frame flex h-[var(--header-h)] items-center gap-4">
           <button
             type="button"
@@ -59,7 +59,7 @@ export function SiteHeader() {
 
           <Link href="/" className="relative flex h-11 items-center gap-3">
             <span className="sr-only">Divino Look, página inicial</span>
-            <BrandMark className="h-[30px] w-auto text-ink" />
+            <BrandMark className="h-[30px] w-auto text-on-brown" />
             <AnimatePresence initial={false}>
               {pastHero ? (
                 <motion.span
