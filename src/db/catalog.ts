@@ -84,7 +84,7 @@ async function queryDatabaseCatalog() {
   return { products: catalogProducts, categories: catalogCategories };
 }
 
-const getCachedDatabaseCatalog = unstable_cache(queryDatabaseCatalog, ["catalog-v1"], {
+const getCachedDatabaseCatalog = unstable_cache(queryDatabaseCatalog, ["catalog-v2"], {
   tags: ["catalog"],
   revalidate: 300,
 });
