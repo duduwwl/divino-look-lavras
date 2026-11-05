@@ -1,4 +1,5 @@
 import type { CategoryFilter, CategorySlug, Product, Size } from "@/types/product";
+import { novemberProducts } from "@/data/products-nov-2026";
 
 /** Catálogo montado exclusivamente com as fotos reais fornecidas pela Divino Look. */
 export const categories: { slug: CategoryFilter; label: string; blurb: string; image: string }[] = [
@@ -59,6 +60,7 @@ export const colorSwatches: Record<string, string> = {
 };
 
 export const products: Product[] = [
+  ...novemberProducts,
   {
     "id": "real-001",
     "slug": "saia-curta-branca",

@@ -11,8 +11,12 @@ async function main() {
 const db = requireDb();
 const now = new Date();
 const productIds = catalogProducts.map((product) => product.id);
+const imageValues = catalogProducts.flatMap((product) => product.images.map((url, position) => ({ productId: product.id, url, alt: product.name, position })));
+const sizeValues = catalogProducts.flatMap((product) => product.sizes.map((size, position) => ({ productId: product.id, size, position })));
+const colorValues = catalogProducts.flatMap((product) => product.colors.map((color, position) => ({ productId: product.id, color, position })));
 
-await db.insert(categories).values(
+await db.batch([
+db.insert(categories).values(
   catalogCategories.map((category, position) => ({
     slug: category.slug,
     label: category.label,
@@ -32,9 +36,9 @@ await db.insert(categories).values(
     active: true,
     updatedAt: now,
   },
-});
+}),
 
-await db.insert(products).values(
+db.insert(products).values(
   catalogProducts.map((product) => ({
     id: product.id,
     slug: product.slug,
@@ -66,25 +70,20 @@ await db.insert(products).values(
     active: true,
     updatedAt: now,
   },
-});
+}),
 
-await db.delete(productImages).where(inArray(productImages.productId, productIds));
-await db.delete(productSizes).where(inArray(productSizes.productId, productIds));
-await db.delete(productColors).where(inArray(productColors.productId, productIds));
-
-const imageValues = catalogProducts.flatMap((product) => product.images.map((url, position) => ({ productId: product.id, url, alt: product.name, position })));
-const sizeValues = catalogProducts.flatMap((product) => product.sizes.map((size, position) => ({ productId: product.id, size, position })));
-const colorValues = catalogProducts.flatMap((product) => product.colors.map((color, position) => ({ productId: product.id, color, position })));
-
-if (imageValues.length) await db.insert(productImages).values(imageValues);
-if (sizeValues.length) await db.insert(productSizes).values(sizeValues);
-if (colorValues.length) await db.insert(productColors).values(colorValues);
-
-await db.insert(siteSettings).values({
+db.delete(productImages).where(inArray(productImages.productId, productIds)),
+db.delete(productSizes).where(inArray(productSizes.productId, productIds)),
+db.delete(productColors).where(inArray(productColors.productId, productIds)),
+db.insert(productImages).values(imageValues),
+db.insert(productSizes).values(sizeValues),
+db.insert(productColors).values(colorValues),
+db.insert(siteSettings).values({
   key: "catalog",
   value: { currency: "BRL", seededProducts: catalogProducts.length, seededAt: now.toISOString() },
   updatedAt: now,
-}).onConflictDoUpdate({ target: siteSettings.key, set: { value: sql`excluded.value`, updatedAt: now } });
+}).onConflictDoUpdate({ target: siteSettings.key, set: { value: sql`excluded.value`, updatedAt: now } }),
+]);
 
 console.log(`Banco sincronizado: ${catalogProducts.length} produtos, ${imageValues.length} imagens, ${sizeValues.length} tamanhos e ${colorValues.length} cores.`);
 }
