@@ -107,7 +107,8 @@ export const newsletterSubscribers = pgTable(
   "newsletter_subscribers",
   {
     id: uuid("id").primaryKey().defaultRandom(),
-    email: text("email").notNull(),
+    emailEncrypted: text("email").notNull(),
+    emailHash: text("email_hash").notNull(),
     status: text("status").notNull().default("active"),
     source: text("source").notNull().default("site"),
     consentedAt: timestamp("consented_at", { withTimezone: true }).notNull().defaultNow(),
@@ -117,7 +118,7 @@ export const newsletterSubscribers = pgTable(
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
   },
-  (table) => [uniqueIndex("newsletter_email_unique").on(table.email), index("newsletter_status_idx").on(table.status)],
+  (table) => [uniqueIndex("newsletter_email_hash_unique").on(table.emailHash), index("newsletter_status_idx").on(table.status)],
 );
 
 export const rateLimits = pgTable(
@@ -136,8 +137,8 @@ export const orders = pgTable(
   {
     id: uuid("id").primaryKey().defaultRandom(),
     status: text("status").notNull().default("draft"),
-    customerName: text("customer_name"),
-    customerPhone: text("customer_phone"),
+    customerNameEncrypted: text("customer_name"),
+    customerPhoneEncrypted: text("customer_phone"),
     totalCents: integer("total_cents").notNull().default(0),
     currency: text("currency").notNull().default("BRL"),
     channel: text("channel").notNull().default("whatsapp"),

@@ -60,7 +60,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   return (
     <div className="pb-[clamp(96px,12vw,180px)]">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <nav aria-label="Trilha de navegação" className="frame pt-6 text-[0.875rem] text-muted">
         <ol className="flex flex-wrap items-center gap-2">
           <li>

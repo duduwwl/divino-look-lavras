@@ -4,8 +4,8 @@ import { siteConfig } from "@/config/site";
 import { generalMessage, whatsappLink } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "Políticas da loja",
-  description: "Como funcionam compras, trocas, privacidade e atendimento na Divino Look.",
+  title: "Políticas e privacidade",
+  description: "Compras, trocas, privacidade e proteção de dados na Divino Look.",
   alternates: { canonical: "politicas/" },
 };
 
@@ -22,8 +22,23 @@ const sections = [
   },
   {
     id: "privacidade",
-    title: "Privacidade",
-    body: "A sacola e os favoritos ficam salvos apenas no seu navegador (armazenamento local) e não são enviados a nenhum servidor. O formulário de novidades é demonstrativo e não envia nem armazena e-mails. Ao clicar em um botão do WhatsApp, a conversa acontece no aplicativo do WhatsApp, sob a política de privacidade dele.",
+    title: "Privacidade e dados coletados",
+    body: "A Divino Look é a controladora dos dados tratados neste site. A sacola e os favoritos ficam apenas no armazenamento local do seu navegador. A newsletter coleta somente o e-mail e o registro do consentimento. O site não coleta CPF nem dados de pagamento. Um identificador irreversível do endereço IP é usado em uma janela de 15 minutos para impedir abuso; registros expirados são removidos pelas rotinas de limpeza. Ao abrir o WhatsApp, o tratamento também segue a política dessa plataforma.",
+  },
+  {
+    id: "bases",
+    title: "Finalidades e bases legais",
+    body: "O e-mail é usado somente para novidades quando houver consentimento. O consentimento pode ser retirado a qualquer momento. Medidas antifraude e registros mínimos de segurança usam o legítimo interesse de proteger o site e seus usuários. Obrigações legais poderão exigir conservação específica, quando aplicável.",
+  },
+  {
+    id: "protecao",
+    title: "Proteção, retenção e compartilhamento",
+    body: "E-mails e dados pessoais de pedidos são criptografados no banco. O site aplica validação, limitação de requisições, consultas parametrizadas, controle de origem e cabeçalhos de segurança. Dados da newsletter ficam guardados até a retirada do consentimento ou pedido de exclusão. Vercel e Neon processam dados como fornecedores de infraestrutura, inclusive fora do Brasil, com salvaguardas contratuais e técnicas adequadas.",
+  },
+  {
+    id: "direitos",
+    title: "Seus direitos pela LGPD",
+    body: "Você pode pedir confirmação do tratamento, acesso, correção, anonimização, portabilidade, informação sobre compartilhamento, revisão, exclusão e revogação do consentimento. Fale pelo WhatsApp ou visite a loja. A identidade poderá ser confirmada antes da resposta para evitar entrega de dados a terceiros. Você também pode peticionar à Autoridade Nacional de Proteção de Dados.",
   },
   {
     id: "precos",
@@ -37,9 +52,9 @@ export default function PoliticasPage() {
     <div className="frame pt-10 pb-[clamp(96px,12vw,180px)]">
       <div className="grid grid-cols-12 gap-x-6 gap-y-10">
         <div className="col-span-12 lg:col-span-4">
-          <h1 className="font-display text-[3rem] leading-[0.95] tracking-[-0.03em] md:text-[4.2rem]">Políticas da loja</h1>
+          <h1 className="font-display text-[3rem] leading-[0.95] tracking-[-0.03em] md:text-[4.2rem]">Políticas e privacidade</h1>
           <p className="mt-4 max-w-[36ch] text-muted">
-            Texto-base demonstrativo. A versão final deve ser revisada e aprovada pela Divino Look.
+            Última atualização: 7 de novembro de 2026. Controladora: Divino Look, {siteConfig.address.street}, {siteConfig.address.city}–{siteConfig.address.state}.
           </p>
           <nav aria-label="Seções" className="mt-6">
             <ul className="space-y-1.5">
