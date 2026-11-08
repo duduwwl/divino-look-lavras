@@ -12,14 +12,14 @@ const passes = [
     align: "md:ml-[8%]",
   },
   {
-    img: "/products/vestido-jeans-longo-com-botoes/06.jpg",
+    img: "/products/vestido-jeans-longo-com-botoes/cutout-hq.png",
     alt: "Vestido jeans longo com botões da Divino Look",
     title: "Atendimento próximo",
     text: "Ajuda com tamanho, caimento e combinações, na loja ou pelo WhatsApp, no seu tempo.",
     align: "md:ml-auto md:mr-[4%]",
   },
   {
-    img: "/products/vestido-longo-patchwork/05.jpg",
+    img: "/products/vestido-longo-patchwork/cutout-hq.png",
     alt: "Vestido longo patchwork da Divino Look",
     title: "Novo endereço",
     text: "Agora na Rua Santana, 208, Loja 1, no centro de Lavras. Passe para provar com calma.",
@@ -74,7 +74,7 @@ export function About() {
                     alt={p.alt}
                     fill
                     sizes="(min-width: 1024px) 30vw, (min-width: 768px) 60vw, 100vw"
-                    className={p.img.endsWith("/cutout.png") ? "object-contain" : "object-cover"}
+                    className={p.img.endsWith(".png") ? "object-contain p-2" : "object-cover"}
                   />
                 </div>
                 <h3 className="mt-4 text-[1.125rem] font-semibold">{p.title}</h3>

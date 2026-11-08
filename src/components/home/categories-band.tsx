@@ -48,7 +48,10 @@ export function CategoriesBand() {
                 alt=""
                 fill
                 sizes="(min-width: 768px) 30vw, 50vw"
-                className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.04] motion-reduce:transition-none"
+                className={cn(
+                  "transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.04] motion-reduce:transition-none",
+                  c.image.endsWith(".png") ? "object-contain p-3" : "object-cover",
+                )}
               />
               {i === 0 ? (
                 <span className="absolute bottom-0 left-0 max-w-full bg-ink/55 px-6 py-5 text-paper">
@@ -75,7 +78,13 @@ export function CategoriesBand() {
           return (
             <li key={c.slug} className={cn("relative overflow-hidden", span)}>
               <Link href={`/produtos?categoria=${c.slug}`} className="absolute inset-0 block">
-                <Image src={c.image} alt="" fill sizes="(max-width: 767px) 70vw, 30vw" className="object-cover" />
+                <Image
+                  src={c.image}
+                  alt=""
+                  fill
+                  sizes="(max-width: 767px) 70vw, 30vw"
+                  className={c.image.endsWith(".png") ? "object-contain p-2" : "object-cover"}
+                />
                 <span className="absolute bottom-0 left-0 bg-ink/55 px-4 py-2.5 text-paper">
                   <span className="block font-display text-[1.125rem] leading-tight sm:text-[1.625rem]">{c.label}</span>
                 </span>

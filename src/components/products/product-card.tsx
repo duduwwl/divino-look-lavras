@@ -239,7 +239,7 @@ export function ProductCard({
             className="btn btn-dark min-h-11 w-11 shrink-0 px-0 text-[0.875rem] @[17rem]:w-auto @[17rem]:px-3"
             aria-label={product.inStock ? `Adicionar ${product.name} à sacola` : `${product.name} esgotado`}
           >
-            <ShoppingBag className="size-4 text-white" aria-hidden />
+            <ShoppingBag className="size-5 text-white" strokeWidth={2.2} aria-hidden />
             <span className="hidden @[17rem]:inline">{product.inStock ? "Sacola" : "Esgotado"}</span>
           </button>
         </div>

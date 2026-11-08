@@ -3,14 +3,14 @@ import { siteConfig } from "@/config/site";
 import { InfiniteSlider } from "@/components/motion-primitives/infinite-slider";
 
 const tiles = [
-  ["/products/conjunto-rosa-pink-de-alfaiataria/cutout.png", "Conjunto rosa pink de alfaiataria", true],
+  ["/products/conjunto-verde-de-alfaiataria/01.jpg", "Conjunto verde de alfaiataria", false],
   ["/products/vestido-longo-coral/01.jpg", "Vestido longo coral", false],
   ["/products/macaquinho-jeans-utilitario/02.jpg", "Macaquinho jeans utilitário", false],
   ["/products/conjunto-verde-musgo/01.jpg", "Conjunto verde musgo", false],
   ["/products/vestido-longo-patchwork/05.jpg", "Vestido longo patchwork", false],
-  ["/products/conjunto-vermelho/cutout.png", "Conjunto vermelho", true],
+  ["/products/vestido-jeans-longo-com-botoes/06.jpg", "Vestido jeans longo com botões", false],
   ["/products/cropped-poa-marinho/03.jpg", "Cropped poá marinho", false],
-  ["/products/vestido-longo-listrado-coral/cutout-01.png", "Vestido longo listrado coral", true],
+  ["/products/saia-longa-de-renda-branca/03.jpg", "Saia longa de renda branca", false],
 ] as const;
 
 export function InstagramStrip() {

@@ -7,19 +7,19 @@ export const categories: { slug: CategoryFilter; label: string; blurb: string; i
     "slug": "vestidos",
     "label": "Vestidos",
     "blurb": "Midi, longos e chemises",
-    "image": "/products/vestido-longo-listrado-coral/01.jpg"
+    "image": "/products/vestido-longo-patchwork/cutout-hq.png"
   },
   {
     "slug": "conjuntos",
     "label": "Conjuntos",
     "blurb": "Alfaiataria e coordenados",
-    "image": "/products/conjunto-rosa-pink-de-alfaiataria/01.jpg"
+    "image": "/products/conjunto-rosa-pink-de-alfaiataria/cutout.png"
   },
   {
     "slug": "blusas",
     "label": "Blusas",
     "blurb": "Do básico ao delicado",
-    "image": "/products/blusa-azul-com-laco/01.jpg"
+    "image": "/products/blusa-azul-com-laco/cutout-hq.png"
   },
   {
     "slug": "calcas",
@@ -31,7 +31,7 @@ export const categories: { slug: CategoryFilter; label: string; blurb: string; i
     "slug": "saias",
     "label": "Saias",
     "blurb": "Midi, longas e curtas",
-    "image": "/products/saia-longa-de-renda-branca/01.jpg"
+    "image": "/products/saia-longa-de-renda-branca/cutout-hq.png"
   },
   {
     "slug": "fitness",

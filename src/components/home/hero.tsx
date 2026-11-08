@@ -70,10 +70,10 @@ export function Hero() {
             transition={{ delay: 0.7, duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
             className="flex flex-wrap gap-2"
           >
-            <Link href="/#colecao" className="btn btn-primary">
+            <Link href="/#colecao" className="btn btn-primary rounded-full">
               Explorar coleção
             </Link>
-            <Link href="/produtos" className="btn btn-sand">
+            <Link href="/produtos" className="btn btn-sand rounded-full">
               Ver produtos
             </Link>
           </motion.nav>
