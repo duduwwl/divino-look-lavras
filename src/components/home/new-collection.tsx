@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
  * (/produtos) with the matching filter. The frame shows the theme in focus.
  */
 const themes = [
-  { title: "Alfaiataria leve", note: "Blazers e calças para o dia todo", href: "/produtos?categoria=conjuntos", img: "/products/conjunto-rosa-pink-de-alfaiataria/cutout.png", cutout: true },
+  { title: "Alfaiataria leve", note: "Blazers e calças para o dia todo", href: "/produtos?categoria=conjuntos", img: "/products/conjunto-verde-musgo/01.jpg", cutout: false },
   { title: "Vestidos fluidos", note: "Midi, longos e chemises", href: "/produtos?categoria=vestidos", img: "/products/vestido-longo-listrado-coral/cutout-01.png", cutout: true },
   { title: "Cores de estação", note: "Vermelho, verde e rosé", href: "/produtos?cores=Vermelho,Verde,Rosa", img: "/products/conjunto-vermelho/cutout.png", cutout: true },
   { title: "Saias com movimento", note: "Evasê, midi e estampas", href: "/produtos?categoria=saias", img: "/products/saia-longa-de-renda-branca/01.jpg", cutout: false },
