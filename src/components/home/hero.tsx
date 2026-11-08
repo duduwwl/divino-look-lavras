@@ -50,7 +50,7 @@ export function Hero() {
               per="word"
               preset="fade-in-blur"
               speedReveal={1.1}
-              className="font-display text-[1.625rem] leading-[1.1] tracking-[-0.015em] md:text-[2.6rem]"
+              className="text-effect-native font-display text-[1.625rem] leading-[1.1] tracking-[-0.015em] md:text-[2.6rem]"
             >
               Seu estilo. Sua essência. Seu momento.
             </TextEffect>

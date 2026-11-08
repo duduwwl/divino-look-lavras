@@ -25,7 +25,7 @@ export const categories: { slug: CategoryFilter; label: string; blurb: string; i
     "slug": "calcas",
     "label": "Calças",
     "blurb": "Pantalonas e retas",
-    "image": "/products/calca-pantalona-branca/01.jpg"
+    "image": "/products/calca-pantalona-branca/cutout-hq.png"
   },
   {
     "slug": "saias",
@@ -37,13 +37,13 @@ export const categories: { slug: CategoryFilter; label: string; blurb: string; i
     "slug": "fitness",
     "label": "Moda Fitness",
     "blurb": "Para treinar com estilo",
-    "image": "/products/conjunto-fitness-verde-menta/01.jpg"
+    "image": "/products/conjunto-fitness-verde-menta/cutout-hq.png"
   },
   {
     "slug": "lancamentos",
     "label": "Lançamentos",
     "blurb": "O que acabou de chegar",
-    "image": "/products/macaquinho-jeans-utilitario/02.jpg"
+    "image": "/products/macaquinho-jeans-utilitario/cutout-hq.png"
   }
 ];
 

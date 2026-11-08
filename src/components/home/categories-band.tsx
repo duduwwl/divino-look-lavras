@@ -34,7 +34,7 @@ export function CategoriesBand() {
         {categories.map((c, i) => (
           <li
             key={c.slug}
-            className="relative min-w-0 overflow-hidden transition-[flex-grow] duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] motion-reduce:transition-none"
+            className="relative min-w-0 overflow-hidden ring-1 ring-inset ring-white transition-[flex-grow] duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] motion-reduce:transition-none"
             style={{ flexGrow: active === i ? 6 : grow[i], flexBasis: 0 }}
             onMouseEnter={() => setActive(i)}
           >
@@ -76,7 +76,7 @@ export function CategoriesBand() {
         {categories.map((c, i) => {
           const span = i === 0 ? "col-span-12 h-[46svh]" : i % 4 === 1 || i % 4 === 0 ? "col-span-7 h-[34svh]" : "col-span-5 h-[34svh]";
           return (
-            <li key={c.slug} className={cn("relative overflow-hidden", span)}>
+            <li key={c.slug} className={cn("relative overflow-hidden ring-1 ring-inset ring-white", span)}>
               <Link href={`/produtos?categoria=${c.slug}`} className="absolute inset-0 block">
                 <Image
                   src={c.image}

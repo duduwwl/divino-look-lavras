@@ -5,6 +5,7 @@ import { CartProvider } from "@/components/cart/cart-provider";
 import { CartDrawer } from "@/components/cart/cart-drawer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { PageTextEffect } from "@/components/motion-primitives/page-text-effect";
 import { siteConfig } from "@/config/site";
 
 const bodoni = Bodoni_Moda({
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" className={`${bodoni.variable} ${albert.variable}`}>
       <body>
         <CartProvider>
+          <PageTextEffect />
           <div className="brand-surface relative z-10 bg-brand-rose">
             <SiteHeader />
             <main id="conteudo" className="min-h-[60svh]">

@@ -185,6 +185,21 @@ textarea {
   transform: scale(0.96);
 }
 
+/* Global text entrance: equivalent to TextEffect's slide preset, without
+   replacing semantic elements or breaking links, buttons and live content. */
+.page-text-slide {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 500ms var(--ease-out),
+    transform 550ms var(--ease-out);
+  will-change: opacity, transform;
+}
+.page-text-slide-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Inline text link with a growing underline (static under reduced motion) */
 .link-underline {
   position: relative;
@@ -261,6 +276,12 @@ textarea {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .page-text-slide {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+
   .site-footer-reveal {
     position: relative;
   }
