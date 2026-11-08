@@ -13,11 +13,11 @@ import { cn } from "@/lib/utils";
  * (/produtos) with the matching filter. The frame shows the theme in focus.
  */
 const themes = [
-  { title: "Alfaiataria leve", note: "Blazers e calças para o dia todo", href: "/produtos?categoria=conjuntos", img: "/products/conjunto-verde-musgo/01.jpg", cutout: false },
-  { title: "Vestidos fluidos", note: "Midi, longos e chemises", href: "/produtos?categoria=vestidos", img: "/products/vestido-longo-patchwork/05.jpg", cutout: false },
-  { title: "Cores de estação", note: "Vermelho, verde e rosé", href: "/produtos?cores=Vermelho,Verde,Rosa", img: "/products/vestido-longo-coral/01.jpg", cutout: false },
+  { title: "Alfaiataria leve", note: "Blazers e calças para o dia todo", href: "/produtos?categoria=conjuntos", img: "/instagram/look-neutro.jpg", cutout: false },
+  { title: "Vestidos fluidos", note: "Midi, longos e chemises", href: "/produtos?categoria=vestidos", img: "/instagram/vestido-creme.jpg", cutout: false },
+  { title: "Cores de estação", note: "Vermelho, verde e rosé", href: "/produtos?cores=Vermelho,Verde,Rosa", img: "/instagram/vestido-rosa.jpg", cutout: false },
   { title: "Saias com movimento", note: "Evasê, midi e estampas", href: "/produtos?categoria=saias", img: "/products/saia-longa-de-renda-branca/01.jpg", cutout: false },
-  { title: "Treino com estilo", note: "Conjuntos e leggings", href: "/produtos?categoria=fitness", img: "/products/conjunto-fitness-verde-menta/03.jpg", cutout: false },
+  { title: "Treino com estilo", note: "Conjuntos e leggings", href: "/produtos?categoria=fitness", img: "/instagram/fitness-azul.jpg", cutout: false },
   { title: "Recém-chegados", note: "Tudo o que acabou de chegar", href: "/produtos?categoria=lancamentos", img: "/products/macaquinho-jeans-utilitario/02.jpg", cutout: false },
 ];
 

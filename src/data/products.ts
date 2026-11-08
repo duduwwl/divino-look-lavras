@@ -7,7 +7,7 @@ export const categories: { slug: CategoryFilter; label: string; blurb: string; i
     "slug": "vestidos",
     "label": "Vestidos",
     "blurb": "Midi, longos e chemises",
-    "image": "/products/vestido-longo-patchwork/cutout-hq.png"
+    "image": "/instagram/vestido-rosa.jpg"
   },
   {
     "slug": "conjuntos",

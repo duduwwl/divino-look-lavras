@@ -3,14 +3,16 @@ import { siteConfig } from "@/config/site";
 import { InfiniteSlider } from "@/components/motion-primitives/infinite-slider";
 
 const tiles = [
-  ["/products/conjunto-verde-de-alfaiataria/01.jpg", "Conjunto verde de alfaiataria", false],
+  ["/instagram/look-neutro.jpg", "Look neutro publicado pela Divino Look", false],
   ["/products/vestido-longo-coral/01.jpg", "Vestido longo coral", false],
   ["/products/macaquinho-jeans-utilitario/02.jpg", "Macaquinho jeans utilitário", false],
   ["/products/conjunto-verde-musgo/01.jpg", "Conjunto verde musgo", false],
   ["/products/vestido-longo-patchwork/05.jpg", "Vestido longo patchwork", false],
-  ["/products/vestido-jeans-longo-com-botoes/06.jpg", "Vestido jeans longo com botões", false],
+  ["/instagram/fitness-azul.jpg", "Look fitness azul publicado pela Divino Look", false],
   ["/products/cropped-poa-marinho/03.jpg", "Cropped poá marinho", false],
-  ["/products/saia-longa-de-renda-branca/03.jpg", "Saia longa de renda branca", false],
+  ["/instagram/vestido-creme.jpg", "Vestido creme publicado pela Divino Look", false],
+  ["/instagram/animal-print.jpg", "Look animal print publicado pela Divino Look", false],
+  ["/instagram/vestido-rosa.jpg", "Vestido rosa publicado pela Divino Look", false],
 ] as const;
 
 export function InstagramStrip() {
