@@ -304,12 +304,4 @@ body:has(.crh-demo) .site-footer-reveal {
 body:has(.crh-demo) .brand-surface {
   background: #fff;
 }
-/* As fotos do catálogo têm fundo branco; a mistura deixa apenas a roupa visível na arara. */
-.store-clothing-rail .crh-photo {
-  mix-blend-mode: multiply;
-}
-
-.store-clothing-rail .crh-shadow {
-  display: none;
-}
 
