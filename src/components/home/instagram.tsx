@@ -8,7 +8,7 @@ const tiles = [
   ["/products/macaquinho-jeans-utilitario/02.jpg", "Macaquinho jeans utilitário", false],
   ["/products/conjunto-verde-musgo/01.jpg", "Conjunto verde musgo", false],
   ["/products/vestido-longo-patchwork/05.jpg", "Vestido longo patchwork", false],
-  ["/instagram/fitness-azul.jpg", "Look fitness azul publicado pela Divino Look", false],
+  ["/instagram/fitness-azul-sem-texto.png", "Look fitness azul publicado pela Divino Look", false],
   ["/products/cropped-poa-marinho/03.jpg", "Cropped poá marinho", false],
   ["/products/conjunto-verde-menta-com-saia/01.jpg", "Conjunto verde menta com saia", false],
   ["/products/saia-longa-de-renda-branca/03.jpg", "Saia longa de renda branca", false],
@@ -57,4 +57,5 @@ export function InstagramStrip() {
     </section>
   );
 }
+
 

@@ -22,6 +22,8 @@ function permittedOrigin(request: Request) {
     try { allowed.add(new URL(process.env.NEXT_PUBLIC_SITE_URL).origin); } catch { /* configuração inválida não amplia acesso */ }
   }
   if (process.env.VERCEL_URL) allowed.add(`https://${process.env.VERCEL_URL}`);
+  allowed.add("https://divinolooklavras.com.br");
+  allowed.add("https://www.divinolooklavras.com.br");
   if (process.env.NODE_ENV !== "production") allowed.add(new URL(request.url).origin);
   return allowed.has(origin);
 }
@@ -102,3 +104,4 @@ export async function POST(request: Request) {
     return json({ ok: false, message: "Cadastro temporariamente indisponível." }, { status: 503 });
   }
 }
+
