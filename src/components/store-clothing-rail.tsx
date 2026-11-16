@@ -4,22 +4,23 @@ import Link from "next/link";
 import ClothingRailHero from "./ui/clothing-rail-hero";
 import type { RailGarment } from "./ui/clothing-rail-hero";
 
-const products: Array<RailGarment & { slug: string }> = [
-  { id: "blusa-azul-com-laco", slug: "blusa-azul-com-laco", name: "Blusa Azul com Laço", tag: "R$ 119,90", image: "/products/blusa-azul-com-laco/cutout-hq.png" },
-  { id: "vestido-longo-patchwork", slug: "vestido-longo-patchwork", name: "Vestido Longo Patchwork", tag: "R$ 219,90", image: "/products/vestido-longo-patchwork/cutout-hq.png" },
-  { id: "saia-longa-de-renda-branca", slug: "saia-longa-de-renda-branca", name: "Saia Longa de Renda Branca", tag: "R$ 129,90", image: "/products/saia-longa-de-renda-branca/cutout-hq.png" },
-  { id: "conjunto-fitness-verde-menta", slug: "conjunto-fitness-verde-menta", name: "Conjunto Fitness Verde Menta", tag: "R$ 169,90", image: "/products/conjunto-fitness-verde-menta/cutout-hq.png" },
-  { id: "vestido-jeans-longo-com-botoes", slug: "vestido-jeans-longo-com-botoes", name: "Vestido Jeans Longo com Botões", tag: "R$ 219,90", image: "/products/vestido-jeans-longo-com-botoes/cutout-hq.png" },
-  { id: "calca-pantalona-branca", slug: "calca-pantalona-branca", name: "Calça Pantalona Branca", tag: "R$ 149,90", image: "/products/calca-pantalona-branca/cutout-hq.png" },
-  { id: "conjunto-verde-menta-com-saia", slug: "conjunto-verde-menta-com-saia", name: "Conjunto Verde Menta com Saia", tag: "R$ 229,90", image: "/conjunto-verde-menta-recorte.png" },
-  { id: "conjunto-fitness-bege", slug: "conjunto-fitness-bege", name: "Conjunto Fitness Bege", tag: "R$ 159,90", image: "/conjunto-fitness-bege-recorte.png" },
-  { id: "macaquinho-jeans-utilitario", slug: "macaquinho-jeans-utilitario", name: "Conjunto Jeans Utilitário", tag: "R$ 209,90", image: "/products/macaquinho-jeans-utilitario/cutout-hq.png" },
-  { id: "vestido-longo-preto", slug: "vestido-longo-preto", name: "Vestido Longo Preto", tag: "R$ 189,90", image: "/vestido-preto-recorte.png" },
+const products: RailGarment[] = [
+  { id: "camiseta-flor-azul", name: "Camiseta Flor Azul", tag: "R$ 99,90", image: "/products/camiseta-flor-azul/01.jpg" },
+  { id: "camiseta-beach-off-white", name: "Camiseta Beach Off-white", tag: "R$ 109,90", image: "/products/camiseta-beach-off-white/01.jpg" },
+  { id: "camiseta-rosa-basica", name: "Camiseta Rosa Básica", tag: "R$ 99,90", image: "/products/camiseta-rosa-basica/01.jpg" },
+  { id: "camiseta-ballet-azul", name: "Camiseta Ballet Azul", tag: "R$ 109,90", image: "/products/camiseta-ballet-azul/01.jpg" },
+  { id: "camiseta-azul-com-flores", name: "Camiseta Azul com Flores", tag: "R$ 129,90", image: "/products/camiseta-azul-com-flores/01.jpg", backImage: "/products/camiseta-azul-com-flores/02.jpg" },
+  { id: "camiseta-relaxed-branca", name: "Camiseta Relaxed Branca", tag: "R$ 109,90", image: "/products/camiseta-relaxed-branca/01.jpg", backImage: "/products/camiseta-relaxed-branca/02.jpg" },
+  { id: "cropped-canelado-azul", name: "Cropped Canelado Azul", tag: "R$ 89,90", image: "/products/cropped-canelado-azul/01.jpg" },
+  { id: "body-azul-claro", name: "Body Azul Claro", tag: "R$ 129,90", image: "/products/body-azul-claro/01.jpg" },
+  { id: "camiseta-girassol-terracota", name: "Camiseta Girassol Terracota", tag: "R$ 109,90", image: "/products/camiseta-girassol-terracota/01.jpg" },
+  { id: "camiseta-vermelha-basica", name: "Camiseta Vermelha Básica", tag: "R$ 99,90", image: "/products/camiseta-vermelha-basica/01.jpg" },
 ];
 
 export default function StoreClothingRail() {
   return (
     <ClothingRailHero
+      className="store-clothing-rail"
       items={products}
       hanger="wood"
       eyebrow="Seleção Divino Look"
