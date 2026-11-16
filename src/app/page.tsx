@@ -1,5 +1,5 @@
 import { Hero } from "@/components/home/hero";
-import { CategoriesBand } from "@/components/home/categories-band";
+import StoreClothingRail from "@/components/store-clothing-rail";
 import { NewCollection } from "@/components/home/new-collection";
 import { About } from "@/components/home/about";
 import { Experience } from "@/components/home/experience";
@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <ScrollProgress className="fixed top-0 z-[55] h-[2px] bg-brown" springOptions={{ stiffness: 280, damping: 40, restDelta: 0.001 }} />
       <Hero />
-      <CategoriesBand />
+      <StoreClothingRail />
       <NewCollection />
       <Lookbook />
       <About />
