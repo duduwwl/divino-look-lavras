@@ -19,7 +19,7 @@ interface PopStepperProps {
   className?: string;
 }
 
-const colors = ["#24201e", "#805247", "#805247", "#24201e"];
+const colors = ["#24201e", "#9c514b", "#9c514b", "#24201e"];
 
 export default function PopStepper({
   value,

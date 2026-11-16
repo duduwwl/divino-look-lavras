@@ -120,7 +120,7 @@ export function Newsletter() {
                     type="checkbox"
                     checked={consent}
                     onChange={(e) => setConsent(e.target.checked)}
-                    className="mt-1 size-[18px] accent-[#805247]"
+                    className="mt-1 size-[18px] accent-[#9c514b]"
                   />
                   Aceito receber comunicações da Divino Look e sei que posso cancelar quando quiser.
                 </label>

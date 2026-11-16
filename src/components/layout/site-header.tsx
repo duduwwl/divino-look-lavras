@@ -75,7 +75,7 @@ export function SiteHeader() {
 
           <Link href="/" className="relative flex h-11 items-center gap-3">
             <span className="sr-only">Divino Look, página inicial</span>
-            <BrandMark className="h-[30px] w-auto text-on-brown" />
+            <BrandMark className="h-[30px] w-auto text-on-brand" />
             <AnimatePresence initial={false}>
               {pastHero ? (
                 <motion.span
@@ -153,7 +153,7 @@ export function SiteHeader() {
                   transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
                   className={cn(
                     "inline-flex h-6 min-w-6 items-center justify-center px-1.5 text-[0.875rem] font-semibold tabular-nums",
-                    count > 0 ? "bg-brown text-on-brown" : "bg-sand text-ink",
+                    count > 0 ? "bg-brown text-on-brown" : "bg-paper text-on-brand",
                   )}
                   aria-hidden
                 >
