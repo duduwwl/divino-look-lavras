@@ -12,13 +12,14 @@ export const railDemoItems: RailGarment[] = [
   { id: "conjunto-fitness-verde-menta", name: "Conjunto fitness verde menta", image: "/products/conjunto-fitness-verde-menta/cutout-hq.png", tag: "R$ 169,90", description: "Conforto e cor para acompanhar o treino.", href: "/produtos/conjunto-fitness-verde-menta", details: ["Fitness", "Verde"] },
   { id: "vestido-jeans-longo-com-botoes", name: "Vestido jeans longo com botões", image: "/products/vestido-jeans-longo-com-botoes/cutout-hq.png", tag: "R$ 219,90", description: "Uma peça versátil em jeans longo.", href: "/produtos/vestido-jeans-longo-com-botoes", details: ["Vestidos", "Jeans"] },
   { id: "calca-pantalona-branca", name: "Calça pantalona branca", image: "/products/calca-pantalona-branca/cutout-hq.png", tag: "R$ 149,90", description: "Silhueta ampla e leve em branco.", href: "/produtos/calca-pantalona-branca", details: ["Calças", "Branco"] },
-  { id: "conjunto-verde-menta-com-saia", name: "Conjunto verde menta com saia", image: "/products/conjunto-verde-menta-com-saia/01.jpg", tag: "R$ 229,90", description: "Uma combinação fresca em verde menta.", href: "/produtos/conjunto-verde-menta-com-saia", details: ["Conjuntos", "Verde"] },
-  { id: "conjunto-fitness-bege", name: "Conjunto fitness bege", image: "/products/conjunto-fitness-bege/01.jpg", tag: "R$ 159,90", description: "Neutro e confortável para o dia ativo.", href: "/produtos/conjunto-fitness-bege", details: ["Fitness", "Bege"] },
-  { id: "vestido-longo-preto", name: "Vestido longo preto", image: "/vestido-preto-editorial.png", tag: "R$ 189,90", description: "Longo preto para ocasiões especiais.", href: "/produtos/vestido-longo-preto", details: ["Vestidos", "Preto"] },
+  { id: "conjunto-verde-menta-com-saia", name: "Conjunto verde menta com saia", image: "/conjunto-verde-menta-recorte.png", tag: "R$ 229,90", description: "Uma combinação fresca em verde menta.", href: "/produtos/conjunto-verde-menta-com-saia", details: ["Conjuntos", "Verde"] },
+  { id: "conjunto-fitness-bege", name: "Conjunto fitness bege", image: "/conjunto-fitness-bege-recorte.png", tag: "R$ 159,90", description: "Neutro e confortável para o dia ativo.", href: "/produtos/conjunto-fitness-bege", details: ["Fitness", "Bege"] },
+  { id: "vestido-longo-preto", name: "Vestido longo preto", image: "/vestido-preto-recorte.png", tag: "R$ 189,90", description: "Longo preto para ocasiões especiais.", href: "/produtos/vestido-longo-preto", details: ["Vestidos", "Preto"] },
 ];
 
 export default function ClothingRailHeroDemo({ autoplay = true }: { autoplay?: boolean }) {
   return <ClothingRailHero items={railDemoItems} hanger="none" eyebrow="Divino Look · Peças da loja" heading="Escolha o seu próximo look na arara." caption="Passe pelas peças, arraste um cabide ou toque para ver de perto." autoplay={autoplay} action={<Link className="btn btn-dark" href="/produtos">Ver a coleção</Link>} />;
 }
+
 
 

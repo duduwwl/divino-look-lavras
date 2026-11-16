@@ -150,7 +150,7 @@ const CSS = `
 .crh-hanger { position:absolute; left:18%; top:50px; width:64%; height:18px; border-top:7px solid #a67c57; border-radius:50% 50% 0 0; }
 .crh-hanger[data-hanger=matte] { border-color:#555; } .crh-hanger[data-hanger=none] { display:none; }
 .crh-illustration { position:absolute; top:65px; left:15%; width:70%; height:70%; background:var(--crh-color); clip-path:polygon(25% 0,75% 0,100% 16%,84% 30%,80% 100%,20% 100%,16% 30%,0 16%); filter:drop-shadow(4px 6px 4px #0002); }
-.crh-tag { position:absolute; z-index:5; top:69px; left:56%; padding:5px 7px; background:white; border:1px solid #ddd; color:#222; font-size:10px; white-space:nowrap; transform:rotate(-12deg); box-shadow:0 2px 5px #0002; }
+.crh-tag { position:absolute; z-index:5; top:34px; left:56%; padding:5px 7px; background:white; border:1px solid #ddd; color:#222; font-size:10px; white-space:nowrap; transform:rotate(-12deg); box-shadow:0 2px 5px #0002; }
 .crh-foot { display:flex; flex-direction:column; align-items:center; gap:18px; min-height:90px; padding-top:15px; text-align:center; }
 .crh-caption { min-height:48px; font-size:14px; } .crh-caption strong { font-weight:600; } .crh-caption p { color:var(--crh-muted); font-size:13px; }
 .crh-dots { display:flex; justify-content:center; gap:7px; margin-top:5px; } .crh-dots button { width:7px; height:7px; padding:0; border:0; border-radius:9px; background:#bbb; } .crh-dots button[aria-current=true] { width:24px; background:var(--crh-fg); }
