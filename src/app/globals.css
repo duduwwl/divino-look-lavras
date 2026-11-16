@@ -295,3 +295,13 @@ textarea {
     transition-duration: 0.01ms !important;
   }
 }
+/* A demo da arara ocupa a tela inteira, fora da moldura da loja. */
+body:has(.crh-demo) .brand-surface > header,
+body:has(.crh-demo) .site-footer-reveal {
+  display: none;
+}
+
+body:has(.crh-demo) .brand-surface {
+  background: #fff;
+}
+
