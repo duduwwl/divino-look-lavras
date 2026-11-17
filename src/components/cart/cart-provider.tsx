@@ -38,7 +38,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       setItems((prev) => {
         const next = [...prev];
         for (const item of incoming) {
-          const key = `${item.productId}__${item.size}__${item.color}`;
+          const key = `${item.productId}__${item.size}__${item.color}__${item.purchaseOption ?? "padrao"}`;
           const found = next.find((i) => i.key === key);
           if (found) found.quantity = Math.min(MAX_QTY, found.quantity + item.quantity);
           else next.push({ ...item, key });

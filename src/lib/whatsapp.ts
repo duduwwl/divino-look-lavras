@@ -15,12 +15,14 @@ export function productMessage(opts: {
   color?: string;
   quantity: number;
   price: number;
+  option?: string;
   url?: string;
 }) {
   const lines = [
     "Olá, Divino Look! Tenho interesse nesta peça que vi no site:",
     "",
     `• ${opts.name}`,
+    opts.option ? `Opção: ${opts.option}` : null,
     opts.size ? `Tamanho: ${opts.size}` : null,
     opts.color ? `Cor: ${opts.color}` : null,
     `Quantidade: ${opts.quantity}`,
@@ -38,7 +40,7 @@ export function cartMessage(items: CartItem[], subtotal: number) {
     "",
     ...items.map(
       (i, n) =>
-        `${n + 1}. ${i.name} — Tam. ${i.size} · Cor ${i.color} · ${i.quantity}x ${formatBRL(i.price)}`,
+        `${n + 1}. ${i.name}${i.purchaseOption ? ` (${i.purchaseOption})` : ""} — Tam. ${i.size} · Cor ${i.color} · ${i.quantity}x ${formatBRL(i.price)}`,
     ),
     "",
     `Subtotal: ${formatBRL(subtotal)}`,

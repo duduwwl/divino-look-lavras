@@ -29,13 +29,16 @@ export function ProductDetail({ product }: { product: Product }) {
   const reduce = useReducedMotion();
   const [size, setSize] = useState<Size | null>(product.sizes.length === 1 ? product.sizes[0] : null);
   const [color, setColor] = useState<string | null>(product.colors.length === 1 ? product.colors[0] : null);
+  const [purchaseOption, setPurchaseOption] = useState<string | null>(product.purchaseOptions?.[0]?.label ?? null);
   const [qty, setQty] = useState(1);
   const [tab, setTab] = useState(0);
   const [touched, setTouched] = useState(false);
   const [added, setAdded] = useState(false);
   const fav = favorites.includes(product.id);
 
-  const missing = !size ? "Escolha um tamanho" : !color ? "Escolha uma cor" : null;
+  const selectedPurchaseOption = product.purchaseOptions?.find((option) => option.label === purchaseOption);
+  const unitPrice = selectedPurchaseOption?.price ?? product.price;
+  const missing = product.purchaseOptions?.length && !purchaseOption ? "Escolha uma opção" : !size ? "Escolha um tamanho" : !color ? "Escolha uma cor" : null;
   const pageUrl = `${siteConfig.url}/produtos/${product.slug}/`;
 
   const onAdd = () => {
@@ -45,11 +48,12 @@ export function ProductDetail({ product }: { product: Product }) {
       productId: product.id,
       slug: product.slug,
       name: product.name,
-      price: product.price,
+      price: unitPrice,
       image: product.images[0],
       size: size!,
       color: color!,
       quantity: qty,
+      purchaseOption: purchaseOption ?? undefined,
     });
     setAdded(true);
     window.setTimeout(() => setAdded(false), 1800);
@@ -57,6 +61,29 @@ export function ProductDetail({ product }: { product: Product }) {
 
   return (
     <div className="flex flex-col">
+      {product.purchaseOptions?.length ? (
+        <fieldset className="mb-6">
+          <legend className="text-[1rem] font-semibold">
+            Comprar{purchaseOption ? <span className="font-normal text-muted"> · {purchaseOption}</span> : null}
+          </legend>
+          <div className="mt-2.5 flex flex-wrap gap-1.5">
+            {product.purchaseOptions.map((option) => (
+              <button
+                key={option.label}
+                type="button"
+                aria-pressed={purchaseOption === option.label}
+                onClick={() => setPurchaseOption(option.label)}
+                className={cn(
+                  "press min-h-12 px-3.5",
+                  purchaseOption === option.label ? "bg-ink text-paper" : "bg-sand hover:bg-champagne",
+                )}
+              >
+                {option.label} · {formatBRL(option.price)}
+              </button>
+            ))}
+          </div>
+        </fieldset>
+      ) : null}
       <fieldset>
         <legend className="flex w-full items-baseline justify-between text-[1rem] font-semibold">
           <span>
@@ -142,7 +169,7 @@ export function ProductDetail({ product }: { product: Product }) {
                   <Check className="size-5" aria-hidden /> Adicionado à sacola
                 </>
               ) : (
-                `Adicionar à sacola · ${formatBRL(product.price * qty)}`
+                `Adicionar à sacola · ${formatBRL(unitPrice * qty)}`
               )}
             </motion.span>
           </AnimatePresence>
@@ -164,7 +191,8 @@ export function ProductDetail({ product }: { product: Product }) {
             size: size ?? "a definir",
             color: color ?? "a definir",
             quantity: qty,
-            price: product.price,
+            price: unitPrice,
+            option: purchaseOption ?? undefined,
             url: pageUrl,
           }),
         )}

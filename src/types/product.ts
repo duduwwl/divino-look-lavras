@@ -11,6 +11,11 @@ export type CategoryFilter = CategorySlug | "lancamentos";
 
 export type Size = "PP" | "P" | "M" | "G" | "GG" | "Único";
 
+export type PurchaseOption = {
+  label: string;
+  price: number;
+};
+
 export type Product = {
   id: string;
   slug: string;
@@ -27,6 +32,10 @@ export type Product = {
   isNew: boolean;
   /** ISO date used by "Mais recentes". Sample data. */
   createdAt: string;
+  /** Permite comprar o conjunto completo ou uma peça coordenada separadamente. */
+  purchaseOptions?: PurchaseOption[];
+  /** Produtos longos usam enquadramento integral na galeria principal. */
+  imageFit?: "cover" | "contain";
 };
 
 export type CartItem = {
@@ -39,4 +48,5 @@ export type CartItem = {
   size: Size;
   color: string;
   quantity: number;
+  purchaseOption?: string;
 };
