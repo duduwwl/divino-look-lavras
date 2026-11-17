@@ -6,6 +6,7 @@ import {
   getRelated as getFallbackRelated,
   products as fallbackProducts,
 } from "@/data/products";
+import { curateProducts } from "@/data/catalog-curation";
 import type { CategoryFilter, CategorySlug, Product, Size } from "@/types/product";
 import { getDb } from "./client";
 import { categories, productColors, productImages, productSizes, products } from "./schema";
@@ -98,7 +99,7 @@ export async function getCatalogData() {
       console.error("Falha ao consultar o catálogo no banco; usando fallback local.", error instanceof Error ? error.message : "Erro desconhecido");
     }
   }
-  const catalogProducts = databaseCatalog?.products.length ? databaseCatalog.products : fallbackProducts;
+  const catalogProducts = databaseCatalog?.products.length ? curateProducts(databaseCatalog.products) : fallbackProducts;
   const catalogCategories = databaseCatalog?.categories.length ? databaseCatalog.categories : fallbackCategories;
   return {
     products: catalogProducts,

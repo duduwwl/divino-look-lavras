@@ -1,5 +1,5 @@
 import type { CategoryFilter, CategorySlug, Product, Size } from "@/types/product";
-import { novemberProducts } from "@/data/products-nov-2026";
+import { curateProducts } from "@/data/catalog-curation";
 
 /** Catálogo montado exclusivamente com as fotos reais fornecidas pela Divino Look. */
 export const categories: { slug: CategoryFilter; label: string; blurb: string; image: string }[] = [
@@ -59,8 +59,7 @@ export const colorSwatches: Record<string, string> = {
   Verde: "#56704f", Amarelo: "#dcb24c", Lilás: "#b9a6cc", Cinza: "#9a9591", Estampado: "pattern",
 };
 
-export const products: Product[] = [
-  ...novemberProducts,
+const uncuratedProducts: Product[] = [
   {
     "id": "real-001",
     "slug": "saia-curta-branca",
@@ -3669,6 +3668,8 @@ export const products: Product[] = [
     "createdAt": "2026-10-25"
   }
 ];
+
+export const products: Product[] = curateProducts(uncuratedProducts);
 
 export const getProduct = (slug: string) => products.find((product) => product.slug === slug);
 
