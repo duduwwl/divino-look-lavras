@@ -96,7 +96,7 @@ export function CartDrawer() {
                     </button>
                   </div>
                   <p className="text-[0.875rem] text-muted">
-                    Tam. {item.size} · {item.color}
+                    {item.purchaseOption ? `${item.purchaseOption} · ` : ""}Tam. {item.size} · {item.color}
                   </p>
                   <div className="mt-auto flex items-center justify-between gap-3 pt-2">
                     <PopStepper

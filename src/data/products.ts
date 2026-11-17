@@ -57,6 +57,7 @@ export const colorSwatches: Record<string, string> = {
   Preto: "#1f1c1a", Branco: "#ffffff", "Off-white": "#f1eadf", Bege: "#d9c4a8", Caramelo: "#a86f43",
   Marrom: "#6e463c", Rosa: "#e3b5b3", Vermelho: "#9e2f2b", Vinho: "#5e2130", Azul: "#3b587f",
   Verde: "#56704f", Amarelo: "#dcb24c", Lilás: "#b9a6cc", Cinza: "#9a9591", Estampado: "pattern",
+  Roxo: "#6f3d7d",
 };
 
 const uncuratedProducts: Product[] = [

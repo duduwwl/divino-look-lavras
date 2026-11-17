@@ -8,7 +8,7 @@ import { ArrowLeft, ArrowRight, X, ZoomIn } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /** Gallery: main image with hover-pan zoom (fine pointers), clickable thumbnails and a full-screen viewer. */
-export function ProductGallery({ images, name }: { images: string[]; name: string }) {
+export function ProductGallery({ images, name, imageFit = "cover" }: { images: string[]; name: string; imageFit?: "cover" | "contain" }) {
   const [index, setIndex] = useState(0);
   const [zoom, setZoom] = useState<{ x: number; y: number } | null>(null);
   const [open, setOpen] = useState(false);
@@ -30,7 +30,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
                 i === index ? "opacity-100 outline-2 outline-offset-2 outline-ink" : "opacity-60 hover:opacity-100",
               )}
             >
-              <Image src={src} alt="" fill sizes="84px" className="object-cover" />
+              <Image src={src} alt="" fill sizes="84px" quality={100} className="object-cover" />
             </button>
           </li>
         ))}
@@ -64,8 +64,9 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
                 alt={`${name}, foto ${index + 1}`}
                 fill
                 priority={index === 0}
+                quality={100}
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover transition-transform duration-200 ease-out"
+                className={cn(imageFit === "contain" ? "object-contain" : "object-cover", "transition-transform duration-200 ease-out")}
                 style={
                   zoom && !reduce
                     ? { transform: "scale(1.9)", transformOrigin: `${zoom.x}% ${zoom.y}%` }
@@ -114,7 +115,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
               </Dialog.Close>
             </div>
             <div className="relative min-h-0 flex-1">
-              <Image src={images[index]} alt={`${name}, foto ${index + 1} ampliada`} fill sizes="100vw" quality={85} className="object-contain" />
+              <Image src={images[index]} alt={`${name}, foto ${index + 1} ampliada`} fill sizes="100vw" quality={100} className="object-contain" />
             </div>
             <div className="flex justify-center gap-2 py-4">
               <button type="button" onClick={() => go(-1)} className="press inline-flex size-12 items-center justify-center bg-paper/10" aria-label="Foto anterior">

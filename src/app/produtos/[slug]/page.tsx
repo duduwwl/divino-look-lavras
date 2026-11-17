@@ -93,7 +93,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </div>
         <div className="col-span-12 lg:col-span-7 lg:col-start-1 lg:row-span-2 lg:row-start-1">
           <div className="lg:sticky lg:top-[calc(var(--header-h)+16px)]">
-            <ProductGallery key={product.id} images={product.images} name={product.name} />
+            <ProductGallery key={product.id} images={product.images} name={product.name} imageFit={product.imageFit} />
           </div>
         </div>
         <div className="col-span-12 lg:col-span-5 lg:col-start-8 lg:row-start-2">

@@ -1,4 +1,5 @@
 import type { Product } from "@/types/product";
+import { catalogAdditions } from "@/data/catalog-additions";
 
 /**
  * Curadoria visual revisada em 16/11/2026.
@@ -108,14 +109,126 @@ const excludedImages = new Set([
   "/products/vestido-longo-preto/05.jpg",
   "/products/vestido-tubinho-marinho/04.jpg",
   "/products/vestido-utilitario-marrom/04.jpg",
+  "/products/saia-curta-branca/03.jpg",
+  "/products/regata-azul-claro/03.jpg",
+  "/products/regata-rosa/04.jpg",
+  "/products/regata-preta/02.jpg",
+  "/products/conjunto-verde-de-alfaiataria/02.jpg",
+  "/products/conjunto-verde-menta-com-saia/04.jpg",
+  "/products/calca-pantalona-branca/05.jpg",
+  "/products/calca-pantalona-branca/06.jpg",
+  "/products/calca-pantalona-branca/07.jpg",
+  "/products/blusa-azul-com-laco/02.jpg",
+  "/products/calca-flare-vinho/01.jpg",
+  "/products/calca-branca-reta/02.jpg",
+  "/products/vestido-midi-marrom-estampado/04.jpg",
+  "/products/vestido-midi-marrom-estampado/06.jpg",
+  "/products/vestido-midi-marrom-estampado/07.jpg",
+  "/products/vestido-midi-marrom-estampado/09.jpg",
+  "/products/calca-jeans-wide-leg/04.jpg",
+  "/products/calca-jeans-wide-leg/05.jpg",
+  "/products/macacao-preto-de-alfaiataria/03.jpg",
+  "/products/macacao-preto-de-alfaiataria/04.jpg",
+  "/products/macacao-preto-de-alfaiataria/05.jpg",
+  "/products/macacao-preto-de-alfaiataria/06.jpg",
+  "/products/vestido-longo-bege-bordado/01.jpg",
+  "/products/conjunto-lilas/06.jpg",
+  "/products/conjunto-lilas/07.jpg",
+  "/products/conjunto-lilas/08.jpg",
+  "/products/conjunto-lilas/09.jpg",
+  "/products/vestido-jeans-longo-com-botoes/01.jpg",
+  "/products/vestido-jeans-longo-com-botoes/03.jpg",
+]);
+
+const imageOrderBySlug: Record<string, string[]> = {
+  "regata-preta": [
+    "/products/regata-preta/03.jpg",
+    "/products/regata-preta/01.jpg",
+  ],
+  "conjunto-areia": [
+    "/products/conjunto-areia/02.jpg",
+    "/products/conjunto-areia/01.jpg",
+  ],
+  "conjunto-verde-menta-com-saia": [
+    "/products/conjunto-verde-menta-com-saia/01.jpg",
+    "/products/conjunto-verde-menta-com-saia/02.jpg",
+    "/products/conjunto-verde-menta-com-saia/05.jpg",
+    "/products/conjunto-verde-menta-com-saia/03.jpg",
+  ],
+  "blusa-azul-com-laco": [
+    "/products/blusa-azul-com-laco/04.jpg",
+    "/products/blusa-azul-com-laco/03.jpg",
+    "/products/blusa-azul-com-laco/05.jpg",
+  ],
+  "calca-branca-reta": [
+    "/products/calca-branca-reta/04.jpg",
+    "/products/calca-branca-reta/03.jpg",
+  ],
+  "vestido-utilitario-marrom": [
+    "/products/vestido-utilitario-marrom/01.jpg",
+    "/products/vestido-utilitario-marrom/03.jpg",
+  ],
+  "vestido-jeans-longo-com-botoes": [
+    "/products/vestido-jeans-longo-com-botoes/08.jpg",
+    "/products/vestido-jeans-longo-com-botoes/02.jpg",
+    "/products/vestido-jeans-longo-com-botoes/04.jpg",
+    "/products/vestido-jeans-longo-com-botoes/06.jpg",
+  ],
+};
+
+const imageReplacements: Record<string, string> = {
+  "/products/saia-curta-branca/05.jpg": "/products/saia-curta-branca/05-clean-hq.png",
+  "/products/blusa-pessego/01.jpg": "/products/blusa-pessego/01-clean-hq.png",
+  "/products/blusa-pessego/02.jpg": "/products/blusa-pessego/02-clean-hq.png",
+  "/products/conjunto-verde-de-alfaiataria/01.jpg": "/products/conjunto-verde-de-alfaiataria/01-clean-hq.webp",
+  "/products/conjunto-areia/02.jpg": "/products/conjunto-areia/02-clean-hq.webp",
+  "/products/vestido-longo-preto/03.jpg": "/products/vestido-longo-preto/03-clean-hq.webp",
+  "/products/macacao-verde-longo/02.jpg": "/products/macacao-verde-longo/02-clean-hq.webp",
+  "/products/vestido-utilitario-marrom/01.jpg": "/products/vestido-utilitario-marrom/01-clean-hq.webp",
+  "/products/vestido-longo-bege-bordado/02.jpg": "/products/vestido-longo-bege-bordado/02-clean-hq.webp",
+  "/products/vestido-preto-bordado/01.jpg": "/products/vestido-preto-bordado/01-clean-hq.webp",
+  "/products/vestido-midi-branco/01.jpg": "/products/vestido-midi-branco/01-clean-hq.webp",
+};
+
+const removedColorsBySlug: Record<string, Set<string>> = {
+  "vestido-midi-marrom-estampado": new Set(["Estampado"]),
+  "vestido-preto-bordado": new Set(["Estampado"]),
+};
+
+const containImageSlugs = new Set([
+  "vestido-longo-preto",
+  "vestido-utilitario-marrom",
+  "vestido-longo-bege-bordado",
+  "vestido-preto-bordado",
+  "vestido-midi-branco",
+  "macacao-verde-longo",
+  "conjunto-verde-de-alfaiataria",
+  "conjunto-areia",
 ]);
 
 export function curateProducts(products: Product[]): Product[] {
-  return products
+  const curated = products
     .filter((product) => !excludedProductSlugs.has(product.slug))
-    .map((product) => ({
-      ...product,
-      images: product.images.filter((image) => !excludedImages.has(image)),
-    }))
+    .map((product) => {
+      const requestedOrder = imageOrderBySlug[product.slug];
+      const available = product.images.filter((image) => !excludedImages.has(image));
+      const ordered = requestedOrder
+        ? [
+            ...requestedOrder.filter((image) => available.includes(image)),
+            ...available.filter((image) => !requestedOrder.includes(image)),
+          ]
+        : available;
+      const removedColors = removedColorsBySlug[product.slug];
+
+      return {
+        ...product,
+        images: ordered.map((image) => imageReplacements[image] ?? image),
+        colors: removedColors ? product.colors.filter((color) => !removedColors.has(color)) : product.colors,
+        imageFit: containImageSlugs.has(product.slug) ? "contain" as const : product.imageFit,
+      };
+    })
     .filter((product) => product.images.length > 0);
+
+  const existing = new Set(curated.map((product) => product.slug));
+  return [...curated, ...catalogAdditions.filter((product) => !existing.has(product.slug))];
 }
