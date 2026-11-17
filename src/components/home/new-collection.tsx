@@ -12,12 +12,30 @@ import { cn } from "@/lib/utils";
  * The themes of the season are the index; each one opens the catalogue
  * (/produtos) with the matching filter. The frame shows the theme in focus.
  */
-const themes = [
+type Theme = {
+  title: string;
+  note: string;
+  href: string;
+  img: string;
+  cutout: boolean;
+  mobileFrameClass?: string;
+  imageClass?: string;
+};
+
+const themes: Theme[] = [
   { title: "Alfaiataria leve", note: "Blazers e calças para o dia todo", href: "/produtos?categoria=conjuntos", img: "/instagram/look-neutro.jpg", cutout: false },
   { title: "Vestidos fluidos", note: "Midi, longos e chemises", href: "/produtos?categoria=vestidos", img: "/products/vestido-longo-preto/03-clean-hq.webp", cutout: false },
   { title: "Cores de estação", note: "Vermelho, verde e rosé", href: "/produtos?cores=Vermelho,Verde,Rosa", img: "/products/conjunto-verde-menta-com-saia/01.jpg", cutout: false },
   { title: "Saias com movimento", note: "Evasê, midi e estampas", href: "/produtos?categoria=saias", img: "/products/saia-longa-de-renda-branca/03.jpg", cutout: false },
-  { title: "Treino com estilo", note: "Conjuntos e leggings", href: "/produtos?categoria=fitness", img: "/products/conjunto-fitness-verde-menta/01.jpg", cutout: false },
+  {
+    title: "Treino com estilo",
+    note: "Conjuntos e leggings",
+    href: "/produtos?categoria=fitness",
+    img: "/products/conjunto-fitness-verde-menta/01-editorial-card-hq.webp",
+    cutout: false,
+    mobileFrameClass: "aspect-[4/5] sm:mx-auto sm:max-w-[36rem]",
+    imageClass: "object-cover object-center",
+  },
 ];
 
 export function NewCollection() {
@@ -57,8 +75,20 @@ export function NewCollection() {
             {themes.map((t, i) => (
               <div key={t.title}>
                 {/* phone: picture before each theme */}
-                <Link href={t.href} className="relative mb-3 block aspect-[16/10] overflow-hidden lg:hidden" tabIndex={-1} aria-hidden>
-                  <Image src={t.img} alt="" fill sizes="100vw" className={cn(t.cutout ? "object-contain" : "object-cover object-[50%_25%]")} />
+                <Link
+                  href={t.href}
+                  className={cn("relative mb-3 block overflow-hidden lg:hidden", t.mobileFrameClass ?? "aspect-[16/10]")}
+                  tabIndex={-1}
+                  aria-hidden
+                >
+                  <Image
+                    src={t.img}
+                    alt=""
+                    fill
+                    quality={100}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1023px) 80vw, 30vw"
+                    className={cn(t.cutout ? "object-contain" : (t.imageClass ?? "object-cover object-[50%_25%]"))}
+                  />
                 </Link>
                 <Link
                   href={t.href}
@@ -94,8 +124,13 @@ export function NewCollection() {
                   src={t.img}
                   alt={i === active ? t.title : ""}
                   fill
+                  quality={100}
                   sizes="30vw"
-                  className={cn(t.cutout ? "object-contain" : "object-cover", "transition-opacity duration-200", i === active ? "opacity-100" : "opacity-0")}
+                  className={cn(
+                    t.cutout ? "object-contain" : (t.imageClass ?? "object-cover"),
+                    "transition-opacity duration-200",
+                    i === active ? "opacity-100" : "opacity-0",
+                  )}
                 />
               ))}
             </div>
