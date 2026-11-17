@@ -34,7 +34,6 @@ export function ProductCard({
   const cropEmbeddedBorder = [
     "blusa-pessego",
     "calca-jeans-pantalona-clara",
-    "conjunto-areia",
     "macaquinho-azul",
     "vestido-jeans-midi",
     "vestido-jeans-longo-com-botoes",
