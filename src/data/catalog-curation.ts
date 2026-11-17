@@ -10,6 +10,8 @@ import { catalogAdditions } from "@/data/catalog-additions";
  * A arara de camisetas da página inicial é independente deste catálogo.
  */
 const excludedProductSlugs = new Set([
+  // Peça retirada do catálogo a pedido da loja (17/11/2026).
+  "conjunto-areia",
   // Lote de novembro fotografado somente como peça isolada em fundo branco.
   "bermuda-fitness-marrom",
   "bermuda-fitness-vinho",
@@ -145,10 +147,6 @@ const imageOrderBySlug: Record<string, string[]> = {
     "/products/regata-preta/03.jpg",
     "/products/regata-preta/01.jpg",
   ],
-  "conjunto-areia": [
-    "/products/conjunto-areia/02.jpg",
-    "/products/conjunto-areia/01.jpg",
-  ],
   "conjunto-verde-menta-com-saia": [
     "/products/conjunto-verde-menta-com-saia/01.jpg",
     "/products/conjunto-verde-menta-com-saia/02.jpg",
@@ -181,7 +179,6 @@ const imageReplacements: Record<string, string> = {
   "/products/blusa-pessego/01.jpg": "/products/blusa-pessego/01-clean-hq.png",
   "/products/blusa-pessego/02.jpg": "/products/blusa-pessego/02-clean-hq.png",
   "/products/conjunto-verde-de-alfaiataria/01.jpg": "/products/conjunto-verde-de-alfaiataria/01-clean-hq.webp",
-  "/products/conjunto-areia/02.jpg": "/products/conjunto-areia/02-clean-hq.webp",
   "/products/vestido-longo-preto/03.jpg": "/products/vestido-longo-preto/03-clean-hq.webp",
   "/products/macacao-verde-longo/02.jpg": "/products/macacao-verde-longo/02-clean-hq.webp",
   "/products/vestido-utilitario-marrom/01.jpg": "/products/vestido-utilitario-marrom/01-clean-hq.webp",
@@ -203,7 +200,6 @@ const containImageSlugs = new Set([
   "vestido-midi-branco",
   "macacao-verde-longo",
   "conjunto-verde-de-alfaiataria",
-  "conjunto-areia",
 ]);
 
 export function curateProducts(products: Product[]): Product[] {
