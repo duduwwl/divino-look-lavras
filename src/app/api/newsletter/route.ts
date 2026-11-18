@@ -1,8 +1,7 @@
-import { createHmac } from "node:crypto";
-import { lte, sql } from "drizzle-orm";
 import { z } from "zod";
 import { getDb } from "@/db/client";
-import { auditLogs, newsletterSubscribers, rateLimits } from "@/db/schema";
+import { auditLogs, newsletterSubscribers } from "@/db/schema";
+import { hashIp, hitRateLimit, json, permittedOrigin } from "@/lib/api-guard";
 import { encryptPersonalData, normalizeEmail, personalDataIndex } from "@/lib/personal-data";
 import { readLimitedJson, RequestBodyError } from "@/lib/request-security";
 
@@ -13,33 +12,6 @@ const bodySchema = z.object({
   consent: z.literal(true),
   company: z.string().max(200).optional().default(""),
 }).strict();
-
-function permittedOrigin(request: Request) {
-  const origin = request.headers.get("origin");
-  if (!origin) return false;
-  const allowed = new Set<string>();
-  if (process.env.NEXT_PUBLIC_SITE_URL) {
-    try { allowed.add(new URL(process.env.NEXT_PUBLIC_SITE_URL).origin); } catch { /* configuração inválida não amplia acesso */ }
-  }
-  if (process.env.VERCEL_URL) allowed.add(`https://${process.env.VERCEL_URL}`);
-  allowed.add("https://divinolooklavras.com.br");
-  allowed.add("https://www.divinolooklavras.com.br");
-  if (process.env.NODE_ENV !== "production") allowed.add(new URL(request.url).origin);
-  return allowed.has(origin);
-}
-
-function json(body: Record<string, unknown>, init?: ResponseInit) {
-  const headers = new Headers(init?.headers);
-  headers.set("Cache-Control", "no-store");
-  return Response.json(body, { ...init, headers });
-}
-
-function hashIp(request: Request) {
-  const secret = process.env.DATA_HASH_SECRET;
-  if (!secret || secret.length < 32) return null;
-  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "unknown";
-  return createHmac("sha256", secret).update(ip).digest("hex");
-}
 
 export async function POST(request: Request) {
   if (!permittedOrigin(request)) return json({ ok: false, message: "Origem não autorizada." }, { status: 403 });
@@ -66,18 +38,7 @@ export async function POST(request: Request) {
 
   try {
     if (ipHash) {
-      const now = new Date();
-      const expiresAt = new Date(now.getTime() + 15 * 60 * 1000);
-      await db.delete(rateLimits).where(lte(rateLimits.expiresAt, now));
-      const [limit] = await db.insert(rateLimits).values({ keyHash: ipHash, hits: 1, windowStartedAt: now, expiresAt }).onConflictDoUpdate({
-        target: rateLimits.keyHash,
-        set: {
-          hits: sql`case when ${rateLimits.expiresAt} <= ${now} then 1 else ${rateLimits.hits} + 1 end`,
-          windowStartedAt: sql`case when ${rateLimits.expiresAt} <= ${now} then ${now} else ${rateLimits.windowStartedAt} end`,
-          expiresAt: sql`case when ${rateLimits.expiresAt} <= ${now} then ${expiresAt} else ${rateLimits.expiresAt} end`,
-        },
-      }).returning({ hits: rateLimits.hits });
-      if (limit.hits > 5) return json({ ok: false, message: "Muitas tentativas. Aguarde alguns minutos." }, { status: 429, headers: { "Retry-After": "900" } });
+      if ((await hitRateLimit(db, ipHash)) > 5) return json({ ok: false, message: "Muitas tentativas. Aguarde alguns minutos." }, { status: 429, headers: { "Retry-After": "900" } });
     }
 
     const now = new Date();

@@ -13,7 +13,8 @@
     "db:seed": "tsx scripts/db-seed.ts",
     "db:check": "tsx scripts/db-check.ts",
     "db:protect-data": "tsx scripts/db-protect-data.ts",
-    "security:check": "tsx scripts/security-check.ts"
+    "security:check": "tsx scripts/security-check.ts",
+    "checkout:check": "tsx scripts/checkout-check.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.2.0",

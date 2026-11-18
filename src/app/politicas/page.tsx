@@ -13,7 +13,7 @@ const sections = [
   {
     id: "compras",
     title: "Compras e pagamento",
-    body: "Os pedidos montados no site são finalizados pelo WhatsApp. Disponibilidade, formas de pagamento, frete e prazo são confirmados diretamente com a equipe da loja antes de qualquer cobrança. Este site não processa pagamentos.",
+    body: "Os pedidos montados no site podem ser pagos pelo Mercado Pago (Pix, cartão ou boleto) ou finalizados pelo WhatsApp. No pagamento online, o valor cobrado é o das peças; para envio, o frete e o prazo são combinados com a equipe pelo WhatsApp. Os dados de pagamento são digitados no ambiente do Mercado Pago e não passam por este site.",
   },
   {
     id: "trocas",
@@ -23,7 +23,7 @@ const sections = [
   {
     id: "privacidade",
     title: "Privacidade e dados coletados",
-    body: "A Divino Look é a controladora dos dados tratados neste site. A sacola e os favoritos ficam apenas no armazenamento local do seu navegador. A newsletter coleta somente o e-mail e o registro do consentimento. O site não coleta CPF nem dados de pagamento. Um identificador irreversível do endereço IP é usado em uma janela de 15 minutos para impedir abuso; registros expirados são removidos pelas rotinas de limpeza. Ao abrir o WhatsApp, o tratamento também segue a política dessa plataforma.",
+    body: "A Divino Look é a controladora dos dados tratados neste site. A sacola e os favoritos ficam apenas no armazenamento local do seu navegador. A newsletter coleta somente o e-mail e o registro do consentimento. O site não coleta CPF nem dados de pagamento: no pagamento online, guardamos apenas as peças do pedido, a forma de entrega e o status informado pelo Mercado Pago, que trata os dados de pagamento conforme a política dele. Um identificador irreversível do endereço IP é usado em uma janela de 15 minutos para impedir abuso; registros expirados são removidos pelas rotinas de limpeza. Ao abrir o WhatsApp, o tratamento também segue a política dessa plataforma.",
   },
   {
     id: "bases",

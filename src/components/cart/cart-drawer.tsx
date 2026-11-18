@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
@@ -10,9 +11,34 @@ import PopStepper from "@/components/watermelon/pop-stepper";
 import { AnimatedNumber } from "@/components/motion-primitives/animated-number";
 import { formatBRL } from "@/lib/format";
 import { cartMessage, whatsappLink } from "@/lib/whatsapp";
+import { deliveryOptions, type Delivery } from "@/lib/delivery";
 
 export function CartDrawer() {
   const { items, isOpen, setOpen, remove, setQuantity, subtotal, count, clear } = useCart();
+  const [delivery, setDelivery] = useState<Delivery>("retirada");
+  const [paying, setPaying] = useState(false);
+  const [error, setError] = useState("");
+
+  const pay = async () => {
+    setPaying(true);
+    setError("");
+    try {
+      const response = await fetch("/api/checkout/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          delivery,
+          items: items.map(({ productId, size, color, quantity, purchaseOption }) => ({ productId, size, color, quantity, purchaseOption })),
+        }),
+      });
+      const result = (await response.json()) as { ok?: boolean; url?: string; message?: string };
+      if (!response.ok || !result.ok || !result.url) throw new Error(result.message || "Não foi possível abrir o pagamento.");
+      window.location.assign(result.url);
+    } catch (payError) {
+      setError(payError instanceof Error ? payError.message : "Não foi possível abrir o pagamento.");
+      setPaying(false);
+    }
+  };
 
   const footer =
     items.length > 0 ? (
@@ -28,17 +54,43 @@ export function CartDrawer() {
             />
           </span>
         </div>
+        <fieldset className="mt-4">
+          <legend className="text-[0.875rem] font-medium">Entrega</legend>
+          <div className="mt-2 flex flex-col gap-2">
+            {(Object.keys(deliveryOptions) as Delivery[]).map((key) => (
+              <label key={key} className="flex cursor-pointer items-start gap-3 text-[0.875rem]">
+                <input
+                  type="radio"
+                  name="entrega"
+                  value={key}
+                  checked={delivery === key}
+                  onChange={() => setDelivery(key)}
+                  className="mt-1 accent-[var(--color-ink,#1a1a1a)]"
+                />
+                <span>{deliveryOptions[key]}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
         <p className="mt-3 text-[0.875rem] text-muted">
-          O pedido é finalizado pelo WhatsApp: a equipe confirma disponibilidade, pagamento e entrega com você.
-          Nenhum pagamento é feito neste site.
+          Pagamento seguro pelo Mercado Pago: Pix, cartão ou boleto.
+          {delivery === "envio" ? " O valor cobrado agora é só das peças; o frete é combinado pelo WhatsApp." : ""}
         </p>
+        <button type="button" onClick={pay} disabled={paying} aria-busy={paying} className="btn btn-primary mt-4 w-full disabled:opacity-60">
+          {paying ? "Abrindo pagamento…" : "Pagar com Mercado Pago"}
+        </button>
+        {error ? (
+          <p role="alert" className="mt-2 text-[0.875rem] text-red-700">
+            {error}
+          </p>
+        ) : null}
         <a
           href={whatsappLink(cartMessage(items, subtotal))}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-primary mt-4 w-full"
+          className="btn btn-sand mt-2 w-full"
         >
-          Finalizar pedido pelo WhatsApp
+          Finalizar pelo WhatsApp
         </a>
         <button type="button" onClick={clear} className="mt-2 w-full py-3 text-[0.875rem] text-muted underline-offset-4 hover:underline">
           Esvaziar sacola
