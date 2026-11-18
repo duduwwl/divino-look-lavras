@@ -1,7 +1,7 @@
-import { eq, sql } from "drizzle-orm";
+import { eq, inArray, sql } from "drizzle-orm";
 import { getCatalogData } from "@/db/catalog";
 import { getDb } from "@/db/client";
-import { orderItems, orders } from "@/db/schema";
+import { orderItems, orders, products } from "@/db/schema";
 import { hashIp, hitRateLimit, json, permittedOrigin } from "@/lib/api-guard";
 import { checkoutSchema, priceCart } from "@/lib/checkout";
 import { createPreference, mercadoPagoToken } from "@/lib/mercadopago";
@@ -39,8 +39,8 @@ export async function POST(request: Request) {
       return json({ ok: false, message: "Muitas tentativas. Aguarde alguns minutos." }, { status: 429, headers: { "Retry-After": "900" } });
     }
 
-    const { products } = await getCatalogData();
-    const priced = priceCart(products, parsed.data.items);
+    const { products: catalog } = await getCatalogData();
+    const priced = priceCart(catalog, parsed.data.items);
     if ("error" in priced) return json({ ok: false, message: priced.error }, { status: 409 });
 
     const [order] = await db.insert(orders).values({
@@ -51,9 +51,12 @@ export async function POST(request: Request) {
     }).returning({ id: orders.id });
     orderId = order.id;
 
+    // Peças adicionadas só no código não existem na tabela products (FK); nome, tamanho e cor ficam no item.
+    const inDb = new Set((await db.select({ id: products.id }).from(products)
+      .where(inArray(products.id, priced.lines.map((line) => line.productId)))).map((row) => row.id));
     await db.insert(orderItems).values(priced.lines.map((line) => ({
       orderId: order.id,
-      productId: line.productId,
+      productId: inDb.has(line.productId) ? line.productId : null,
       productName: line.title,
       size: line.size,
       color: line.color,
