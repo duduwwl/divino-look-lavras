@@ -10,6 +10,7 @@ import { useCart } from "@/components/cart/cart-provider";
 import { categoryLabel } from "@/data/products";
 import { formatBRL, installments } from "@/lib/format";
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/site";
 import { Swatch } from "./swatch";
 
 export function ProductCard({
@@ -47,7 +48,7 @@ export function ProductCard({
   )
     ? "object-contain"
     : "object-cover";
-  const discount = product.originalPrice ? Math.round((1 - product.price / product.originalPrice) * 100) : 0;
+  const discount = siteConfig.showPrices && product.originalPrice ? Math.round((1 - product.price / product.originalPrice) * 100) : 0;
 
   const badge = !product.inStock
     ? "Esgotado"
@@ -203,16 +204,22 @@ export function ProductCard({
             {product.name}
           </Link>
         </h3>
-        <p className="mt-1 flex flex-wrap items-baseline gap-x-2">
-          <span className="font-semibold tabular-nums">{formatBRL(product.price)}</span>
-          {product.originalPrice ? (
-            <span className="text-[0.875rem] text-muted line-through tabular-nums">
-              <span className="sr-only">Preço anterior: </span>
-              {formatBRL(product.originalPrice)}
-            </span>
-          ) : null}
-        </p>
-        <p className="text-[0.875rem] text-muted tabular-nums">{installments(product.price)}</p>
+        {siteConfig.showPrices ? (
+          <>
+            <p className="mt-1 flex flex-wrap items-baseline gap-x-2">
+              <span className="font-semibold tabular-nums">{formatBRL(product.price)}</span>
+              {product.originalPrice ? (
+                <span className="text-[0.875rem] text-muted line-through tabular-nums">
+                  <span className="sr-only">Preço anterior: </span>
+                  {formatBRL(product.originalPrice)}
+                </span>
+              ) : null}
+            </p>
+            <p className="text-[0.875rem] text-muted tabular-nums">{installments(product.price)}</p>
+          </>
+        ) : (
+          <p className="mt-1 font-semibold">Sob consulta</p>
+        )}
         <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.875rem] text-muted">
           <span className="inline-flex items-center gap-1">
             <span className="sr-only">Cores: {product.colors.join(", ")}.</span>

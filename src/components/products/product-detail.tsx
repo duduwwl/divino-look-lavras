@@ -78,7 +78,8 @@ export function ProductDetail({ product }: { product: Product }) {
                   purchaseOption === option.label ? "bg-ink text-paper" : "bg-sand hover:bg-champagne",
                 )}
               >
-                {option.label} · {formatBRL(option.price)}
+                {option.label}
+                {siteConfig.showPrices ? ` · ${formatBRL(option.price)}` : ""}
               </button>
             ))}
           </div>
@@ -169,7 +170,7 @@ export function ProductDetail({ product }: { product: Product }) {
                   <Check className="size-5" aria-hidden /> Adicionado à sacola
                 </>
               ) : (
-                `Adicionar à sacola · ${formatBRL(unitPrice * qty)}`
+                `Adicionar à sacola${siteConfig.showPrices ? ` · ${formatBRL(unitPrice * qty)}` : ""}`
               )}
             </motion.span>
           </AnimatePresence>
@@ -204,7 +205,8 @@ export function ProductDetail({ product }: { product: Product }) {
         {product.inStock ? "Comprar pelo WhatsApp" : "Avise-me pelo WhatsApp"}
       </a>
       <p className="mt-3 text-[0.875rem] text-muted">
-        A mensagem já vai com nome, tamanho, cor, quantidade e preço. Pagamento e entrega são combinados com a loja.
+        A mensagem já vai com nome, tamanho, cor e quantidade{siteConfig.showPrices ? " e preço" : ""}.
+        {siteConfig.showPrices ? "" : " Preço sob consulta."} Pagamento e entrega são combinados com a loja.
       </p>
 
       <div className="mt-10">

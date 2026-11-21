@@ -49,13 +49,18 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     image: product.images.map((image) => `${siteConfig.url}${image}`),
     category: categoryLabel[product.category],
     brand: { "@type": "Brand", name: "Divino Look" },
-    offers: {
-      "@type": "Offer",
-      priceCurrency: "BRL",
-      price: product.price.toFixed(2),
-      availability: product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-      url: `${siteConfig.url}/produtos/${product.slug}/`,
-    },
+    // Google exige preço em Offer; com preço sob consulta o bloco sai.
+    ...(siteConfig.showPrices
+      ? {
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "BRL",
+            price: product.price.toFixed(2),
+            availability: product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+            url: `${siteConfig.url}/produtos/${product.slug}/`,
+          },
+        }
+      : {}),
   };
 
   return (

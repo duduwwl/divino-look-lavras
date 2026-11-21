@@ -7,6 +7,7 @@ import { ALL_SIZES } from "@/data/products";
 import { RangeSlider, RollingNumber } from "@/components/watermelon/range-selection-slider";
 import { Swatch } from "./swatch";
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/site";
 
 const availabilityOptions: { value: Availability; label: string }[] = [
   { value: "todos", label: "Todos" },
@@ -92,6 +93,7 @@ export function FilterPanel({
 
   return (
     <div>
+      {siteConfig.showPrices ? (
       <Group title="Faixa de preço">
         <div className="flex items-center justify-between text-[1.125rem]" aria-hidden>
           <RollingNumber value={range[0]} prefix="R$ " />
@@ -111,6 +113,7 @@ export function FilterPanel({
           {numberInput(1)}
         </div>
       </Group>
+      ) : null}
 
       <Group title="Tamanho">
         <div className="flex flex-wrap gap-1.5">

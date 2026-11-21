@@ -43,7 +43,7 @@ const sections = [
   {
     id: "precos",
     title: "Preços e imagens",
-    body: "Nesta versão do site, as fotografias são reais e mostram peças selecionadas pela Divino Look. Preços, estoques, tamanhos e cores permanecem demonstrativos; os dados oficiais são sempre os informados pela loja no atendimento.",
+    body: "Nesta versão do site, as fotografias são reais e mostram peças selecionadas pela Divino Look. Os preços são informados sob consulta pelo WhatsApp. Estoques, tamanhos e cores podem variar; os dados oficiais são sempre os informados pela loja no atendimento.",
   },
 ];
 

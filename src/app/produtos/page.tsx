@@ -7,7 +7,7 @@ import { getCatalogData } from "@/db/catalog";
 export const metadata: Metadata = {
   title: "Nossa coleção",
   description:
-    "Catálogo da Divino Look: vestidos, conjuntos, blusas, calças, saias e moda fitness. Filtre por tamanho, cor, preço e disponibilidade.",
+    "Catálogo da Divino Look: vestidos, conjuntos, blusas, calças, saias e moda fitness. Filtre por tamanho, cor e disponibilidade.",
   alternates: { canonical: "produtos/" },
   openGraph: { title: "Nossa coleção · Divino Look", url: "produtos/" },
 };
@@ -42,7 +42,7 @@ export default async function ProdutosPage() {
           </p>
         </div>
         <p className="mt-6 text-[0.875rem] text-muted">
-          Catálogo demonstrativo: preços, tamanhos, cores e estoque são ilustrativos e serão substituídos pelos dados da loja.
+          Preços sob consulta pelo WhatsApp. Tamanhos, cores e estoque podem variar; a loja confirma no atendimento.
         </p>
       </header>
 

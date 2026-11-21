@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
-import { ShoppingBag, Trash2 } from "lucide-react";
+import { MessageCircle, ShoppingBag, Trash2 } from "lucide-react";
 import { useCart, MAX_QTY } from "./cart-provider";
 import { Sheet } from "@/components/ui/sheet";
 import PopStepper from "@/components/watermelon/pop-stepper";
@@ -12,6 +12,8 @@ import { AnimatedNumber } from "@/components/motion-primitives/animated-number";
 import { formatBRL } from "@/lib/format";
 import { cartMessage, whatsappLink } from "@/lib/whatsapp";
 import { deliveryOptions, type Delivery } from "@/lib/delivery";
+import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
 
 export function CartDrawer() {
   const { items, isOpen, setOpen, remove, setQuantity, subtotal, count, clear } = useCart();
@@ -44,16 +46,25 @@ export function CartDrawer() {
     items.length > 0 ? (
       <div>
         <div className="flex items-baseline justify-between bg-sand px-4 py-4">
-          <span className="text-[1rem]">Subtotal · {count} {count === 1 ? "peça" : "peças"}</span>
-          <span className="text-xl font-semibold tabular-nums">
-            R${" "}
-            <AnimatedNumber
-              value={subtotal}
-              springOptions={{ bounce: 0, duration: 600 }}
-              format={(v: number) => v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-            />
+          <span className="text-[1rem]">
+            {siteConfig.showPrices ? "Subtotal · " : ""}
+            {count} {count === 1 ? "peça" : "peças"}
           </span>
+          {siteConfig.showPrices ? (
+            <span className="text-xl font-semibold tabular-nums">
+              R${" "}
+              <AnimatedNumber
+                value={subtotal}
+                springOptions={{ bounce: 0, duration: 600 }}
+                format={(v: number) => v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              />
+            </span>
+          ) : (
+            <span className="font-semibold">Valores sob consulta</span>
+          )}
         </div>
+        {siteConfig.onlinePayment ? (
+        <>
         <fieldset className="mt-4">
           <legend className="text-[0.875rem] font-medium">Entrega</legend>
           <div className="mt-2 flex flex-col gap-2">
@@ -84,13 +95,16 @@ export function CartDrawer() {
             {error}
           </p>
         ) : null}
+        </>
+        ) : null}
         <a
           href={whatsappLink(cartMessage(items, subtotal))}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-sand mt-2 w-full"
+          className={cn("btn w-full", siteConfig.onlinePayment ? "btn-sand mt-2" : "btn-primary mt-4")}
         >
-          Finalizar pelo WhatsApp
+          <MessageCircle className="size-5" strokeWidth={1.5} aria-hidden />
+          Comprar pelo WhatsApp
         </a>
         <button type="button" onClick={clear} className="mt-2 w-full py-3 text-[0.875rem] text-muted underline-offset-4 hover:underline">
           Esvaziar sacola
@@ -158,7 +172,7 @@ export function CartDrawer() {
                       onChange={(q) => setQuantity(item.key, q)}
                       label={`Quantidade de ${item.name}`}
                     />
-                    <span className="font-semibold tabular-nums">{formatBRL(item.price * item.quantity)}</span>
+                    {siteConfig.showPrices ? <span className="font-semibold tabular-nums">{formatBRL(item.price * item.quantity)}</span> : null}
                   </div>
                 </div>
               </motion.li>

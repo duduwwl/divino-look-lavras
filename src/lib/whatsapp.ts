@@ -26,10 +26,10 @@ export function productMessage(opts: {
     opts.size ? `Tamanho: ${opts.size}` : null,
     opts.color ? `Cor: ${opts.color}` : null,
     `Quantidade: ${opts.quantity}`,
-    `Preço no site: ${formatBRL(opts.price)} (un.)`,
+    siteConfig.showPrices ? `Preço no site: ${formatBRL(opts.price)} (un.)` : null,
     opts.url ? `Link: ${opts.url}` : null,
     "",
-    "Pode confirmar a disponibilidade?",
+    siteConfig.showPrices ? "Pode confirmar a disponibilidade?" : "Pode me passar o valor e confirmar a disponibilidade?",
   ];
   return lines.filter((l) => l !== null).join("\n");
 }
@@ -40,14 +40,16 @@ export function cartMessage(items: CartItem[], subtotal: number) {
     "",
     ...items.map(
       (i, n) =>
-        `${n + 1}. ${i.name}${i.purchaseOption ? ` (${i.purchaseOption})` : ""} — Tam. ${i.size} · Cor ${i.color} · ${i.quantity}x ${formatBRL(i.price)}`,
+        `${n + 1}. ${i.name}${i.purchaseOption ? ` (${i.purchaseOption})` : ""} — Tam. ${i.size} · Cor ${i.color} · ${i.quantity}x${siteConfig.showPrices ? ` ${formatBRL(i.price)}` : ""}`,
     ),
     "",
-    `Subtotal: ${formatBRL(subtotal)}`,
-    "",
-    "Pode confirmar disponibilidade, formas de pagamento e entrega?",
+    siteConfig.showPrices ? `Subtotal: ${formatBRL(subtotal)}` : null,
+    siteConfig.showPrices ? "" : null,
+    siteConfig.showPrices
+      ? "Pode confirmar disponibilidade, formas de pagamento e entrega?"
+      : "Pode me passar os valores e confirmar disponibilidade, formas de pagamento e entrega?",
   ];
-  return lines.join("\n");
+  return lines.filter((l) => l !== null).join("\n");
 }
 
 export const generalMessage = "Olá, Divino Look! Vim pelo site e gostaria de atendimento.";

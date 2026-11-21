@@ -224,7 +224,7 @@ export function Catalog({ products, categories, priceBounds, allColors }: {
             <div className="mt-10 bg-sand px-6 py-14 sm:px-10">
               <p className="font-display text-[2rem] leading-tight">Nenhuma peça com esses filtros.</p>
               <p className="mt-3 max-w-[48ch]">
-                Tente remover um tamanho ou uma cor, ampliar a faixa de preço ou buscar por outra palavra. Se procura algo
+                Tente remover um tamanho ou uma cor ou buscar por outra palavra. Se procura algo
                 específico, a equipe pode verificar pelo WhatsApp.
               </p>
               <div className="mt-6 flex flex-wrap gap-2">

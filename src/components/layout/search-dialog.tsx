@@ -9,6 +9,7 @@ import { Sheet } from "@/components/ui/sheet";
 import { products, categoryLabel } from "@/data/products";
 import { searchProducts } from "@/lib/catalog";
 import { formatBRL } from "@/lib/format";
+import { siteConfig } from "@/config/site";
 
 const suggestions = ["Vestido", "Alfaiataria", "Preto", "Legging", "Linho", "Saia midi"];
 
@@ -80,7 +81,7 @@ export function SearchDialog({ open, onOpenChange }: { open: boolean; onOpenChan
                     <span className="min-w-0">
                       <span className="block truncate font-medium">{p.name}</span>
                       <span className="block text-[0.875rem] text-muted">
-                        {categoryLabel[p.category]} · {formatBRL(p.price)}
+                        {categoryLabel[p.category]} · {siteConfig.showPrices ? formatBRL(p.price) : "Sob consulta"}
                       </span>
                     </span>
                   </Link>

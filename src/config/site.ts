@@ -16,6 +16,9 @@ export const siteConfig = {
   instagram: "https://www.instagram.com/divinolook_lavras/",
   instagramHandle: "@divinolook_lavras",
   linktree: "https://linktr.ee/lillywhatsapp",
+  // Preços ocultos ("Sob consulta") e botão do Mercado Pago escondido; a API de checkout continua ativa.
+  showPrices: false,
+  onlinePayment: false,
   address: {
     street: "Rua Santana, 208, Loja 1",
     district: "Centro",

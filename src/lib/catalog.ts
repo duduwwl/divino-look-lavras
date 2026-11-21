@@ -1,5 +1,6 @@
 import type { CategoryFilter, Product, Size } from "@/types/product";
 import { categoryLabel } from "@/data/products";
+import { siteConfig } from "@/config/site";
 
 export type SortKey = "recentes" | "menor-preco" | "maior-preco" | "nome" | "destaques";
 export type Availability = "todos" | "em-estoque" | "esgotados";
@@ -21,7 +22,7 @@ export const sortOptions: { value: SortKey; label: string }[] = [
   { value: "menor-preco", label: "Menor preço" },
   { value: "maior-preco", label: "Maior preço" },
   { value: "nome", label: "Nome A–Z" },
-];
+].filter((o) => siteConfig.showPrices || !o.value.endsWith("-preco")) as { value: SortKey; label: string }[];
 
 export const emptyFilters: Filters = {
   q: "",
@@ -88,7 +89,7 @@ const SIZES: Size[] = ["PP", "P", "M", "G", "GG", "Único"];
 export function filtersFromParams(sp: URLSearchParams): Filters {
   const num = (k: string) => {
     const v = sp.get(k);
-    if (v == null || v === "") return null;
+    if (!siteConfig.showPrices || v == null || v === "") return null;
     const n = Number(v);
     return Number.isFinite(n) ? n : null;
   };
