@@ -14,6 +14,12 @@ export function mercadoPagoToken() {
   return token && token.length > 20 ? token : null;
 }
 
+export class MercadoPagoError extends Error {
+  constructor(public readonly status: number, path: string) {
+    super(`Mercado Pago respondeu ${status} em ${path.split("?")[0]}`);
+  }
+}
+
 async function mpFetch(path: string, init: RequestInit = {}) {
   const token = mercadoPagoToken();
   if (!token) throw new Error("MERCADOPAGO_ACCESS_TOKEN não foi definida.");
@@ -21,7 +27,7 @@ async function mpFetch(path: string, init: RequestInit = {}) {
   headers.set("Authorization", `Bearer ${token}`);
   headers.set("Content-Type", "application/json");
   const response = await fetch(`${API}${path}`, { ...init, headers, cache: "no-store", signal: AbortSignal.timeout(10_000) });
-  if (!response.ok) throw new Error(`Mercado Pago respondeu ${response.status} em ${path.split("?")[0]}`);
+  if (!response.ok) throw new MercadoPagoError(response.status, path);
   return response.json() as Promise<Record<string, unknown>>;
 }
 

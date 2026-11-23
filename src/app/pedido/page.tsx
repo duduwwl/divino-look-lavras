@@ -37,13 +37,17 @@ export default async function OrderPage({ searchParams }: { searchParams: Search
   let order: typeof orders.$inferSelect | undefined;
   let lines: (typeof orderItems.$inferSelect)[] = [];
   if (db && UUID.test(orderId)) {
+    const load = async () => (await db.select().from(orders).where(eq(orders.id, orderId)).limit(1))[0];
+    order = await load();
     // Confirma o pagamento direto na API: a página não confia no status da URL.
-    if (paymentId && mercadoPagoToken()) {
+    // Só consulta para pedido existente e ainda não confirmado com esse pagamento, para a página não virar disparador de consultas.
+    const known = order && order.status === "paid" && (order.metadata as Record<string, unknown>).paymentId === paymentId;
+    if (order && paymentId && !known && mercadoPagoToken()) {
       await syncPayment(db, paymentId).catch((error) =>
         console.error("Falha ao confirmar pagamento no retorno.", error instanceof Error ? error.message : "Erro desconhecido"),
       );
+      order = await load();
     }
-    [order] = await db.select().from(orders).where(eq(orders.id, orderId)).limit(1);
     if (order) lines = await db.select().from(orderItems).where(eq(orderItems.orderId, order.id));
   }
 
